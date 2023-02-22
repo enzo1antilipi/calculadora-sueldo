@@ -735,17 +735,16 @@ function App() {
         </tr>
         <tr>
           <th>
-            <Input
+            Seros Coseguro
+            <input
               type="number"
-              color="primary"
               size="xl"
               clearable
               label="SEROS Coseguro"
               initialValue=""
               onChange={(ev) => setSerosCoseguro(ev.target.value)}
-              className="barra"
+              className="barra2"
             />
-            <button type="submit">ok</button>
           </th>
           <th>
             Ayuda Escolar
@@ -761,20 +760,22 @@ function App() {
         </tr>
         <tr>
           <th>
-            <Input
+            Banco Chubut
+            <input
               clearable
               label="Banco Chubut"
               initialValue=""
-              className="barra"
+              className="barra2"
               onChange={(ev) => setBancoChubut(ev.target.value)}
             />
           </th>
           <th>
-            <Input
+            Ubicacion Geografica
+            <input
               clearable
               label="Ubicacion Geografica"
               initialValue=""
-              className="barra"
+              className="barra2"
               onChange={(ev) => setUbicacion(ev.target.value)}
             />
           </th>
@@ -864,7 +865,7 @@ function App() {
             <td>1125</td>
             <td>Antiguedad</td>
             <td></td>
-            <td>%{anios}</td>
+            <td>${anios}</td>
           </tr>
           <tr className="celda">
             <td>1154</td>
