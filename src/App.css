@@ -1,0 +1,78 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.tabla {
+  width: 50%;
+
+  float: left;
+}
+.tabla1,
+th,
+td {
+  border: 2px solid rgb(0, 0, 0);
+  border-collapse: collapse;
+  width: 50%;
+  border: none;
+}
+
+.tabla2 {
+  width: 50%;
+  margin-left: 50px;
+  float: left;
+}
+.container {
+  float: left;
+  display: flex;
+  text-align: left;
+}
+.titulos {
+  display: flex;
+  color: rgb(0, 0, 0);
+}
+.deducciones {
+  margin-left: 270px;
+}
+.seleccion {
+  text-align: justify;
+}
+table.seleccion {
+  border: none;
+  border-color: rgb(0, 0, 0);
+  width: 110%;
+}
+select {
+  color: rgb(52, 52, 52);
+  background-color: rgb(237, 239, 242);
+  border-radius: 10px;
+  opacity: 0.2;
+  font-weight: 700;
+}
+.celda {
+  background-color: rgb(34, 63, 109);
+}
+.head {
+  margin-top: 0%;
+}
+.barra {
+  height: 20px;
+  color: rgb(221, 221, 221);
+  margin-top: -6px;
+  opacity: 0.4;
+}
+input.label {
+  color: aliceblue;
+}
+.barra2 {
+  height: 15px;
+  color: rgb(255, 255, 255);
+  opacity: 0.4;
+  border-radius: 5px;
+  border-color: rgb(230, 229, 229);
+}
+.neto {
+  margin-left: 550px;
+  margin-top: 500px;
+}
