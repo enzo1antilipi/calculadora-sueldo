@@ -362,8 +362,8 @@ function App() {
 
   const zonas = [
     { nombre: "Sin datos", valor: 1 },
-    { nombre: "Norte", valor: 80 },
-    { nombre: "Sur", valor: 80 },
+    { nombre: "Norte", valor: 60.4, valor1: 8.66 },
+    { nombre: "Sur", valor: 80, valor1: 6.14 },
   ];
   const hijosnum = [0, 1, 2, 3, 4, 5, 6, 7];
   const hijosIncap = [0, 1, 2, 3];
@@ -417,11 +417,17 @@ function App() {
   const [sueldo, setSueldo] = useState(0);
   const [zonaUnidad, setZonaUnidad] = useState(0);
   const [zonaImporte, setZonaImporte] = useState(0);
+  const [zonaPatagonica, setZonaPatagonica] = useState(0);
+  const [zonaPatagonicaUnidad, setZonaPatagonicaUnidad] = useState(0);
+
   const [hijos, setHijos] = useState(0);
   const [hijosIncapacitado, setHijosIncapacitado] = useState(0);
   const [hijosEscoIncapacitado, setHijosEscoIncapacitado] = useState(0);
   const [conyuge, setConyuge] = useState(0);
   const [anios, setAnios] = useState(0);
+  const [aniosPorcentaje, setAniosPorcentaje] = useState(0);
+  const [recursosMateriales, setRecursosMateriales] = useState(0);
+
   const [total, setTotal] = useState(0);
 
   const [ayudaEsc, setAyudaEsc] = useState(0);
@@ -447,12 +453,28 @@ function App() {
   const [deducciones, setDeducciones] = useState(0);
   const [neto, setNeto] = useState(0);
 
+  const getValue = (value) => {
+    if (value !== "") {
+      return parseFloat(value);
+    }
+
+    return 0;
+  };
+
+  //Formato para pesos
+  const formatter = new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+  });
+
   //TOTAL PARCIAL
 
   useEffect(() => {
     const totalparcial =
       parseFloat(sueldo) +
       parseFloat(zonaImporte) +
+      parseFloat(zonaPatagonica) +
+      parseFloat(recursosMateriales) +
       parseFloat(anios) +
       parseFloat(hijos) +
       parseFloat(hijosIncapacitado) +
@@ -473,6 +495,7 @@ function App() {
     hijosEscoIncapacitado,
     conyuge,
     ayudaEsc,
+    ubicacion,
     oblig,
     otrosIngresos,
     devolucion,
@@ -512,14 +535,26 @@ function App() {
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
     setDeducciones(deduccionesImporte.toFixed(2));
-  });
+  }, [
+    jubilacion,
+    serosTitular,
+    serosFamiliar,
+    seguroVidaAdicional,
+    seguroVidaFamiliar,
+    SerosSeguroTransplante,
+    afiliadoAtech,
+    serosCoseguro,
+    bancoChubut,
+    impuestoGanancias,
+    descuento,
+  ]);
 
   // TOTAL NETO
   useEffect(() => {
     const neto = parseFloat(total) + parseFloat(deducciones * -1);
 
-    setNeto(neto.toFixed(2));
-  });
+    setNeto(formatter.format(neto));
+  }, [total, deducciones]);
 
   const handleFuncionChange = (event) => {
     const cargosFiltrados = cargos.filter(
@@ -531,14 +566,16 @@ function App() {
   const handleCargoChange = (event) => {
     const cargoImporte = SUELDO_BASICO * event.target.value;
     setSueldo(cargoImporte.toFixed(2));
+    //temporal recursos materiales
+    setRecursosMateriales(8689.86);
   };
 
-  const handleZonaChange = (event) => {
-    setZonaUnidad(event.target.value);
-    // 75 x 246/100: 184.5 - De esta forma, el 75 por ciento de 246 es 184.5.
-    const zonaImporte = event.target.value * (sueldo / 100);
-    setZonaImporte(zonaImporte.toFixed(2));
-  };
+  // const handleZonaChange = (event) => {
+  //   setZonaUnidad(event.target.value);
+  //   // 75 x 246/100: 184.5 - De esta forma, el 75 por ciento de 246 es 184.5.
+  //   const zonaImporte = event.target.value * (sueldo / 100);
+  //   setZonaImporte(zonaImporte.toFixed(2));
+  // };
   const handleHijos = (event) => {
     const HijosImporte = HIJOS_ESCOLARIZADOS * event.target.value;
     setHijos(HijosImporte.toFixed(2));
@@ -562,6 +599,8 @@ function App() {
     }
   };
   const handleantiguedad = (event) => {
+    setAniosPorcentaje(event.target.value);
+
     const importeAnios = event.target.value * (sueldo / 100);
     setAnios(importeAnios.toFixed(2));
   };
@@ -614,6 +653,75 @@ function App() {
       setAfiliadoAtech(0);
     }
   };
+  const handleCoseguro = (ev) => {
+    const coseguroValor = getValue(ev.target.value);
+    setSerosCoseguro(coseguroValor);
+  };
+
+  const handleAyudaEscolar = (ev) => {
+    const ayudaValor = getValue(ev.target.value);
+    setAyudaEsc(ayudaValor);
+  };
+
+  const handleBancoChubut = (ev) => {
+    const bancoValor = getValue(ev.target.value);
+    setBancoChubut(bancoValor);
+  };
+
+  const handleUbicacionGeo = (ev) => {
+    const ubicacionValor = getValue(ev.target.value);
+    setUbicacion(ubicacionValor);
+  };
+
+  const handleImpuesto = (ev) => {
+    const impuestoValor = getValue(ev.target.value);
+    setImpuestoGanancias(impuestoValor);
+  };
+
+  const handleOblig = (ev) => {
+    const obligValor = getValue(ev.target.value);
+    setOblig(obligValor);
+  };
+
+  const handleDescuentos = (ev) => {
+    const descuentosValor = getValue(ev.target.value);
+    setDescuento(descuentosValor);
+  };
+
+  const handleDevolucion = (ev) => {
+    const devolucionValor = getValue(ev.target.value);
+    setDevolucion(devolucionValor);
+  };
+
+  const handleOtrosIngresos = (ev) => {
+    const ingresosValor = getValue(ev.target.value);
+    setOtrosIngresos(ingresosValor);
+  };
+  const handleZona = (ev) => {
+    if (ev.target.value === "Norte") {
+      const norte = (sueldo / 100) * 60.4;
+      setZonaImporte(norte.toFixed(2));
+      setZonaUnidad(60.4);
+
+      const zonaNorte = (sueldo / 100) * 6.14;
+      setZonaPatagonica(zonaNorte.toFixed(2));
+      setZonaPatagonicaUnidad(6.14);
+    } else if (ev.target.value === "Sur") {
+      const sur = (sueldo / 100) * 80;
+      setZonaImporte(sur.toFixed(2));
+      setZonaUnidad(80);
+
+      const zonaSur = (sueldo / 100) * 8.66;
+      setZonaPatagonica(zonaSur.toFixed(2));
+      setZonaPatagonicaUnidad(8.66);
+    } else {
+      setZonaImporte(0);
+      setZonaUnidad(0);
+
+      setZonaPatagonica(0);
+      setZonaPatagonicaUnidad(0);
+    }
+  };
   return (
     <div>
       <h1 className="head">Calculadora de sueldos</h1>
@@ -644,6 +752,14 @@ function App() {
 
         <tr>
           <th>
+            <label>zona</label>
+            <select onChange={handleZona}>
+              <option value="Nada">Sin datos</option>
+              <option value="Norte">Norte</option>
+              <option value="Sur">Sur</option>
+            </select>
+          </th>
+          {/* <th>
             <label>Zona</label>
             <select onChange={handleZonaChange}>
               {zonas.map((zona, index) => (
@@ -652,7 +768,7 @@ function App() {
                 </option>
               ))}
             </select>
-          </th>
+          </th> */}
 
           <th>
             <label>Hijos Escolarizados</label>
@@ -728,8 +844,8 @@ function App() {
           <th>
             <label>Afiliado a la ATECH ?</label>
             <select onChange={handleAfiliado}>
-              <option value="SI">SI</option>
               <option value="NO">NO</option>
+              <option value="SI">SI</option>
             </select>
           </th>
         </tr>
@@ -737,12 +853,12 @@ function App() {
           <th>
             Seros Coseguro
             <input
+              onChange={handleCoseguro}
               type="number"
               size="xl"
               clearable
               label="SEROS Coseguro"
               initialValue=""
-              onChange={(ev) => setSerosCoseguro(ev.target.value)}
               className="barra2"
             />
           </th>
@@ -754,7 +870,7 @@ function App() {
               name="firstname"
               size="10"
               className="barra2"
-              onChange={(ev) => setAyudaEsc(ev.target.value)}
+              onChange={handleAyudaEscolar}
             />
           </th>
         </tr>
@@ -766,7 +882,7 @@ function App() {
               label="Banco Chubut"
               initialValue=""
               className="barra2"
-              onChange={(ev) => setBancoChubut(ev.target.value)}
+              onChange={handleBancoChubut}
             />
           </th>
           <th>
@@ -776,7 +892,7 @@ function App() {
               label="Ubicacion Geografica"
               initialValue=""
               className="barra2"
-              onChange={(ev) => setUbicacion(ev.target.value)}
+              onChange={handleUbicacionGeo}
             />
           </th>
         </tr>
@@ -789,7 +905,7 @@ function App() {
               name="firstname"
               size="10"
               className="barra2"
-              onChange={(ev) => setImpuestoGanancias(ev.target.value)}
+              onChange={handleImpuesto}
             />
           </th>
           <th>
@@ -800,7 +916,7 @@ function App() {
               name="firstname"
               size="10"
               className="barra2"
-              onChange={(ev) => setOblig(ev.target.value)}
+              onChange={handleOblig}
             />
           </th>
         </tr>
@@ -813,7 +929,7 @@ function App() {
               name="firstname"
               size="10"
               className="barra2"
-              onChange={(ev) => setDescuento(ev.target.value)}
+              onChange={handleDescuentos}
             />
           </th>
           <th>
@@ -824,7 +940,7 @@ function App() {
               name="firstname"
               size="10"
               className="barra2"
-              onChange={(ev) => setDevolucion(ev.target.value)}
+              onChange={handleDevolucion}
             />
           </th>
         </tr>
@@ -837,7 +953,7 @@ function App() {
               name="firstname"
               size="10"
               className="barra2"
-              onChange={(ev) => setOtrosIngresos(ev.target.value)}
+              onChange={handleOtrosIngresos}
             />
           </th>
         </tr>
@@ -864,7 +980,7 @@ function App() {
           <tr>
             <td>1125</td>
             <td>Antiguedad</td>
-            <td></td>
+            <td>{aniosPorcentaje}%</td>
             <td>${anios}</td>
           </tr>
           <tr className="celda">
@@ -883,13 +999,13 @@ function App() {
             <td>1872</td>
             <td>Recursos Materiales</td>
             <td></td>
-            <td></td>
+            <td>{recursosMateriales}</td>
           </tr>
           <tr>
             <td>1873</td>
             <td>Zona Patagonica</td>
-            <td></td>
-            <td>0</td>
+            <td>{zonaPatagonicaUnidad}%</td>
+            <td>{zonaPatagonica}</td>
           </tr>
           <tr className="celda">
             <td>1804</td>
@@ -1040,7 +1156,7 @@ function App() {
           </tr>
         </table>
       </div>
-      <h2 className="neto">Neto ${neto}</h2>
+      <h2 className="neto">Neto {neto}</h2>
     </div>
   );
 }
