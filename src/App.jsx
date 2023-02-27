@@ -1347,7 +1347,7 @@ function App() {
             <td>1806</td>
             <td>Hijo Incapacitado</td>
             <td></td>
-            <td>{formatter.format(hijosEscoIncapacitado)}</td>
+            <td>{formatter.format(hijosIncapacitado)}</td>
           </tr>
           <tr>
             <td>1809</td>
