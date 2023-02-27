@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Input, Spacer } from "@nextui-org/react";
 import "./App.css";
+import { login } from "./login";
 
 function App() {
   const SUELDO_BASICO = 56063.31;
@@ -816,7 +817,7 @@ function App() {
       parseFloat(sueldo) +
       parseFloat(zonaImporte) +
       parseFloat(zonaPatagonica) +
-      parseFloat(recursosMateriales) * -1 +
+      parseFloat(recursosMateriales) +
       parseFloat(anios) +
       parseFloat(hijos) +
       parseFloat(hijosIncapacitado) +
@@ -831,6 +832,8 @@ function App() {
   }, [
     sueldo,
     zonaImporte,
+    zonaPatagonica,
+    recursosMateriales,
     anios,
     hijos,
     hijosIncapacitado,
@@ -868,6 +871,7 @@ function App() {
       parseFloat(jubilacion) +
       parseFloat(serosTitular) +
       parseFloat(serosFamiliar) +
+      parseFloat(seguroVidaOblig) +
       parseFloat(seguroVidaAdicional) +
       parseFloat(seguroVidaFamiliar) +
       parseFloat(SerosSeguroTransplante) +
@@ -881,6 +885,7 @@ function App() {
     jubilacion,
     serosTitular,
     serosFamiliar,
+    seguroVidaOblig,
     seguroVidaAdicional,
     seguroVidaFamiliar,
     SerosSeguroTransplante,
@@ -895,7 +900,7 @@ function App() {
   useEffect(() => {
     const neto = parseFloat(total) + parseFloat(deducciones * -1);
 
-    setNeto(formatter.format(neto));
+    setNeto(neto);
   }, [total, deducciones]);
 
   //RECURSOS MATERIALES
@@ -1306,85 +1311,79 @@ function App() {
             <td>1110</td>
             <td>Sueldo básico</td>
             <td></td>
-            <td>${sueldo}</td>
+            <td>{formatter.format(sueldo)}</td>
           </tr>
           <tr>
             <td>1125</td>
             <td>Antiguedad</td>
             <td>{aniosPorcentaje}%</td>
-            <td>${anios}</td>
+            <td>{formatter.format(anios)}</td>
           </tr>
           <tr className="celda">
             <td>1154</td>
             <td>Zona Patagónica c/ Aportes</td>
             <td>{zonaUnidad}%</td>
-            <td>${zonaImporte}</td>
+            <td>{formatter.format(zonaImporte)}</td>
           </tr>
           <tr>
             <td>1213</td>
             <td>Oblig.No Pres.Labor.A</td>
             <td></td>
-            <td>{oblig}</td>
+            <td>{formatter.format(oblig)}</td>
           </tr>
           <tr className="celda">
             <td>1872</td>
             <td>Recursos Materiales</td>
             <td>15.5%</td>
-            <td>-{recursosMateriales}</td>
+            <td>{formatter.format(recursosMateriales)}</td>
           </tr>
-          {/* <tr>
-            <td>1873</td>
-            <td>Zona Patagonica</td>
-            <td>{zonaPatagonicaUnidad}%</td>
-            <td>{zonaPatagonica}</td>
-          </tr> */}
           <tr>
             <td>1804</td>
             <td>Conyuge</td>
             <td></td>
-            <td>${conyuge}</td>
+            <td>{formatter.format(conyuge)}</td>
           </tr>
           <tr className="celda">
             <td>1806</td>
             <td>Hijo Incapacitado</td>
             <td></td>
-            <td>${hijosIncapacitado}</td>
+            <td>{formatter.format(hijosEscoIncapacitado)}</td>
           </tr>
           <tr>
             <td>1809</td>
             <td>Hijo Escolarizado</td>
             <td></td>
-            <td>${hijos}</td>
+            <td>{formatter.format(hijos)}</td>
           </tr>
           <tr className="celda">
             <td>1814</td>
             <td>Hijo Escolarizado Incap</td>
             <td></td>
-            <td>${hijosEscoIncapacitado}</td>
+            <td>{formatter.format(hijosEscoIncapacitado)}</td>
           </tr>
           <tr>
             <td>1822</td>
             <td>Ayuda Escolar Obligatoria</td>
             <td></td>
-            <td>${ayudaEsc}</td>
+            <td>{formatter.format(ayudaEsc)}</td>
           </tr>
           <tr className="celda">
             <td>1860</td>
             <td>Ubicacion Geografica</td>
             <td></td>
-            <td>{ubicacion}</td>
+            <td>{formatter.format(ubicacion)}</td>
           </tr>
           <tr>
             <td>1887</td>
             <td>Devolucion de haberes</td>
             <td></td>
-            <td>{devolucion}</td>
+            <td>{formatter.format(devolucion)}</td>
           </tr>
           <tr className="celda">
             <td></td>
             <td>Otros Ingresos/Descuentos </td>
             <td></td>
-            <td>{otrosIngresos}</td>
+            <td>{formatter.format(otrosIngresos)}</td>
           </tr>
           <tr className="celda">
             <td></td>
@@ -1396,7 +1395,7 @@ function App() {
             <td></td>
             <td></td>
             <td></td>
-            <td>${total}</td>
+            <td>{formatter.format(total)}</td>
           </tr>
         </table>
 
@@ -1411,83 +1410,83 @@ function App() {
             <td>1402</td>
             <td>Jubilacion</td>
             <td>16.00 %</td>
-            <td>$ {jubilacion}</td>
+            <td>{formatter.format(jubilacion)}</td>
           </tr>
           <tr>
             <td>1404</td>
             <td>S.E.R.O.S Titular</td>
             <td>4.25%</td>
-            <td>{serosTitular}</td>
+            <td>{formatter.format(serosTitular)}</td>
           </tr>
           <tr className="celda">
             <td>1408</td>
             <td>S.E.R.O.S Familiar</td>
             <td>4.25%</td>
-            <td>{serosFamiliar}</td>
+            <td>{formatter.format(serosFamiliar)}</td>
           </tr>
           <tr>
             <td>1424</td>
             <td>Seg. Vida Col. Oblig</td>
             <td>250</td>
-            <td>{seguroVidaOblig}</td>
+            <td>{formatter.format(seguroVidaOblig)}</td>
           </tr>
           <tr className="celda">
             <td>1426</td>
             <td>Seg. Vida Adicional</td>
             <td>3.30%</td>
-            <td>{seguroVidaAdicional}</td>
+            <td>{formatter.format(seguroVidaAdicional)}</td>
           </tr>
           <tr>
             <td>1430</td>
             <td>Seg. Vida Col. Familiar</td>
             <td>160</td>
-            <td>{seguroVidaFamiliar}</td>
+            <td>{formatter.format(seguroVidaFamiliar)}</td>
           </tr>
           <tr className="celda">
             <td>1462</td>
             <td>SEROS-Seguro Transplante</td>
             <td>50</td>
-            <td>{SerosSeguroTransplante}</td>
+            <td>{formatter.format(SerosSeguroTransplante)}</td>
           </tr>
           <tr>
             <td>1440</td>
             <td>A.T.E.C.H Cuota</td>
             <td>2%</td>
-            <td>{afiliadoAtech}</td>
+            <td>{formatter.format(afiliadoAtech)}</td>
           </tr>
           <tr className="celda">
             <td>1462</td>
             <td>Seros Coseguro</td>
             <td></td>
-            <td>{serosCoseguro}</td>
+            <td>{formatter.format(serosCoseguro)}</td>
           </tr>
           <tr>
             <td>1588</td>
             <td>Banco Chubut</td>
             <td></td>
-            <td>{bancoChubut}</td>
+            <td>{formatter.format(bancoChubut)}</td>
           </tr>
           <tr className="celda">
             <td></td>
             <td>Impuestos a las ganancias</td>
             <td></td>
-            <td>{impuestoGanancias}</td>
+            <td>{formatter.format(impuestoGanancias)}</td>
           </tr>
           <tr>
             <td></td>
             <td>Otros descuentos</td>
             <td></td>
-            <td> {descuento}</td>
+            <td>{formatter.format(descuento)}</td>
           </tr>
           <tr className="celda">
             <td></td>
             <td></td>
             <td></td>
-            <td>${deducciones}</td>
+            <td>{formatter.format(deducciones)}</td>
           </tr>
         </table>
       </div>
-      <h2 className="neto">Neto {neto}</h2>
+      <h2 className="neto">Neto {formatter.format(neto)}</h2>
     </div>
   );
 }
