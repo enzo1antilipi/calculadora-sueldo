@@ -1209,25 +1209,6 @@ function App() {
               <option value="NS">HC Nivel Superior</option>
             </select>
           </th>
-        </tr>
-        <tr>
-          <th>
-            <label>Cantida HC</label>
-            <select onChange={hsCatedra}>
-              {horasCatredas.map((horasCatedra, index) => (
-                <option key={index}>{horasCatedra}</option>
-              ))}
-            </select>
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <label>Cobra por Conyuge en esta institucion ?</label>
-            <select onChange={handleConyuge}>
-              <option value="NO">NO</option>
-              <option>SI</option>
-            </select>
-          </th>
           <th>
             Oblig.No.Pres.Labor.A
             <input
@@ -1242,10 +1223,10 @@ function App() {
         </tr>
         <tr>
           <th>
-            <label>Hijos escolarizados</label>
-            <select onChange={handleHijos}>
-              {hijosnum.map((hijosnum, index) => (
-                <option key={index}>{hijosnum}</option>
+            <label>Cantida HC</label>
+            <select onChange={hsCatedra}>
+              {horasCatredas.map((horasCatedra, index) => (
+                <option key={index}>{horasCatedra}</option>
               ))}
             </select>
           </th>
@@ -1263,11 +1244,10 @@ function App() {
         </tr>
         <tr>
           <th>
-            <label>Cobra por hijo con discapacidad?</label>
-            <select onChange={handleHijosIncapacitados}>
-              {hijosIncap.map((hijosIncap, index) => (
-                <option key={index}>{hijosIncap}</option>
-              ))}
+            <label>Cobra por Conyuge en esta institucion ?</label>
+            <select onChange={handleConyuge}>
+              <option value="NO">NO</option>
+              <option>SI</option>
             </select>
           </th>
           <th>
@@ -1284,10 +1264,10 @@ function App() {
         </tr>
         <tr>
           <th>
-            <label>Hijos escolarizado con discapacidad</label>
-            <select onChange={handleHijosEscoIncapacitados}>
-              {hijosIncap.map((hijosIncap, index) => (
-                <option key={index}>{hijosIncap}</option>
+            <label>Hijos escolarizados</label>
+            <select onChange={handleHijos}>
+              {hijosnum.map((hijosnum, index) => (
+                <option key={index}>{hijosnum}</option>
               ))}
             </select>
           </th>
@@ -1301,6 +1281,26 @@ function App() {
               className="barra2"
               onChange={handleDescuentos}
             />
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <label>Cobra por hijo con discapacidad?</label>
+            <select onChange={handleHijosIncapacitados}>
+              {hijosIncap.map((hijosIncap, index) => (
+                <option key={index}>{hijosIncap}</option>
+              ))}
+            </select>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <label>Hijos escolarizado con discapacidad</label>
+            <select onChange={handleHijosEscoIncapacitados}>
+              {hijosIncap.map((hijosIncap, index) => (
+                <option key={index}>{hijosIncap}</option>
+              ))}
+            </select>
           </th>
         </tr>
         <tr>
