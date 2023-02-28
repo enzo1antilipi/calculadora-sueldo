@@ -704,12 +704,17 @@ function App() {
   ];
 
   const zonas = [
-    { nombre: "Sin datos", valor: 1 },
-    { nombre: "Norte", valor: 60.4, valor1: 8.66 },
-    { nombre: "Sur", valor: 80, valor1: 6.14 },
+    { nombre: "Sin datos", valor: 0 },
+    { nombre: "Norte", valor: 60.4 },
+    { nombre: "Sur", valor: 80 },
   ];
   const hijosnum = [0, 1, 2, 3, 4, 5, 6, 7];
   const hijosIncap = [0, 1, 2, 3];
+  const horasCatredas = [
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+    40,
+  ];
   const antiguedad = [
     { nombre: "0", valor: 25 },
     { nombre: "1", valor: 25 },
@@ -795,6 +800,12 @@ function App() {
 
   const [deducciones, setDeducciones] = useState(0);
   const [neto, setNeto] = useState(0);
+
+  const [docente, setDocente] = useState(0);
+  const [nmedio, setNmedio] = useState(0);
+  const [nsuperior, setNsuperior] = useState(0);
+
+  const [sueldo1, setSueldo1] = useState(0);
 
   const getValue = (value) => {
     if (value !== "") {
@@ -907,6 +918,8 @@ function App() {
   useEffect(() => {
     const recursos = (parseFloat(sueldo) * 15.5) / 100;
     setRecursosMateriales(recursos.toFixed(2));
+    //actualizar antiguedad
+    function handleantiguedad() {}
   }, [sueldo]);
 
   //CAMPO ATECH
@@ -926,6 +939,7 @@ function App() {
   const handleCargoChange = (event) => {
     const cargoImporte = SUELDO_BASICO * event.target.value;
     setSueldo(cargoImporte.toFixed(2));
+    setSueldo1(cargoImporte);
 
     //descuentos de seros
 
@@ -964,12 +978,14 @@ function App() {
       setConyuge(conyuge);
     }
   };
+
   const handleantiguedad = (event) => {
     setAniosPorcentaje(event.target.value);
 
     const importeAnios = event.target.value * (sueldo / 100);
     setAnios(importeAnios.toFixed(2));
   };
+
   const handleserosFamiliar = (event) => {
     if (event.target.value === "SI") {
       const serosFamiliarImporte =
@@ -1074,6 +1090,27 @@ function App() {
   //     setZonaPatagonicaUnidad(0);
   //   }
   // };
+  const handleDocente = (ev) => {
+    if (ev.target.value === "NM") {
+      setDocente("nm");
+    } else if (ev.target.value === "NS") {
+      setDocente("ns");
+    } else {
+      setDocente(0);
+    }
+  };
+  const hsCatedra = (ev) => {
+    if (docente === "nm") {
+      const nmimporte = ev.target.value * 0.05 * SUELDO_BASICO;
+      setNmedio(nmimporte);
+
+      setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
+    } else {
+      const nsimporte = ev.target.value * 0.0588 * SUELDO_BASICO;
+      setNsuperior(nsimporte);
+      setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
+    }
+  };
   return (
     <div>
       <h1 className="head">Calculadora de sueldos</h1>
@@ -1161,6 +1198,26 @@ function App() {
               className="barra2"
               onChange={handleBancoChubut}
             />
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <label>Docente Nivel Medio o Superior</label>
+            <select onChange={handleDocente}>
+              <option value="0">Sin datos</option>
+              <option value="NM">HC Nivel Medio</option>
+              <option value="NS">HC Nivel Superior</option>
+            </select>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <label>Cantida HC</label>
+            <select onChange={hsCatedra}>
+              {horasCatredas.map((horasCatedra, index) => (
+                <option key={index}>{horasCatedra}</option>
+              ))}
+            </select>
           </th>
         </tr>
         <tr>
