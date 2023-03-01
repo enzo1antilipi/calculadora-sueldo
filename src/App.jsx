@@ -716,6 +716,7 @@ function App() {
     40,
   ];
   const antiguedad = [
+    { nombre: "Sin datos", valor: 0 },
     { nombre: "0", valor: 25 },
     { nombre: "1", valor: 25 },
     { nombre: "2", valor: 30 },
@@ -919,7 +920,6 @@ function App() {
     const recursos = (parseFloat(sueldo) * 15.5) / 100;
     setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad
-    function handleantiguedad() {}
   }, [sueldo]);
 
   //CAMPO ATECH
