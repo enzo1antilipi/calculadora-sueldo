@@ -10,19 +10,19 @@ function App() {
   const COBRO_CONYUGE = 1920;
   const funciones = [
     "Sin datos",
-    "Supervisor",
-    "Secretario",
-    "Director",
-    "Vicedirector",
-    "Maestro",
-    "Maestro especial",
+    "Supervisor/a",
+    "Secretaria/o",
+    "Director/a",
+    "Vicedirector/a",
+    "Maestra/o",
+    "Maestra/o especial",
     "Regente",
-    "Jefe general enseñanza pratica",
-    "Bibliotecario",
-    "Preceptor",
+    "Jefa/e Enseñanza Práctica",
+    "Bibliotecaria/o",
+    "Preceptora/o ",
     "Bedel",
     "POT",
-    "Profesor Enseñanza Práctica",
+    "Profesor/a Enseñanza Práctica",
     "ADR",
     "Gabinetista",
   ];
@@ -30,534 +30,548 @@ function App() {
     { nombre: "Sin datos", funcion: "", valor: 1 },
     {
       nombre: "Sin datos",
-      funcion: "Supervisor",
+      funcion: "Supervisor/a",
       valor: 1,
     },
     {
-      nombre: "Supervisor Técnico General",
-      funcion: "Supervisor",
+      nombre: "Supervisor/a Técnico/a General",
+      funcion: "Supervisor/a",
       valor: 2.73,
     },
     {
-      nombre: "Supervisor Técnico Seccional",
-      funcion: "Supervisor",
+      nombre: "Supervisor/a Técnico/a Seccional",
+      funcion: "Supervisor/a",
       valor: 2.64,
     },
     {
-      nombre: "Secretario de Supervisor Técnico General ",
-      funcion: "Supervisor",
+      nombre: "Secretaria/o de Supervisor/a Técnico/a General ",
+      funcion: "Supervisor/a",
       valor: 2.64,
     },
-    { nombre: "Supervisor Escolar", funcion: "Supervisor", valor: 2.55 },
+    { nombre: "Supervisor/a Escolar", funcion: "Supervisor/a", valor: 2.55 },
     {
-      nombre: "Supervisor Escolar de Materias Especiales",
-      funcion: "Supervisor",
+      nombre: "Supervisor/a Escolar de Materias Especiales",
+      funcion: "Supervisor/a",
       valor: 2.55,
     },
     {
-      nombre: "Supervisor General / Secr. Técnico Docente",
-      funcion: "Supervisor",
+      nombre: "Supervisor/a General / Secr. Técnico/a Docente",
+      funcion: "Supervisor/a",
       valor: 2.73,
     },
-    { nombre: "Supervisor Técnico", funcion: "Supervisor", valor: 2.55 },
+    { nombre: "Supervisor/a Técnico/a", funcion: "Supervisor/a", valor: 2.55 },
     {
-      nombre: "Supervisor Escolar c/Internado y Albergue ",
-      funcion: "Supervisor",
+      nombre: "Supervisor/a Escolar c/Internado y Albergue ",
+      funcion: "Supervisor/a",
       valor: 2.55,
     },
     {
-      nombre: "Supervisor Escolar Hospitalario y Domiciliario",
-      funcion: "Supervisor",
+      nombre: "Supervisor/a Escolar Hospitalario y Domiciliario",
+      funcion: "Supervisor/a",
       valor: 2.55,
     },
     {
-      nombre: "Supervisor Escolar Escuela Adultos",
-      funcion: "Supervisor",
+      nombre: "Supervisor/a Escolar Escuela Adultos",
+      funcion: "Supervisor/a",
       valor: 2.55,
     },
     {
-      nombre: "Supervisor Escolar Esc Nivel Inicial",
-      funcion: "Supervisor",
+      nombre: "Supervisor/a Escolar Esc Nivel Inicial",
+      funcion: "Supervisor/a",
       valor: 2.55,
     },
     {
-      nombre: "Supervisor Escolar Esc Especial",
-      funcion: "Supervisor",
+      nombre: "Supervisor/a Escolar Esc Especial",
+      funcion: "Supervisor/a",
       valor: 2.55,
     },
     {
       nombre: "Sin datos",
-      funcion: "Secretario",
+      funcion: "Secretaria/o",
       valor: 1,
     },
-
     {
-      nombre: "Secretario de Supervisor Técnico General",
-      funcion: "Secretario",
-      valor: 2.52,
-    },
-    {
-      nombre: "Secretario de 1ra. Media y Polimodal",
-      funcion: "Secretario",
+      nombre: "Secretaria/o de 1ra. Media y Polimodal",
+      funcion: "Secretaria/o",
       valor: 1.42,
     },
     {
-      nombre: "Secretario de 2da. Media y Polimodal",
-      funcion: "Secretario",
+      nombre: "Secretaria/o de 2da. Media y Polimodal",
+      funcion: "Secretaria/o",
       valor: 1.33,
     },
     {
-      nombre: "Secretario de 3ra. Media y Polimodal",
-      funcion: "Secretario",
+      nombre: "Secretaria/o de 3ra. Media y Polimodal",
+      funcion: "Secretaria/o",
       valor: 1.28,
     },
     {
-      nombre: "Secretario de Instituto Superior",
-      funcion: "Secretario",
+      nombre: "Secretaria/o de Instituto Superior",
+      funcion: "Secretaria/o",
       valor: 1.63,
     },
     {
       nombre: "Sin datos",
-      funcion: "Director",
+      funcion: "Director/a",
       valor: 1,
     },
 
     {
-      nombre: "Director de Perfeccionamiento Docente",
-      funcion: "Director",
+      nombre: "Director/a de Perfeccionamiento Docente",
+      funcion: "Director/a",
       valor: 2.64,
     },
-    { nombre: "Director 2da Categoría", funcion: "Director", valor: 1.62 },
+    { nombre: "Director 2da Categoría", funcion: "Director/a", valor: 1.62 },
     {
-      nombre: "Director 1ra. Categoría Escuela Común",
-      funcion: "Director",
+      nombre: "Director/a 1ra. Categoría Escuela Común",
+      funcion: "Director/a",
       valor: 1.62,
     },
-    { nombre: "Director 3ra Categoría", funcion: "Director", valor: 1.62 },
-    { nombre: "Director de Biblioteca(6Hs)", funcion: "Director", valor: 2.27 },
+    { nombre: "Director/a 3ra Categoría", funcion: "Director/a", valor: 1.62 },
     {
-      nombre: "Director 1ra. Categ. Esc. c/ Internado y Albergue",
-      funcion: "Director",
+      nombre: "Director/a de Biblioteca(6Hs)",
+      funcion: "Director/a",
+      valor: 2.27,
+    },
+    {
+      nombre: "Director/a 1ra. Categ. Esc. c/ Internado y Albergue",
+      funcion: "Director/a",
       valor: 2.38,
     },
     {
-      nombre: "Director 2da. Cat. Esc. c/Internado y Albergue",
-      funcion: "Director",
+      nombre: "Director/a 2da. Cat. Esc. c/Internado y Albergue",
+      funcion: "Director/a",
       valor: 2.21,
     },
     {
-      nombre: "Director 3ra. Cat. c/Internado y Albergue",
-      funcion: "Director",
+      nombre: "Director/a 3ra. Cat. c/Internado y Albergue",
+      funcion: "Director/a",
       valor: 2.2,
     },
     {
-      nombre: "Director 1ra. Cat. Esc. Jornada Completa",
-      funcion: "Director",
+      nombre: "Director/a 1ra. Cat. Esc. Jornada Completa",
+      funcion: "Director/a",
       valor: 2.32,
     },
     {
-      nombre: "Director 1ra. Cat. J/C Esc. Común",
-      funcion: "Director",
+      nombre: "Director/a 1ra. Cat. J/C Esc. Común",
+      funcion: "Director/a",
       valor: 2.27,
     },
-    { nombre: "Director 2da. Categoría J/C", funcion: "Director", valor: 2.19 },
     {
-      nombre: "Director 3ra. Cat. J/C Esc. Común",
-      funcion: "Director",
+      nombre: "Director/a 2da. Categoría J/C",
+      funcion: "Director/a",
+      valor: 2.19,
+    },
+    {
+      nombre: "Director/a 3ra. Cat. J/C Esc. Común",
+      funcion: "Director/a",
       valor: 2.08,
     },
-    { nombre: "Director J/C 7 Hs.", funcion: "Director", valor: 2.07 },
+    { nombre: "Director/a J/C 7 Hs.", funcion: "Director/a", valor: 2.07 },
 
     {
-      nombre: "Director 1ra. Cat. J/C Esc. Hosp. y Domic.",
-      funcion: "Director",
+      nombre: "Director/a 1ra. Cat. J/C Esc. Hosp. y Domic.",
+      funcion: "Director/a",
       valor: 2.27,
     },
     {
-      nombre: "Director 2da. Cat. J/C Esc.Hosp. y Domic.",
-      funcion: "Director",
+      nombre: "Director/a 2da. Cat. J/C Esc.Hosp. y Domic.",
+      funcion: "Director/a",
       valor: 2.14,
     },
     {
-      nombre: "Director 3ra. Cat. J/C Esc. Hosp. y Domic.",
-      funcion: "Director",
+      nombre: "Director/a 3ra. Cat. J/C Esc. Hosp. y Domic.",
+      funcion: "Director/a",
       valor: 2.08,
     },
     {
-      nombre: "Director 1ra. Cat J/S Esc. Hosp.y Domic.",
-      funcion: "Director",
+      nombre: "Director/a 1ra. Cat J/S Esc. Hosp.y Domic.",
+      funcion: "Director/a",
       valor: 1.62,
     },
     {
-      nombre: "Director 2da. Cat. Esc. Hosp. y Domic.",
-      funcion: "Director",
+      nombre: "Director/a 2da. Cat. Esc. Hosp. y Domic.",
+      funcion: "Director/a",
       valor: 1.62,
     },
     {
-      nombre: "Director 3ra.Cat. Esc. Hosp. y Domic.",
-      funcion: "Director",
+      nombre: "Director/a 3ra.Cat. Esc. Hosp. y Domic.",
+      funcion: "Director/a",
       valor: 1.62,
     },
     {
-      nombre: "Director 1ra. Cat. J/C Esc. Adultos",
-      funcion: "Director",
+      nombre: "Director/a 1ra. Cat. J/C Esc. Adultos",
+      funcion: "Director/a",
       valor: 2.27,
     },
     {
-      nombre: "Director 2da. Cat. J/C Esc. Adultos",
-      funcion: "Director",
+      nombre: "Director/a 2da. Cat. J/C Esc. Adultos",
+      funcion: "Director/a",
       valor: 2.14,
     },
     {
-      nombre: "Director 3ra. Cat. J/C Esc. Adultos",
-      funcion: "Director",
+      nombre: "Director/a 3ra. Cat. J/C Esc. Adultos",
+      funcion: "Director/a",
       valor: 2.08,
     },
 
     {
-      nombre: "Director 1ra. Cat. Esc. Adultos",
-      funcion: "Director",
+      nombre: "Director/a 1ra. Cat. Esc. Adultos",
+      funcion: "Director/a",
       valor: 1.62,
     },
     {
-      nombre: "Director 2da. Cat. Esc. Adultos 4 Hs.",
-      funcion: "Director",
+      nombre: "Director/a 2da. Cat. Esc. Adultos 4 Hs.",
+      funcion: "Director/a",
       valor: 1.5,
     },
     {
-      nombre: "Director 3ra. Cat. Esc. Adultos",
-      funcion: "Director",
+      nombre: "Director/a 3ra. Cat. Esc. Adultos",
+      funcion: "Director/a",
       valor: 1.62,
     },
     {
-      nombre: "Director 2da. Cat. Adultos 4Hs",
-      funcion: "Director",
+      nombre: "Director/a 2da. Cat. Adultos 4Hs",
+      funcion: "Director/a",
       valor: 1.62,
     }, //preguntar si es uno diferente
     {
-      nombre: "Director 1ra. Cat. J/C Esc. Especial",
-      funcion: "Director",
+      nombre: "Director/a 1ra. Cat. J/C Esc. Especial",
+      funcion: "Director/a",
       valor: 2.27,
     },
     {
-      nombre: "Director 2da. Cat. J/C Esc. Especial",
-      funcion: "Director",
+      nombre: "Director/a 2da. Cat. J/C Esc. Especial",
+      funcion: "Director/a",
       valor: 2.14,
     },
     {
-      nombre: "Director 3ra. Cat. J/C Esc. Especial",
-      funcion: "Director",
+      nombre: "Director/a 3ra. Cat. J/C Esc. Especial",
+      funcion: "Director/a",
       valor: 2.08,
     },
     {
-      nombre: "Director 1ra. Cat. J/C Esc. Educ. Inicial",
-      funcion: "Director",
+      nombre: "Director/a 1ra. Cat. J/C Esc. Educ. Inicial",
+      funcion: "Director/a",
       valor: 2.27,
     },
     {
-      nombre: "Director 2da. Cat. J/C Esc. Educ. Inicial",
-      funcion: "Director",
+      nombre: "Director/a 2da. Cat. J/C Esc. Educ. Inicial",
+      funcion: "Director/a",
       valor: 2.14,
     },
-    { nombre: "Director 3ra Cat. J/C", funcion: "Director", valor: 2.08 },
-    { nombre: "Director 1ra Cat.", funcion: "Director", valor: 1.62 },
+    { nombre: "Director/a 3ra Cat. J/C", funcion: "Director/a", valor: 2.08 },
+    { nombre: "Director/a 1ra Cat.", funcion: "Director/a", valor: 1.62 },
     {
-      nombre: "Director 2da. Cat. J/S Esc. Nivel Inicial .",
-      funcion: "Director",
+      nombre: "Director/a 2da. Cat. J/S Esc. Nivel Inicial .",
+      funcion: "Director/a",
       valor: 2.03,
     }, // chekear con tabla
     {
-      nombre: "Director 2da. Cat. J/S Esc. Nivel Inicial 4Hs.",
-      funcion: "Director",
+      nombre: "Director/a 2da. Cat. J/S Esc. Nivel Inicial 4Hs.",
+      funcion: "Director/a",
       valor: 1.62,
     },
     {
-      nombre: "Director 3ra. Categoría Nivel Inicial",
-      funcion: "Director",
+      nombre: "Director/a 3ra. Categoría Nivel Inicial",
+      funcion: "Director/a",
       valor: 1.62,
     },
     {
-      nombre: "Director de 1ra. Media y Polimodal",
-      funcion: "Director",
+      nombre: "Director/a de 1ra. Media y Polimodal",
+      funcion: "Director/a",
       valor: 2.27,
     },
     {
-      nombre: "Director de 2da. Media y Polimodal",
-      funcion: "Director",
+      nombre: "Director/a de 2da. Media y Polimodal",
+      funcion: "Director/a",
       valor: 2.14,
     },
     {
-      nombre: "Director de 3ra. Media y Polimodal",
-      funcion: "Director",
+      nombre: "Director/a de 3ra. Media y Polimodal",
+      funcion: "Director/a",
       valor: 2.08,
     },
     {
-      nombre: "Director de Instituto Superior",
-      funcion: "Director",
+      nombre: "Director/a de Instituto Superior",
+      funcion: "Director/a",
       valor: 2.29,
     },
     {
       nombre: "Sin datos",
-      funcion: "Vicedirector",
+      funcion: "Vicedirector/a",
       valor: 1,
     },
     {
-      nombre: "Vicedirector J/C",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a J/C",
+      funcion: "Vicedirector/a",
       valor: 1.99,
     },
     {
-      nombre: "Vicedirector Esc. Común",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a Esc. Común",
+      funcion: "Vicedirector/a",
       valor: 1.56,
     },
     {
-      nombre: "Vicedirector Esc. c/Internado y Albergue",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a Esc. c/Internado y Albergue",
+      funcion: "Vicedirector/a",
       valor: 2.21,
     },
     {
-      nombre: "Vicedirector Esc. J/C",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a Esc. J/C",
+      funcion: "Vicedirector/a",
       valor: 1.56,
     },
     {
-      nombre: "Vicedirector Esc. Hosp. Domiciliaria",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a Esc. Hosp. Domiciliaria",
+      funcion: "Vicedirector/a",
       valor: 1.56,
     },
     {
-      nombre: "Vicedirector Escuela Adultos",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a Escuela Adultos",
+      funcion: "Vicedirector/a",
       valor: 1.56,
     },
     {
-      nombre: "Vicedirector Esc. Especial",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a Esc. Especial",
+      funcion: "Vicedirector/a",
       valor: 1.56,
     },
     {
-      nombre: "Vicedirector Esc. Nivel Inicial",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a Esc. Nivel Inicial",
+      funcion: "Vicedirector/a",
       valor: 1.56,
     },
     {
-      nombre: "Vicedirector Media y Polimodal",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a Media y Polimodal",
+      funcion: "Vicedirector/a",
       valor: 1.48,
     },
     {
-      nombre: "Vicedirector de 1ra Media y Polimodal",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a de 1ra Media y Polimodal",
+      funcion: "Vicedirector/a",
       valor: 1.65,
     },
     {
-      nombre: "Vicedirector de 2da Media y Polimodal",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a de 2da Media y Polimodal",
+      funcion: "Vicedirector/a",
       valor: 1.65,
     },
     {
-      nombre: "Vicedirector de 3ra Media y Polimodal",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a de 3ra Media y Polimodal",
+      funcion: "Vicedirector/a",
       valor: 1.65,
     },
     {
-      nombre: "Vicedirector de 3er Ciclo EGB ",
-      funcion: "Vicedirector",
+      nombre: "Vicedirector/a de 3er Ciclo EGB ",
+      funcion: "Vicedirector/a",
       valor: 1.65,
     },
-    { nombre: "Sin datos", funcion: "Maestro", valor: 1 },
-    { nombre: "Maestro de Año Escuela Común", funcion: "Maestro", valor: 1 },
-    { nombre: "Maestro Bibliotecario (8Hs)", funcion: "Maestro", valor: 2 },
+    { nombre: "Sin datos", funcion: "Maestra/o", valor: 1 },
     {
-      nombre: "Maestro de Año 3er. Ciclo E.G.B.",
-      funcion: "Maestro",
+      nombre: "Maestra/o de Año Escuela Común",
+      funcion: "Maestra/o",
+      valor: 1,
+    },
+    {
+      nombre: "Maestra/o Bibliotecaria/o (8Hs)",
+      funcion: "Maestra/o",
+      valor: 2,
+    },
+    {
+      nombre: "Maestra/o de Año 3er. Ciclo E.G.B.",
+      funcion: "Maestra/o",
       valor: 1.13,
     },
-    { nombre: "Maestro Secretario", funcion: "Maestro", valor: 1.12 },
+    { nombre: "Maestra/o Secretaria/o", funcion: "Maestra/o", valor: 1.12 },
     {
-      nombre: "Maestro de Año c/Internado y Albergue",
-      funcion: "Maestro",
+      nombre: "Maestra/o de Año c/Internado y Albergue",
+      funcion: "Maestra/o",
       valor: 1.18,
     },
-    { nombre: "Maestro de Año J/C", funcion: "Maestro", valor: 1.75 },
+    { nombre: "Maestra/o de Año J/C", funcion: "Maestra/o", valor: 1.75 },
     {
-      nombre: "Maestro de Orientación y Tutoría",
-      funcion: "Maestro",
+      nombre: "Maestra/o de Orientación y Tutoría",
+      funcion: "Maestra/o",
       valor: 1.16,
     },
     {
-      nombre: "Maestro de Orientación y TutoríaJ/C 7 Hs. ",
-      funcion: "Maestro",
+      nombre: "Maestra/o de Orientación y TutoríaJ/C 7 Hs. ",
+      funcion: "Maestra/o",
       valor: 1.78,
     },
     {
-      nombre: "Maestro de Año Esc. Hosp. y Domiciliaria",
-      funcion: "Maestro",
+      nombre: "Maestra/o de Año Esc. Hosp. y Domiciliaria",
+      funcion: "Maestra/o",
       valor: 1,
     },
     {
-      nombre: "Maestro de Año 3er. C. EGB Esc. Dom./Hosp.",
-      funcion: "Maestro",
+      nombre: "Maestra/o de Año 3er. C. EGB Esc. Dom./Hosp.",
+      funcion: "Maestra/o",
       valor: 1.13,
     },
-    { nombre: "Maestro de Año Esc. Adultos", funcion: "Maestro", valor: 1 },
+    { nombre: "Maestra/o de Año Esc. Adultos", funcion: "Maestra/o", valor: 1 },
     {
-      nombre: "Maestro de Año J/C Esc. Especial",
-      funcion: "Maestro",
+      nombre: "Maestra/o de Año J/C Esc. Especial",
+      funcion: "Maestra/o",
       valor: 1.75,
     },
     {
-      nombre: "Maestro de Año 3er Ciclo Esc. J/C",
-      funcion: "Maestro",
-      valor: 1.75,
-    },
-    { nombre: "Maestro de Año Esc. Especial", funcion: "Maestro", valor: 1 },
-
-    {
-      nombre: "Maestro de Año J/C Esc. Nivel Inicial.",
-      funcion: "Maestro",
+      nombre: "Maestra/o de Año 3er Ciclo Esc. J/C",
+      funcion: "Maestra/o",
       valor: 1.75,
     },
     {
-      nombre: "Maestro de Año Esc. Nivel Inicial",
-      funcion: "Maestro",
+      nombre: "Maestra/o de Año Esc. Especial",
+      funcion: "Maestra/o",
       valor: 1,
     },
 
     {
-      nombre: "Maestro de Ens. Práct. J. Sección Med. y Poli.",
-      funcion: "Maestro",
+      nombre: "Maestra/o de Año J/C Esc. Nivel Inicial.",
+      funcion: "Maestra/o",
+      valor: 1.75,
+    },
+    {
+      nombre: "Maestra/o de Año Esc. Nivel Inicial",
+      funcion: "Maestra/o",
+      valor: 1,
+    },
+
+    {
+      nombre: "Maestra/o de Ens. Práct. J. Sección Med. y Poli.",
+      funcion: "Maestra/o",
       valor: 1.05,
     },
     {
-      nombre: "Maestro de Enseñanza Práctica",
-      funcion: "Maestro",
+      nombre: "Maestra/o de Enseñanza Práctica",
+      funcion: "Maestra/o",
       valor: 0.95,
     },
     {
       nombre: "Sin datos",
-      funcion: "Maestro especial",
+      funcion: "Maestra/o especial",
       valor: 1,
     },
     {
-      nombre: "Maestro Especial Escuela Común (12 Hs)",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Escuela Común (12 Hs)",
+      funcion: "Maestra/o especial",
       valor: 0.76,
     },
     {
-      nombre: "Maestro Especial Escuela Común (15 Hs)",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Escuela Común (15 Hs)",
+      funcion: "Maestra/o especial",
       valor: 0.94,
     },
     {
-      nombre: "Maestro Especial Escuela Común (18 Hs)",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Escuela Común (18 Hs)",
+      funcion: "Maestra/o especial",
       valor: 1,
     },
     {
-      nombre: "Maestro Esp.Esc. c/Int. y Alb / M. E. c/12 hs ",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Esp.Esc. c/Int. y Alb / M. E. c/12 hs ",
+      funcion: "Maestra/o especial",
       valor: 0.76,
     },
     {
-      nombre: "Maestro Esp.Esc. c/Int. y Alb / M. E. c/15 hs ",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Esp.Esc. c/Int. y Alb / M. E. c/15 hs ",
+      funcion: "Maestra/o especial",
       valor: 0.94,
     },
     {
-      nombre: "Maestro Esp.Esc. c/Int. y Alb / M. E. c/18hs ",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Esp.Esc. c/Int. y Alb / M. E. c/18hs ",
+      funcion: "Maestra/o especial",
       valor: 1,
     },
     {
-      nombre: "Maestro Esp. Esc. J/C / Maestro Espec. 12 hs. ",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Esp. Esc. J/C / Maestra/o Espec. 12 hs. ",
+      funcion: "Maestra/o especial",
       valor: 0.76,
     },
     {
-      nombre: "Maestro Esp. Esc. J/C / Maestro Espec. 15 hs. ",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Esp. Esc. J/C / Maestra/o Espec. 15 hs. ",
+      funcion: "Maestra/o especial",
       valor: 0.94,
     },
     {
-      nombre: "Maestro Esp. Esc. J/C / Maestro Espec. 18 Hs. ",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Esp. Esc. J/C / Maestra/o Espec. 18 Hs. ",
+      funcion: "Maestra/o especial",
       valor: 1,
     },
     {
-      nombre: "Maestro Especial Esc. Hosp. y Dom. 12 Hs ",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Hosp. y Dom. 12 Hs ",
+      funcion: "Maestra/o especial",
       valor: 0.76,
     },
     {
-      nombre: "Maestro Especial Esc. Hosp. y Dom. 15 Hs",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Hosp. y Dom. 15 Hs",
+      funcion: "Maestra/o especial",
       valor: 0.94,
     },
     {
-      nombre: "Maestro Especial Esc. Hosp. y Dom. 18 Hs",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Hosp. y Dom. 18 Hs",
+      funcion: "Maestra/o especial",
       valor: 1,
     },
     {
-      nombre: "Maestro Especial Esc. Adultos ",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Adultos ",
+      funcion: "Maestra/o especial",
       valor: 0.9,
     },
     {
-      nombre: "Maestro Especial Esc. Adultos 12 Hs",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Adultos 12 Hs",
+      funcion: "Maestra/o especial",
       valor: 0.76,
     },
     {
-      nombre: "Maestro Especial Esc. Adultos 15 Hs",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Adultos 15 Hs",
+      funcion: "Maestra/o especial",
       valor: 0.94,
     },
     {
-      nombre: "Maestro Especial Esc. Adultos 18 Hs",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Adultos 18 Hs",
+      funcion: "Maestra/o especial",
       valor: 1,
     },
     {
-      nombre: "Maestro Especial Esc. Especial ",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Especial ",
+      funcion: "Maestra/o especial",
       valor: 0.94,
     },
     {
-      nombre: "Maestro Especial Esc. Especial 12 Hs",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Especial 12 Hs",
+      funcion: "Maestra/o especial",
       valor: 0.76,
     },
     {
-      nombre: "Maestro Especial Esc. Especial 15 Hs",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Especial 15 Hs",
+      funcion: "Maestra/o especial",
       valor: 0.94,
     },
     {
-      nombre: "Maestro Especial Esc. Especial 18 Hs",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Especial 18 Hs",
+      funcion: "Maestra/o especial",
       valor: 1,
     },
     {
-      nombre: "Maestro Especial Esc. Nivel inicial ",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Nivel inicial ",
+      funcion: "Maestra/o especial",
       valor: 0.92,
     },
     {
-      nombre: "Maestro Especial Esc. Nivel inicial 12 Hs",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Nivel inicial 12 Hs",
+      funcion: "Maestra/o especial",
       valor: 0.76,
     },
     {
-      nombre: "Maestro Especial Esc. Nivel inicial 15 Hs",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Nivel inicial 15 Hs",
+      funcion: "Maestra/o especial",
       valor: 0.94,
     },
     {
-      nombre: "Maestro Especial Esc. Nivel inicial 18 Hs ",
-      funcion: "Maestro especial",
+      nombre: "Maestra/o Especial Esc. Nivel inicial 18 Hs ",
+      funcion: "Maestra/o especial",
       valor: 1,
     },
     {
@@ -587,93 +601,82 @@ function App() {
     },
     {
       nombre: "Sin datos",
-      funcion: "Jefe general enseñanza pratica",
+      funcion: "Jefa/e Enseñanza Práctica",
       valor: 1,
     },
     {
-      nombre: "Jefe Gral. Ens. Práct. Media y Poli.",
-      funcion: "Jefe general enseñanza pratica",
-      valor: 1.48,
-    }, // este queda o se borra?
-    {
-      nombre: "Jefe Gral. Ens. Práct. de 1ra. Media y Poli.",
-      funcion: "Jefe general enseñanza pratica",
+      nombre: "Jefa/e Gral. Ens. Práct. de 1ra. Media y Poli.",
+      funcion: "Jefa/e Enseñanza Práctica",
       valor: 1.65,
     },
     {
-      nombre: "Jefe Gral. Ens. Práct. de 2da. Media y Poli.",
-      funcion: "Jefe general enseñanza pratica",
+      nombre: "Jefa/e Gral. Ens. Práct. de 2da. Media y Poli.",
+      funcion: "Jefa/e Enseñanza Práctica",
       valor: 1.65,
     },
     {
-      nombre: "Jefe Gral. Ens. Práct. de 3ra. Media y Poli.",
-      funcion: "Jefe general enseñanza pratica",
+      nombre: "Jefa/e Gral. Ens. Práct. de 3ra. Media y Poli.",
+      funcion: "Jefa/e Enseñanza Práctica",
       valor: 1.65,
     },
     {
       nombre: "Sin datos",
-      funcion: "Bibliotecario",
+      funcion: "Bibliotecaria/o",
       valor: 1,
     },
-    {
-      nombre: "Bibliotecario Media y Polimodal",
-      funcion: "Bibliotecario",
-      valor: 1.15,
-    }, // ESTE QUEDA????
     {
       nombre: "Bibliotecario Media y Polimodal 5 Hs",
-      funcion: "Bibliotecario",
+      funcion: "Bibliotecaria/o",
       valor: 1.25,
     },
     {
-      nombre: "Bibliotecario Instituto Superior",
-      funcion: "Bibliotecario",
+      nombre: "Bibliotecaria/o Instituto Superior 5 Hs",
+      funcion: "Bibliotecaria/o",
+      valor: 1.25,
+    },
+    { nombre: "Sin datos", funcion: "Preceptora/o ", valor: 0 }, //luego sacar
+    {
+      nombre: "Preceptora/o  de Media Polimodal",
+      funcion: "Preceptora/o ",
       valor: 1,
-    }, //este queda??
-    {
-      nombre: "Bibliotecario Instituto Superior 5 Hs",
-      funcion: "Bibliotecario",
-      valor: 1.25,
     },
-    { nombre: "Sin datos", funcion: "Preceptor", valor: 0 }, //luego sacar
-    { nombre: "Preceptor de Media Polimodal", funcion: "Preceptor", valor: 1 },
     { nombre: "Sin datos", funcion: "Bedel", valor: 0 }, //luego sacar
     { nombre: "Bedel de Instituto Superior  ", funcion: "Bedel", valor: 1 },
     { nombre: "Sin datos", funcion: "POT", valor: 0 },
     { nombre: "POT", funcion: "POT", valor: 1.25 },
     {
       nombre: "Sin datos",
-      funcion: "Profesor Enseñanza Práctica",
+      funcion: "Profesor/a Enseñanza Práctica",
       valor: 1,
     },
     {
-      nombre: "Profesor Ens. Práctica Esc. Transferidas 16 Hs. R",
-      funcion: "Profesor Enseñanza Práctica",
+      nombre: "Profesor/a Ens. Práctica Esc. Transferidas 16 Hs. R",
+      funcion: "Profesor/a Enseñanza Práctica",
       valor: 1,
     },
     {
-      nombre: "Profesor Ens. Práctica Esc. Técnicas 18 Hs. R",
-      funcion: "Profesor Enseñanza Práctica",
+      nombre: "Profesor/a Ens. Práctica Esc. Técnicas 18 Hs. R",
+      funcion: "Profesor/a Enseñanza Práctica",
       valor: 1.05,
     },
     {
-      nombre: "Profesor Ens. Práctica Esc. Agrotécnicas 20 Hs. R",
-      funcion: "Profesor Enseñanza Práctica",
+      nombre: "Profesor/a Ens. Práctica Esc. Agrotécnicas 20 Hs. R",
+      funcion: "Profesor/a Enseñanza Práctica",
       valor: 1.1,
     },
     {
       nombre: "PEP de Centro de Form. Profesional 16 Hs. R",
-      funcion: "Profesor Enseñanza Práctica",
+      funcion: "Profesor/a Enseñanza Práctica",
       valor: 1,
     },
     {
       nombre: "PEP Superior CERET 20 Hs. R",
-      funcion: "Profesor Enseñanza Práctica",
+      funcion: "Profesor/a Enseñanza Práctica",
       valor: 1.1,
     },
     {
       nombre: "PEP de Laboratorio 20 Hs. R",
-      funcion: "Profesor Enseñanza Práctica",
+      funcion: "Profesor/a Enseñanza Práctica",
       valor: 1.05,
     },
     {
@@ -682,7 +685,7 @@ function App() {
       valor: 0,
     },
     {
-      nombre: "Administrador de Redes 20 Hs. R",
+      nombre: "Administrador/a de Redes 20 Hs. R",
       funcion: "ADR",
       valor: 1.05,
     },
@@ -803,10 +806,9 @@ function App() {
   const [neto, setNeto] = useState(0);
 
   const [docente, setDocente] = useState(0);
-  const [nmedio, setNmedio] = useState(0);
-  const [nsuperior, setNsuperior] = useState(0);
 
   const [sueldo1, setSueldo1] = useState(0);
+  const [valorEv, setValorEv] = useState(0);
 
   const getValue = (value) => {
     if (value !== "") {
@@ -837,9 +839,8 @@ function App() {
       parseFloat(conyuge) +
       parseFloat(ayudaEsc) +
       parseFloat(ubicacion) +
-      parseFloat(otrosIngresos) +
-      parseFloat(oblig) * -1 +
-      parseFloat(devolucion) * -1;
+      parseFloat(otrosIngresos);
+
     setTotal(totalparcial.toFixed(2));
   }, [
     sueldo,
@@ -853,9 +854,7 @@ function App() {
     conyuge,
     ayudaEsc,
     ubicacion,
-    oblig,
     otrosIngresos,
-    devolucion,
   ]);
   //JUBILACION
 
@@ -889,7 +888,9 @@ function App() {
       parseFloat(SerosSeguroTransplante) +
       parseFloat(afiliadoAtech) +
       parseFloat(serosCoseguro) +
+      parseFloat(oblig) +
       parseFloat(bancoChubut) +
+      parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
     setDeducciones(deduccionesImporte.toFixed(2));
@@ -903,7 +904,9 @@ function App() {
     SerosSeguroTransplante,
     afiliadoAtech,
     serosCoseguro,
+    oblig,
     bancoChubut,
+    devolucion,
     impuestoGanancias,
     descuento,
   ]);
@@ -919,7 +922,12 @@ function App() {
   useEffect(() => {
     const recursos = (parseFloat(sueldo) * 15.5) / 100;
     setRecursosMateriales(recursos.toFixed(2));
-    //actualizar antiguedad
+    //actualizar antiguedad de forma dinamica
+    const actualizaAntigue = (valorEv * sueldo) / 100;
+    setAnios(actualizaAntigue);
+    //actualizar zona de forma dinamica
+    const actualizaZona = (zonaUnidad * sueldo) / 100;
+    setZonaImporte(actualizaZona);
   }, [sueldo]);
 
   //CAMPO ATECH
@@ -982,6 +990,8 @@ function App() {
   const handleantiguedad = (event) => {
     setAniosPorcentaje(event.target.value);
 
+    const valorevento = event.target.value; // tomo el valor de la opcion elejida y la mando a un estado
+    setValorEv(valorevento);
     const importeAnios = event.target.value * (sueldo / 100);
     setAnios(importeAnios.toFixed(2));
   };
@@ -1065,31 +1075,7 @@ function App() {
     const ingresosValor = getValue(ev.target.value);
     setOtrosIngresos(ingresosValor);
   };
-  // const handleZona = (ev) => {
-  //   if (ev.target.value === "Norte") {
-  //     const norte = (sueldo / 100) * 60.4;
-  //     setZonaImporte(norte.toFixed(2));
-  //     setZonaUnidad(60.4);
 
-  //     const zonaNorte = (sueldo / 100) * 6.14;
-  //     setZonaPatagonica(zonaNorte.toFixed(2));
-  //     setZonaPatagonicaUnidad(6.14);
-  //   } else if (ev.target.value === "Sur") {
-  //     const sur = (sueldo / 100) * 80;
-  //     setZonaImporte(sur.toFixed(2));
-  //     setZonaUnidad(80);
-
-  //     const zonaSur = (sueldo / 100) * 8.66;
-  //     setZonaPatagonica(zonaSur.toFixed(2));
-  //     setZonaPatagonicaUnidad(8.66);
-  //   } else {
-  //     setZonaImporte(0);
-  //     setZonaUnidad(0);
-
-  //     setZonaPatagonica(0);
-  //     setZonaPatagonicaUnidad(0);
-  //   }
-  // };
   const handleDocente = (ev) => {
     if (ev.target.value === "NM") {
       setDocente("nm");
@@ -1102,12 +1088,9 @@ function App() {
   const hsCatedra = (ev) => {
     if (docente === "nm") {
       const nmimporte = ev.target.value * 0.05 * SUELDO_BASICO;
-      setNmedio(nmimporte);
-
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
     } else {
       const nsimporte = ev.target.value * 0.0588 * SUELDO_BASICO;
-      setNsuperior(nsimporte);
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
     }
   };
@@ -1341,12 +1324,7 @@ function App() {
             />
           </th>
         </tr>
-        <tr>
-          <th></th>
-        </tr>
-        <tr>
-          <th></th>
-        </tr>
+        <tr></tr>
         <tr>
           <th></th>
         </tr>
@@ -1382,59 +1360,48 @@ function App() {
             <td>{zonaUnidad}%</td>
             <td>{formatter.format(zonaImporte)}</td>
           </tr>
+
           <tr>
-            <td>1213</td>
-            <td>Oblig.No Pres.Labor.A</td>
-            <td></td>
-            <td>{formatter.format(oblig)}</td>
-          </tr>
-          <tr className="celda">
             <td>1872</td>
             <td>Recursos Materiales</td>
             <td>15.5%</td>
             <td>{formatter.format(recursosMateriales)}</td>
           </tr>
-          <tr>
+          <tr className="celda">
             <td>1804</td>
             <td>Conyuge</td>
             <td></td>
             <td>{formatter.format(conyuge)}</td>
           </tr>
-          <tr className="celda">
+          <tr>
             <td>1806</td>
             <td>Hijo Incapacitado</td>
             <td></td>
             <td>{formatter.format(hijosIncapacitado)}</td>
           </tr>
-          <tr>
+          <tr className="celda">
             <td>1809</td>
             <td>Hijo Escolarizado</td>
             <td></td>
             <td>{formatter.format(hijos)}</td>
           </tr>
-          <tr className="celda">
+          <tr>
             <td>1814</td>
             <td>Hijo Escolarizado Incap</td>
             <td></td>
             <td>{formatter.format(hijosEscoIncapacitado)}</td>
           </tr>
-          <tr>
+          <tr className="celda">
             <td>1822</td>
             <td>Ayuda Escolar Obligatoria</td>
             <td></td>
             <td>{formatter.format(ayudaEsc)}</td>
           </tr>
-          <tr className="celda">
+          <tr>
             <td>1860</td>
             <td>Ubicacion Geografica</td>
             <td></td>
             <td>{formatter.format(ubicacion)}</td>
-          </tr>
-          <tr>
-            <td>1887</td>
-            <td>Devolucion de haberes</td>
-            <td></td>
-            <td>{formatter.format(devolucion)}</td>
           </tr>
           <tr className="celda">
             <td></td>
@@ -1442,17 +1409,23 @@ function App() {
             <td></td>
             <td>{formatter.format(otrosIngresos)}</td>
           </tr>
-          <tr className="celda">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td>{formatter.format(total)}</td>
+          </tr>
+          <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
           </tr>
         </table>
 
@@ -1466,7 +1439,7 @@ function App() {
           <tr className="celda">
             <td>1402</td>
             <td>Jubilacion</td>
-            <td>16.00 %</td>
+            <td>16 %</td>
             <td>{formatter.format(jubilacion)}</td>
           </tr>
           <tr>
@@ -1518,10 +1491,22 @@ function App() {
             <td>{formatter.format(serosCoseguro)}</td>
           </tr>
           <tr>
+            <td>1213</td>
+            <td>Oblig.No Pres.Labor.A</td>
+            <td></td>
+            <td>{formatter.format(oblig)}</td>
+          </tr>
+          <tr className="celda">
             <td>1588</td>
             <td>Banco Chubut</td>
             <td></td>
             <td>{formatter.format(bancoChubut)}</td>
+          </tr>
+          <tr>
+            <td>1887</td>
+            <td>Devolucion de haberes</td>
+            <td></td>
+            <td>{formatter.format(devolucion)}</td>
           </tr>
           <tr className="celda">
             <td></td>

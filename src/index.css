@@ -4,9 +4,10 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(220, 220, 220, 0.87);
+  color: rgb(255, 255, 255);
 
-  background: linear-gradient(45deg, #2a2c4a, #2c6a6c);
+  /* background: linear-gradient(45deg, #2a2c4a, #2c6a6c); */
+  background: rgba(246, 244, 240, 0.909);
 }
 
 a {

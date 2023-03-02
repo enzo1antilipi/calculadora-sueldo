@@ -12,7 +12,6 @@
 .tabla1,
 th,
 td {
-  border: 2px solid rgb(0, 0, 0);
   border-collapse: collapse;
   width: 50%;
   border: none;
@@ -27,16 +26,21 @@ td {
   float: left;
   display: flex;
   text-align: left;
+  background: rgb(255, 255, 255);
+  width: 900px;
+  border-radius: 8px;
 }
 .titulos {
   display: flex;
   color: rgb(0, 0, 0);
 }
 .deducciones {
-  margin-left: 270px;
+  margin-left: 340px;
 }
 .seleccion {
   text-align: justify;
+  background: rgb(198, 152, 100);
+  border-radius: 10px;
 }
 table.seleccion {
   border: none;
@@ -44,14 +48,14 @@ table.seleccion {
   width: 110%;
 }
 select {
-  color: rgb(52, 52, 52);
+  color: rgb(41, 41, 41);
   background-color: rgb(237, 239, 242);
   border-radius: 10px;
-  opacity: 0.2;
+  opacity: 0.8;
   font-weight: 700;
 }
 .celda {
-  background-color: rgb(34, 63, 109);
+  background-color: rgb(215, 215, 215);
 }
 .head {
   margin-top: 0%;
@@ -75,4 +79,14 @@ input.label {
 .neto {
   margin-left: 550px;
   margin-top: 500px;
+}
+h1,
+h2 {
+  color: black;
+}
+.tabla1 {
+  color: rgb(61, 61, 61);
+}
+.tabla2 {
+  color: rgb(61, 61, 61);
 }
