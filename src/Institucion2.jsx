@@ -3,7 +3,7 @@ import { Input, Spacer } from "@nextui-org/react";
 import "./App.css";
 import { useBearStore } from "./store/EstadoGlobal";
 
-function App() {
+function Institucion2() {
   const SUELDO_BASICO = 56063.31;
   const HIJOS_ESCOLARIZADOS = 6588;
   const HIJOS_INCAPACITADO = 26298;
@@ -877,7 +877,7 @@ function App() {
   //DEDUCCIONES
 
   useEffect(() => {
-    const deduccionesImporte =
+    const deduccionesImporte1 =
       parseFloat(jubilacion) +
       parseFloat(serosTitular) +
       parseFloat(serosFamiliar) +
@@ -892,7 +892,7 @@ function App() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDeducciones(deduccionesImporte.toFixed(2));
+    setDeducciones(deduccionesImporte1.toFixed(2));
   }, [
     jubilacion,
     serosTitular,
@@ -918,7 +918,7 @@ function App() {
       parseFloat(hijosEscoIncapacitado) +
       parseFloat(conyuge) +
       parseFloat(ayudaEsc);
-    setAsignacion1(totalAsigFa);
+    setAsignacion3(totalAsigFa);
   }, [hijos, hijosIncapacitado, hijosEscoIncapacitado, conyuge, ayudaEsc]);
 
   //Deducciones para total DESCUENTO LEY: es una estado global sin incluir las cuota de atech
@@ -937,7 +937,7 @@ function App() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDescuentoLey1(deduccionesImporte2);
+    setDescuentoLey3(deduccionesImporte2);
   }, [
     jubilacion,
     serosTitular,
@@ -964,7 +964,7 @@ function App() {
       parseFloat(ubicacion) +
       parseFloat(otrosIngresos);
     setSueldo2(sumaParaAtech.toFixed(2));
-    setNetoInstitucion1(sumaParaAtech.toFixed(2));
+    setNetoInstitucion3(sumaParaAtech);
   }, [
     sueldo,
     zonaImporte,
@@ -998,7 +998,7 @@ function App() {
     const afiliacion = (parseFloat(sueldo2) * 2) / 100;
 
     setAfiliadoAtech(afiliacion.toFixed(2));
-    setRetencion1(afiliacion.toFixed(2));
+    setRetencion3(afiliacion);
   }, [sueldo2]);
 
   const handleFuncionChange = (event) => {
@@ -1147,16 +1147,15 @@ function App() {
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
     }
   };
-  //Con esto mando el estado de tootal paracial a un estado globlal
   const {
-    setNetoInstitucion1,
-    setDescuentoLey1,
-    setRetencion1,
-    setAsignacion1,
+    setNetoInstitucion3,
+    setDescuentoLey3,
+    setRetencion3,
+    setAsignacion3,
   } = useBearStore();
   return (
     <div>
-      <h1 className="head">Calculadora de sueldos 1</h1>
+      <h1 className="head">Calculadora de sueldos 3</h1>
       <table className="seleccion">
         <tr>
           <th>
@@ -1588,4 +1587,4 @@ function App() {
   );
 }
 
-export default App;
+export default Institucion2;

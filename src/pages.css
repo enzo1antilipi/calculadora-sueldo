@@ -1,0 +1,152 @@
+/* button {
+  padding: auto;
+  margin: 2px;
+  color: rgb(239, 239, 240);
+  background: rgb(156, 110, 24);
+  border-radius: 5px;
+  border: 0px;
+}
+.subcontenedor {
+  background: red;
+  position: relative;
+}
+.bloque {
+  background-color: rgb(228, 234, 234);
+  margin: 1em;
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  margin-top: 100px;
+  align-items: center;
+}
+.bloque.activo {
+  opacity: 1;
+}
+
+.botones.ul {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.li {
+  background-color: rgb(137, 211, 211);
+  padding: 1em;
+  margin: 0 1em 0 0;
+  list-style: none;
+}
+button {
+  font-size: medium;
+} */
+body {
+  background: #ffffff;
+}
+
+.container3 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100;
+  height: 990px;
+  background: #ffffff;
+  margin: 10px auto 0;
+  word-break: break-all;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+  margin-top: 0;
+}
+
+.bloc-onglets {
+  display: flex;
+}
+.tabs {
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+  background: rgba(67, 66, 66, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(248, 247, 247, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  color: black;
+}
+.tabs:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.active-tabs {
+  background: rgb(250, 250, 251);
+  border-bottom: 1px solid transparent;
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: rgb(88, 147, 241);
+}
+
+button {
+  border: none;
+}
+.contenu-onglets {
+  flex-grow: 1;
+  width: 900px;
+}
+.contenu {
+  background: rgb(255, 255, 255);
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.contenu h2 {
+  padding: 0px 0 5px 0px;
+}
+.contenu hr {
+  width: 100px;
+  height: 2px;
+  background: #222;
+  margin-bottom: 5px;
+}
+.contenu p {
+  width: 100%;
+  height: 100%;
+}
+.active-contenu {
+  display: block;
+}
+.tablatotal {
+  color: black;
+  padding: 0px;
+  width: 150px;
+  height: 10px;
+  margin-top: 0px;
+}
+.tabla4 {
+  border-collapse: collapse;
+
+  border: black;
+}
+.tabla4,
+.tablatotal {
+  border: 1px solid black;
+}
+.cartel {
+  width: 600px;
+  font-size: small;
+  background-color: rgb(97, 97, 97);
+  margin-top: 80px;
+  margin-bottom: -20px;
+  border-radius: 8px;
+}
+.letras {
+  color: rgb(252, 252, 252);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+/*  rgb(198, 152, 100); */
