@@ -4,9 +4,11 @@ import { useBearStore } from "./store/EstadoGlobal";
 
 function Institucion4() {
   const SUELDO_BASICO = 56063.31;
-  const HIJOS_ESCOLARIZADOS = 6588;
-  const HIJOS_INCAPACITADO = 26298;
-  const COBRO_CONYUGE = 1920;
+  const HIJOS_ESCOLARIZADOS = 13083;
+  const HIJOS_INCAPACITADO = 52227;
+  const COBRO_CONYUGE = 3813;
+  const HC_NIVEL_MEDIO = 0.05;
+  const HC_NIVEL_SUPERIOR = 0.0588;
   const funciones = [
     "Sin datos",
     "Supervisor/a",
@@ -1139,10 +1141,10 @@ function Institucion4() {
   };
   const hsCatedra = (ev) => {
     if (docente === "nm") {
-      const nmimporte = ev.target.value * 0.05 * SUELDO_BASICO;
+      const nmimporte = ev.target.value * HC_NIVEL_MEDIO * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
     } else {
-      const nsimporte = ev.target.value * 0.0588 * SUELDO_BASICO;
+      const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
     }
   };
