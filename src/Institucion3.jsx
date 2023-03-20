@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { Input, Spacer } from "@nextui-org/react";
 import "./App.css";
 import { useBearStore } from "./store/EstadoGlobal";
 
-function Institucion2() {
+function Institucion3() {
   const SUELDO_BASICO = 56063.31;
   const HIJOS_ESCOLARIZADOS = 6588;
   const HIJOS_INCAPACITADO = 26298;
@@ -877,7 +876,7 @@ function Institucion2() {
   //DEDUCCIONES
 
   useEffect(() => {
-    const deduccionesImporte1 =
+    const deduccionesImporte =
       parseFloat(jubilacion) +
       parseFloat(serosTitular) +
       parseFloat(serosFamiliar) +
@@ -892,7 +891,7 @@ function Institucion2() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDeducciones(deduccionesImporte1.toFixed(2));
+    setDeducciones(deduccionesImporte.toFixed(2));
   }, [
     jubilacion,
     serosTitular,
@@ -918,7 +917,7 @@ function Institucion2() {
       parseFloat(hijosEscoIncapacitado) +
       parseFloat(conyuge) +
       parseFloat(ayudaEsc);
-    setAsignacion3(totalAsigFa);
+    setAsignacion4(totalAsigFa);
   }, [hijos, hijosIncapacitado, hijosEscoIncapacitado, conyuge, ayudaEsc]);
 
   //Deducciones para total DESCUENTO LEY: es una estado global sin incluir las cuota de atech
@@ -937,7 +936,7 @@ function Institucion2() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDescuentoLey3(deduccionesImporte2);
+    setDescuentoLey4(deduccionesImporte2);
   }, [
     jubilacion,
     serosTitular,
@@ -964,7 +963,7 @@ function Institucion2() {
       parseFloat(ubicacion) +
       parseFloat(otrosIngresos);
     setSueldo2(sumaParaAtech.toFixed(2));
-    setNetoInstitucion3(sumaParaAtech);
+    setNetoInstitucion4(sumaParaAtech.toFixed(2));
   }, [
     sueldo,
     zonaImporte,
@@ -998,7 +997,7 @@ function Institucion2() {
     const afiliacion = (parseFloat(sueldo2) * 2) / 100;
 
     setAfiliadoAtech(afiliacion.toFixed(2));
-    setRetencion3(afiliacion);
+    setRetencion4(afiliacion.toFixed(2));
   }, [sueldo2]);
 
   const handleFuncionChange = (event) => {
@@ -1147,11 +1146,12 @@ function Institucion2() {
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
     }
   };
+  //Con esto mando el estado de tootal paracial a un estado globlal
   const {
-    setNetoInstitucion3,
-    setDescuentoLey3,
-    setRetencion3,
-    setAsignacion3,
+    setNetoInstitucion4,
+    setDescuentoLey4,
+    setRetencion4,
+    setAsignacion4,
   } = useBearStore();
   return (
     <div>
@@ -1587,4 +1587,4 @@ function Institucion2() {
   );
 }
 
-export default Institucion2;
+export default Institucion3;

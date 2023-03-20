@@ -5,6 +5,8 @@ import Institucion2 from "./Institucion2";
 import { useState } from "react";
 import Institucion1 from "./Institucion1";
 import { useBearStore } from "./store/EstadoGlobal";
+import Institucion3 from "./Institucion3";
+import Institucion4 from "./Institucion4";
 
 export const Pages = () => {
   const [
@@ -38,7 +40,7 @@ export const Pages = () => {
   return (
     <div>
       <div>
-        {/* classname contenedor */}
+        {/* classname="container3" */}
         <div className="bloc-onglets">
           <div
             className={toggleTabs === 1 ? "tabs active-tabs" : "tabs"}
@@ -58,6 +60,18 @@ export const Pages = () => {
           >
             Institución 3
           </div>
+          <div
+            className={toggleTabs === 4 ? "tabs active-tabs" : "tabs"}
+            onClick={() => toggleTab(4)}
+          >
+            Institución 4
+          </div>
+          <div
+            className={toggleTabs === 5 ? "tabs active-tabs" : "tabs"}
+            onClick={() => toggleTab(5)}
+          >
+            Institución 5
+          </div>
         </div>
         {/* CALCULADORAS */}
         <div className="contenu-onglets">
@@ -66,17 +80,25 @@ export const Pages = () => {
           >
             <App />
           </div>
-
           <div
             className={toggleTabs === 2 ? "contenu active-contenu" : "contenu"}
           >
             <Institucion1 />
           </div>
-
           <div
             className={toggleTabs === 3 ? "contenu active-contenu" : "contenu"}
           >
             <Institucion2 />
+          </div>
+          <div
+            className={toggleTabs === 4 ? "contenu active-contenu" : "contenu"}
+          >
+            <Institucion3 />
+          </div>
+          <div
+            className={toggleTabs === 5 ? "contenu active-contenu" : "contenu"}
+          >
+            <Institucion4 />
           </div>
         </div>
         <div>

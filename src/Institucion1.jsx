@@ -1022,6 +1022,11 @@ function Institucion1() {
     const SegTransplante = 50;
     setSerosSeguroTransplante(SegTransplante);
   };
+  // useEffect(() => {
+  //   calculo de antiguedad
+  //   const importeAnios = getAntiguedadImpor() * (sueldo / 100);
+  //   setAnios(importeAnios.toFixed(2));
+  // }, [sueldo]);
 
   const handleZonaChange = (event) => {
     setZonaUnidad(event.target.value);
@@ -1153,9 +1158,14 @@ function Institucion1() {
     setRetencion2,
     setAsignacion2,
   } = useBearStore();
+
+  const [getAntiguedad, getAntiguedadImpor] = useBearStore((state) => [
+    state.getAntiguedad,
+    state.getAntiguedadImpor,
+  ]);
   return (
     <div>
-      <h1 className="head">Calculadora de sueldos 2</h1>
+      <h1 className="head">Calculadora de sueldos </h1>
       <table className="seleccion">
         <tr>
           <th>
@@ -1198,13 +1208,16 @@ function Institucion1() {
         </tr>
         <tr>
           <th>
-            <label>Antigüedad </label>
+            <label>Antigüedad </label>{" "}
+            {/*<option> {getAntiguedad()}</option> */}
             <select onChange={handleantiguedad}>
               {antiguedad.map((antiguedad, index) => (
                 <option key={index} value={antiguedad.valor}>
                   {antiguedad.nombre}
                 </option>
               ))}
+              {/* NOTA: comento esto para que no mapee de nuevo el arreglo y solo muestre el la opcion que trae 
+               del estado gloabal */}
             </select>
           </th>
           <th>

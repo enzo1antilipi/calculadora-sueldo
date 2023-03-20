@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Input, Spacer } from "@nextui-org/react";
 import "./App.css";
 import { useBearStore } from "./store/EstadoGlobal";
 
@@ -1052,12 +1051,18 @@ function App() {
   };
 
   const handleantiguedad = (event) => {
+    var select = document.getElementById("numero");
+
     setAniosPorcentaje(event.target.value);
 
-    const valorevento = event.target.value; // tomo el valor de la opcion elejida y la mando a un estado
+    const valorevento = event.target.value; // tomo el valor de la opcion elejida y la mando a una constante
+    const valorevento1 = select.options[select.selectedIndex].text;
+
     valorEv.current = valorevento;
     const importeAnios = event.target.value * (sueldo / 100);
     setAnios(importeAnios.toFixed(2));
+    setAntiguedad(parseFloat(valorevento1)); //con esto saco el numero elejido por la persona
+    setAntiguedadImporGlob(valorevento); //con esto tomo el valor la opcion elejida por la persona
   };
 
   const handleserosFamiliar = (event) => {
@@ -1153,10 +1158,12 @@ function App() {
     setDescuentoLey1,
     setRetencion1,
     setAsignacion1,
+    setAntiguedad,
+    setAntiguedadImporGlob,
   } = useBearStore();
   return (
     <div>
-      <h1 className="head">Calculadora de sueldos 1</h1>
+      <h1 className="head">Calculadora de sueldos </h1>
       <table className="seleccion">
         <tr>
           <th>
@@ -1200,7 +1207,7 @@ function App() {
         <tr>
           <th>
             <label>Antigüedad </label>
-            <select onChange={handleantiguedad}>
+            <select onChange={handleantiguedad} id="numero">
               {antiguedad.map((antiguedad, index) => (
                 <option key={index} value={antiguedad.valor}>
                   {antiguedad.nombre}
