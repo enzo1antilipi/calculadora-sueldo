@@ -129,8 +129,11 @@ export const Pages = () => {
         </div>
         <div className="cartel">
           <h2 className="letras">
-            La calculadora se encuentra en período de prueba, si encontrás algún
-            error o diferencia por favor comunicate con nosotros.
+            La Calculadora de Haberes es para uso exclusivo de afiliadas/os y
+            permite corroborar si el sueldo se ha liquidado correctamente. Dado
+            que está en fase experimental, te pedimos que si encuentras algún
+            error nos lo hagas saber por correo electrónico a
+            secorganizacion@atech.org.ar
           </h2>
         </div>
       </div>
