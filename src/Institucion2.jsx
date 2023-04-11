@@ -645,7 +645,7 @@ function Institucion2() {
     { nombre: "Sin datos", funcion: "Bedel", valor: 0 }, //luego sacar
     { nombre: "Bedel de Instituto Superior  ", funcion: "Bedel", valor: 1 },
     { nombre: "Sin datos", funcion: "POT", valor: 0 },
-    { nombre: "POT", funcion: "POT", valor: 1.25 }, //cambie el valor de 1.25 a 1.16
+    { nombre: "POT", funcion: "POT", valor: 1.16 }, //cambie el valor de 1.25 a 1.16
     {
       nombre: "Sin datos",
       funcion: "Profesor/a Enseñanza Práctica",
