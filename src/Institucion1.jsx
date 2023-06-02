@@ -4,7 +4,7 @@ import "./App.css";
 import { useBearStore } from "./store/EstadoGlobal";
 
 function Institucion1() {
-  const SUELDO_BASICO = 59056;
+  const SUELDO_BASICO = 64072.69;
   const HIJOS_ESCOLARIZADOS = 13083;
   const HIJOS_INCAPACITADO = 52227;
   const COBRO_CONYUGE = 3813;
