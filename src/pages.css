@@ -1,48 +1,25 @@
-/* button {
-  padding: auto;
-  margin: 2px;
-  color: rgb(239, 239, 240);
-  background: rgb(156, 110, 24);
-  border-radius: 5px;
-  border: 0px;
-}
-.subcontenedor {
-  background: red;
-  position: relative;
-}
-.bloque {
-  background-color: rgb(228, 234, 234);
-  margin: 1em;
-  position: absolute;
-  top: 0;
-  opacity: 1;
-  margin-top: 100px;
-  align-items: center;
-}
-.bloque.activo {
-  opacity: 1;
-}
-
-.botones.ul {
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
-}
-.li {
-  background-color: rgb(137, 211, 211);
-  padding: 1em;
-  margin: 0 1em 0 0;
-  list-style: none;
-}
-button {
-  font-size: medium;
-} */
 body {
   background: #ffffff;
 }
-
+.contenedordeboton {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-top: -25px;
+}
+.botoncalculadora {
+  background: rgb(198, 152, 100);
+  width: 130px;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.botoncalculadora:hover {
+  transform: scale(1.1);
+}
 .container3 {
   display: flex;
   flex-direction: column;
@@ -96,7 +73,7 @@ button {
 }
 .contenu-onglets {
   flex-grow: 1;
-  width: 900px;
+  width: 1000px;
 }
 .contenu {
   background: rgb(255, 255, 255);
@@ -138,7 +115,7 @@ button {
   border: 1px solid black;
 }
 .cartel {
-  width: 900px;
+  width: 1000px;
   font-size: small;
   background-color: rgb(198, 152, 100);
   margin-top: 80px;

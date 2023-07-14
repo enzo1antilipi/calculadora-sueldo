@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import "./App.css";
-import { useBearStore } from "./store/EstadoGlobal";
+import { Input, Spacer } from "@nextui-org/react";
+import "../App";
+import { useBearStore } from "../store/EstadoGlobal";
 
-function Institucion3() {
+function Institucion21() {
   const SUELDO_BASICO = 69078.37;
   const HIJOS_ESCOLARIZADOS = 13083;
   const HIJOS_INCAPACITADO = 52227;
@@ -878,7 +879,7 @@ function Institucion3() {
   //DEDUCCIONES
 
   useEffect(() => {
-    const deduccionesImporte =
+    const deduccionesImporte1 =
       parseFloat(jubilacion) +
       parseFloat(serosTitular) +
       parseFloat(serosFamiliar) +
@@ -893,7 +894,7 @@ function Institucion3() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDeducciones(deduccionesImporte.toFixed(2));
+    setDeducciones(deduccionesImporte1.toFixed(2));
   }, [
     jubilacion,
     serosTitular,
@@ -919,7 +920,7 @@ function Institucion3() {
       parseFloat(hijosEscoIncapacitado) +
       parseFloat(conyuge) +
       parseFloat(ayudaEsc);
-    setAsignacion4(totalAsigFa);
+    setAsignacion2(totalAsigFa);
   }, [hijos, hijosIncapacitado, hijosEscoIncapacitado, conyuge, ayudaEsc]);
 
   //Deducciones para total DESCUENTO LEY: es una estado global sin incluir las cuota de atech
@@ -938,7 +939,7 @@ function Institucion3() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDescuentoLey4(deduccionesImporte2);
+    setDescuentoLey2(deduccionesImporte2);
   }, [
     jubilacion,
     serosTitular,
@@ -965,7 +966,7 @@ function Institucion3() {
       parseFloat(ubicacion) +
       parseFloat(otrosIngresos);
     setSueldo2(sumaParaAtech.toFixed(2));
-    setNetoInstitucion4(sumaParaAtech.toFixed(2));
+    setNetoInstitucion2(sumaParaAtech.toFixed(2));
   }, [
     sueldo,
     zonaImporte,
@@ -999,7 +1000,7 @@ function Institucion3() {
     const afiliacion = (parseFloat(sueldo2) * 2) / 100;
 
     setAfiliadoAtech(afiliacion.toFixed(2));
-    setRetencion4(afiliacion.toFixed(2));
+    setRetencion2(afiliacion);
   }, [sueldo2]);
 
   const handleFuncionChange = (event) => {
@@ -1023,6 +1024,11 @@ function Institucion3() {
     const SegTransplante = 50;
     setSerosSeguroTransplante(SegTransplante);
   };
+  // useEffect(() => {
+  //   calculo de antiguedad
+  //   const importeAnios = getAntiguedadImpor() * (sueldo / 100);
+  //   setAnios(importeAnios.toFixed(2));
+  // }, [sueldo]);
 
   const handleZonaChange = (event) => {
     setZonaUnidad(event.target.value);
@@ -1148,16 +1154,20 @@ function Institucion3() {
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
     }
   };
-  //Con esto mando el estado de tootal paracial a un estado globlal
   const {
-    setNetoInstitucion4,
-    setDescuentoLey4,
-    setRetencion4,
-    setAsignacion4,
+    setNetoInstitucion2,
+    setDescuentoLey2,
+    setRetencion2,
+    setAsignacion2,
   } = useBearStore();
+
+  const [getAntiguedad, getAntiguedadImpor] = useBearStore((state) => [
+    state.getAntiguedad,
+    state.getAntiguedadImpor,
+  ]);
   return (
     <div>
-      <h1 className="head">Calculadora de sueldos (Junio)</h1>
+      <h1 className="head">Calculadora de sueldos(Julio) </h1>
       <table className="seleccion">
         <tr>
           <th>
@@ -1200,13 +1210,16 @@ function Institucion3() {
         </tr>
         <tr>
           <th>
-            <label>Antigüedad </label>
+            <label>Antigüedad </label>{" "}
+            {/*<option> {getAntiguedad()}</option> */}
             <select onChange={handleantiguedad}>
               {antiguedad.map((antiguedad, index) => (
                 <option key={index} value={antiguedad.valor}>
                   {antiguedad.nombre}
                 </option>
               ))}
+              {/* NOTA: comento esto para que no mapee de nuevo el arreglo y solo muestre el la opcion que trae 
+               del estado gloabal */}
             </select>
           </th>
           <th>
@@ -1589,4 +1602,4 @@ function Institucion3() {
   );
 }
 
-export default Institucion3;
+export default Institucion21;

@@ -27,7 +27,7 @@ td {
   display: flex;
   text-align: left;
   background: rgb(255, 255, 255);
-  width: 900px;
+  width: 1000px;
   border-radius: 8px;
 }
 .titulos {
@@ -45,7 +45,7 @@ td {
 table.seleccion {
   border: none;
   border-color: rgb(0, 0, 0);
-  width: 110%;
+  width: 100%;
 }
 select {
   color: rgb(41, 41, 41);

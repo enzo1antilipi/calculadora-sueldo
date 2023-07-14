@@ -1165,7 +1165,7 @@ function App() {
   } = useBearStore();
   return (
     <div>
-      <h1 className="head">Calculadora de sueldos </h1>
+      <h1 className="head">Calculadora de sueldos (Junio)</h1>
       <table className="seleccion">
         <tr>
           <th>

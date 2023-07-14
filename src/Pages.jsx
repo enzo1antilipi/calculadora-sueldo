@@ -1,13 +1,11 @@
 import App from "./App";
 import "./pages.css";
-
 import Institucion2 from "./Institucion2";
 import { useState } from "react";
 import Institucion1 from "./Institucion1";
 import { useBearStore } from "./store/EstadoGlobal";
 import Institucion3 from "./Institucion3";
 import Institucion4 from "./Institucion4";
-
 export const Pages = () => {
   const [
     getnetoglobal,
@@ -36,6 +34,10 @@ export const Pages = () => {
     style: "currency",
     currency: "ARS",
   });
+  // const history = useHistory();
+
+  // const navegarRuta = (calcanterior) => {
+  //   history.push(calcanterior);
 
   return (
     <div>

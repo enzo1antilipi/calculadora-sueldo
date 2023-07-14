@@ -1,0 +1,39 @@
+li {
+  background: rgb(198, 152, 100);
+  color: white;
+  width: 140px;
+  height: 30px;
+  border-radius: 15px;
+  margin-top: -30px;
+  margin-bottom: 20px;
+}
+li.lista1 {
+  margin-left: -40px;
+}
+.letraslink {
+  color: white;
+}
+.letraslink:hover {
+  color: rgb(13, 73, 99);
+}
+.li:hover {
+  transform: scale(1.1);
+}
+li .contenedordeboton {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-top: -25px;
+}
+.botoncalculadora {
+  width: 130px;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.botoncalculadora:hover {
+  transform: scale(1.1);
+}
