@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Input, Spacer } from "@nextui-org/react";
 import "../App";
-import { useBearStore } from "../store/EstadoGlobal";
+import { useBearStore } from "../store/EstGloSig";
 
 function Institucion21() {
-  const SUELDO_BASICO = 69078.37;
+  const SUELDO_BASICO = 74083.96;
   const HIJOS_ESCOLARIZADOS = 13083;
   const HIJOS_INCAPACITADO = 52227;
   const COBRO_CONYUGE = 3813;
@@ -710,8 +710,8 @@ function Institucion21() {
 
   const zonas = [
     { nombre: "Sin datos", valor: 0 },
-    { nombre: "Norte", valor: 60.4 },
-    { nombre: "Sur", valor: 80 },
+    { nombre: "Norte", valor: 70.4 },
+    { nombre: "Sur", valor: 90 },
   ];
   const hijosnum = [0, 1, 2, 3, 4, 5, 6, 7];
   const hijosIncap = [0, 1, 2, 3];
@@ -734,35 +734,35 @@ function Institucion21() {
     { nombre: "9", valor: 50 },
     { nombre: "10", valor: 60 },
     { nombre: "11", valor: 60 },
-    { nombre: "12", valor: 65 },
-    { nombre: "13", valor: 65 },
-    { nombre: "14", valor: 65 },
-    { nombre: "15", valor: 75 },
-    { nombre: "16", valor: 75 },
+    { nombre: "12", valor: 75 },
+    { nombre: "13", valor: 75 },
+    { nombre: "14", valor: 75 },
+    { nombre: "15", valor: 85 },
+    { nombre: "16", valor: 85 },
     { nombre: "17", valor: 85 },
-    { nombre: "18", valor: 75 },
-    { nombre: "19", valor: 85 },
-    { nombre: "20", valor: 105 },
-    { nombre: "21", valor: 105 },
-    { nombre: "22", valor: 115 },
-    { nombre: "23", valor: 115 },
-    { nombre: "24", valor: 125 },
-    { nombre: "25", valor: 125 },
-    { nombre: "26", valor: 125 },
-    { nombre: "27", valor: 125 },
-    { nombre: "28", valor: 125 },
-    { nombre: "29", valor: 125 },
-    { nombre: "30", valor: 125 },
-    { nombre: "31", valor: 125 },
-    { nombre: "32", valor: 125 },
-    { nombre: "33", valor: 125 },
-    { nombre: "34", valor: 125 },
-    { nombre: "35", valor: 125 },
-    { nombre: "36", valor: 125 },
-    { nombre: "37", valor: 125 },
-    { nombre: "38", valor: 125 },
-    { nombre: "39", valor: 125 },
-    { nombre: "40", valor: 125 },
+    { nombre: "18", valor: 85 },
+    { nombre: "19", valor: 95 },
+    { nombre: "20", valor: 115 },
+    { nombre: "21", valor: 115 },
+    { nombre: "22", valor: 125 },
+    { nombre: "23", valor: 125 },
+    { nombre: "24", valor: 135 },
+    { nombre: "25", valor: 135 },
+    { nombre: "26", valor: 135 },
+    { nombre: "27", valor: 135 },
+    { nombre: "28", valor: 135 },
+    { nombre: "29", valor: 135 },
+    { nombre: "30", valor: 135 },
+    { nombre: "31", valor: 135 },
+    { nombre: "32", valor: 135 },
+    { nombre: "33", valor: 135 },
+    { nombre: "34", valor: 135 },
+    { nombre: "35", valor: 135 },
+    { nombre: "36", valor: 135 },
+    { nombre: "37", valor: 135 },
+    { nombre: "38", valor: 135 },
+    { nombre: "39", valor: 135 },
+    { nombre: "40", valor: 135 },
   ];
 
   const [cargosFiltradosPorFuncion, setCargosFiltradosPorFuncion] = useState(

@@ -4,7 +4,7 @@ import Institucion02 from "./Institucion02";
 import Institucion03 from "./Institucion03";
 import Institucion04 from "./Institucion04";
 import Institucion05 from "./Institucion05";
-import { useBearStore } from "../store/EstadoGlobal";
+import { useBearStore } from "../store/EstGloAnterior";
 
 export default function calculadora() {
   const [

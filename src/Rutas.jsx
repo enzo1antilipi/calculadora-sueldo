@@ -13,7 +13,7 @@ export const Rutas = () => {
       <BrowserRouter>
         <ul style={{ display: "flex", justifyContent: "space-between" }}>
           <li className="lista1">
-            <Link to="/" className="letraslink">
+            <Link to="/mesante" className="letraslink">
               <FaArrowLeft
                 style={{
                   marginRight: "5px",
@@ -23,8 +23,8 @@ export const Rutas = () => {
             </Link>
           </li>
           <li className="lista2">
-            <Link to="/mesante" className="letraslink">
-              Acutal
+            <Link to="/" className="letraslink">
+              Actual
             </Link>
           </li>
           <li className="lista3">
@@ -40,8 +40,8 @@ export const Rutas = () => {
         </ul>
 
         <Routes>
-          <Route path="/" element={<MesAnte />} />
-          <Route path="/mesante" element={<Pages />} />
+          <Route path="/mesante" element={<MesAnte />} />
+          <Route path="/" element={<Pages />} />
           <Route path="/mesSigui" element={<MesSig />} />
         </Routes>
       </BrowserRouter>

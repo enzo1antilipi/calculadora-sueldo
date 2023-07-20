@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Input, Spacer } from "@nextui-org/react";
 import "../App";
-import { useBearStore } from "../store/EstadoGlobal";
+import { useBearStore } from "../store/EstGloAnterior";
 
 function Institucion01() {
-  const SUELDO_BASICO = 69078.37;
+  const SUELDO_BASICO = 64072.69;
   const HIJOS_ESCOLARIZADOS = 13083;
   const HIJOS_INCAPACITADO = 52227;
   const COBRO_CONYUGE = 3813;
