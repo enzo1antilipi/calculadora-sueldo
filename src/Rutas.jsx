@@ -18,7 +18,7 @@ export const Rutas = () => {
                 style={{
                   marginRight: "5px",
                 }}
-              />{" "}
+              />
               Mayo
             </Link>
           </li>
@@ -40,9 +40,9 @@ export const Rutas = () => {
         </ul>
 
         <Routes>
+          <Route path="/" element={<MesSig />} />
           <Route path="/mesante" element={<MesAnte />} />
           <Route path="/actual" element={<Pages />} />
-          <Route path="/" element={<MesSig />} />
         </Routes>
       </BrowserRouter>
     </div>
