@@ -984,7 +984,7 @@ function Institucion21() {
 
   //RECURSOS MATERIALES
   useEffect(() => {
-    const recursos = (parseFloat(sueldo) * 15.5) / 100;
+    const recursos = (parseFloat(sueldo) * 17) / 100;
     setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;

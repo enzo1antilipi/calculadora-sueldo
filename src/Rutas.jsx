@@ -19,17 +19,17 @@ export const Rutas = () => {
                   marginRight: "5px",
                 }}
               />{" "}
-              Mes pasado
+              Mayo
             </Link>
           </li>
           <li className="lista2">
-            <Link to="/" className="letraslink">
-              Actual
+            <Link to="/actual" className="letraslink">
+              Junio
             </Link>
           </li>
           <li className="lista3">
-            <Link to="/mesSigui" className="letraslink">
-              Mes siguiente{" "}
+            <Link to="/" className="letraslink">
+              Julio
               <FaArrowRight
                 style={{
                   marginLeft: "5px",
@@ -41,8 +41,8 @@ export const Rutas = () => {
 
         <Routes>
           <Route path="/mesante" element={<MesAnte />} />
-          <Route path="/" element={<Pages />} />
-          <Route path="/mesSigui" element={<MesSig />} />
+          <Route path="/actual" element={<Pages />} />
+          <Route path="/" element={<MesSig />} />
         </Routes>
       </BrowserRouter>
     </div>
