@@ -10,8 +10,8 @@ import { FaArrowRight } from "react-icons/fa";
 export const Rutas = () => {
   return (
     <div>
-      <BrowserRouter>
-        <ul style={{ display: "flex", justifyContent: "space-between" }}>
+      {/*<BrowserRouter>
+         <ul style={{ display: "flex", justifyContent: "space-between" }}>
           <li className="lista1">
             <Link to="/mesante" className="letraslink">
               <FaArrowLeft
@@ -26,8 +26,8 @@ export const Rutas = () => {
             <Link to="/actual" className="letraslink">
               Junio
             </Link>
-          </li>
-          <li className="lista3">
+          </li> */}
+      {/* <li className="lista3">
             <Link to="/" className="letraslink">
               Julio
               <FaArrowRight
@@ -37,14 +37,14 @@ export const Rutas = () => {
               />
             </Link>
           </li>
-        </ul>
+        </ul> */}
 
-        <Routes>
+      {/* <Routes>
           <Route path="/" element={<MesSig />} />
-          <Route path="/mesante" element={<MesAnte />} />
-          <Route path="/actual" element={<Pages />} />
-        </Routes>
-      </BrowserRouter>
+          {/* <Route path="/mesante" element={<MesAnte />} />
+          <Route path="/actual" element={<Pages />} /> */}
+      {/* </Routes>
+      </BrowserRouter> */}
     </div>
   );
 };

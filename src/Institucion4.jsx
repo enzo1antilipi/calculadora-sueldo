@@ -3,7 +3,7 @@ import "./App.css";
 import { useBearStore } from "./store/EstadoGlobal";
 
 function Institucion4() {
-  const SUELDO_BASICO = 69078.37;
+  const SUELDO_BASICO = 79269.83;
   const HIJOS_ESCOLARIZADOS = 13083;
   const HIJOS_INCAPACITADO = 52227;
   const COBRO_CONYUGE = 3813;
@@ -1157,7 +1157,7 @@ function Institucion4() {
   } = useBearStore();
   return (
     <div>
-      <h1 className="head">Calculadora de sueldos (Junio)</h1>
+      <h1 className="head">Calculadora de sueldos </h1>
       <table className="seleccion">
         <tr>
           <th>
