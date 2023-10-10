@@ -1433,7 +1433,7 @@ function Institucion1() {
           <tr>
             <td>1872</td>
             <td>Recursos Materiales</td>
-            <td>15.5%</td>
+            <td>17.5%</td>
             <td>{formatter.format(recursosMateriales)}</td>
           </tr>
           <tr className="celda">
