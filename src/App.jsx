@@ -709,8 +709,8 @@ function App() {
 
   const zonas = [
     { nombre: "Sin datos", valor: 0 },
-    { nombre: "Norte", valor: 60.4 },
-    { nombre: "Sur", valor: 80 },
+    { nombre: "Norte", valor: 70.4 },
+    { nombre: "Sur", valor: 90 },
   ];
   const hijosnum = [0, 1, 2, 3, 4, 5, 6, 7];
   const hijosIncap = [0, 1, 2, 3];
@@ -984,7 +984,7 @@ function App() {
 
   //RECURSOS MATERIALES
   useEffect(() => {
-    const recursos = (parseFloat(sueldo) * 15.5) / 100;
+    const recursos = (parseFloat(sueldo) * 17.5) / 100;
     setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;
