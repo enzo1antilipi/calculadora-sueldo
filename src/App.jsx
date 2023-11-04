@@ -3,7 +3,7 @@ import "./App.css";
 import { useBearStore } from "./store/EstadoGlobal";
 
 function App() {
-  const SUELDO_BASICO = 84455.81; // incremento del basico 7%
+  const SUELDO_BASICO = 89641.69; // incremento del basico 7%
   const HIJOS_ESCOLARIZADOS = 13083;
   const HIJOS_INCAPACITADO = 52227;
   const COBRO_CONYUGE = 3813;
