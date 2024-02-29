@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { useBearStore } from "./store/EstadoGlobal";
+import "animate.css";
 
 function App() {
   const SUELDO_BASICO = 115931.15; // incremento del basico 7%
@@ -1164,8 +1165,9 @@ function App() {
     setAntiguedadImporGlob,
   } = useBearStore();
   return (
-    <div>
+    <div className="animate__animated animate__pulse">
       <h1 className="head">Calculadora de sueldos </h1>
+      <h2 className="subtituloMes">Enero 2024</h2>
       <table className="seleccion">
         <tr>
           <th>

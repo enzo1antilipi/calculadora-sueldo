@@ -10,9 +10,9 @@ import { FaArrowRight } from "react-icons/fa";
 export const Rutas = () => {
   return (
     <div>
-      {/*<BrowserRouter>
-         <ul style={{ display: "flex", justifyContent: "space-between" }}>
-          <li className="lista1">
+      <BrowserRouter>
+        <ul style={{ display: "flex", justifyContent: "space-between" }}>
+          {/* <li className="lista1">
             <Link to="/mesante" className="letraslink">
               <FaArrowLeft
                 style={{
@@ -21,15 +21,15 @@ export const Rutas = () => {
               />
               Mayo
             </Link>
-          </li>
-          <li className="lista2">
-            <Link to="/actual" className="letraslink">
-              Junio
-            </Link>
           </li> */}
-      {/* <li className="lista3">
+          <li className="lista2">
             <Link to="/" className="letraslink">
-              Julio
+              Actual
+            </Link>
+          </li>
+          <li className="lista3">
+            <Link to="/MesSiguiente" className="letraslink">
+              Siguiente
               <FaArrowRight
                 style={{
                   marginLeft: "5px",
@@ -37,14 +37,14 @@ export const Rutas = () => {
               />
             </Link>
           </li>
-        </ul> */}
+        </ul>
 
-      {/* <Routes>
-          <Route path="/" element={<MesSig />} />
-          {/* <Route path="/mesante" element={<MesAnte />} />
-          <Route path="/actual" element={<Pages />} /> */}
-      {/* </Routes>
-      </BrowserRouter> */}
+        <Routes>
+          <Route path="/" element={<Pages />} />
+          <Route path="/MesSiguiente" element={<MesSig />} />
+          <Route path="/actual" element={<Pages />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };

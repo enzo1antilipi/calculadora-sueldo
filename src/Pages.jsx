@@ -6,6 +6,8 @@ import Institucion1 from "./Institucion1";
 import { useBearStore } from "./store/EstadoGlobal";
 import Institucion3 from "./Institucion3";
 import Institucion4 from "./Institucion4";
+import { Rutas } from "./Rutas";
+
 export const Pages = () => {
   const [
     getnetoglobal,
@@ -40,7 +42,8 @@ export const Pages = () => {
   //   history.push(calcanterior);
 
   return (
-    <div>
+    <div className="animate__animated animate__pulse">
+      {" "}
       <div>
         {/* classname="container3" */}
         <div className="bloc-onglets">

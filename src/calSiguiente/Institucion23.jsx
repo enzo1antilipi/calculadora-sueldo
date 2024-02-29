@@ -4,7 +4,7 @@ import "../App";
 import { useBearStore } from "../store/EstGloSig";
 
 function Institucion21() {
-  const SUELDO_BASICO = 74083.96;
+  const SUELDO_BASICO = 139117.38;
   const HIJOS_ESCOLARIZADOS = 13083;
   const HIJOS_INCAPACITADO = 52227;
   const COBRO_CONYUGE = 3813;
@@ -1166,7 +1166,11 @@ function Institucion21() {
   ]);
   return (
     <div>
-      <h1 className="head">Calculadora de sueldos(Julio) </h1>
+      <h1 className="head">Calculadora de sueldos </h1>
+      <h2 className="subtituloMes">
+        Febrero 2024 (sin incluir el adicional por ley de profesionalidad
+        docente)
+      </h2>
       <table className="seleccion">
         <tr>
           <th>

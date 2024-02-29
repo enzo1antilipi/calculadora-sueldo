@@ -7,6 +7,7 @@ import { Pages } from "./Pages";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Pages />
+    <Rutas />
   </React.StrictMode>
 );
+//Rutas es el componente donde hago la conexion de las demas rutas
