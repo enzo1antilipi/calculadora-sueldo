@@ -32,7 +32,7 @@ export default function calculadora() {
     currency: "ARS",
   });
   return (
-    <div div className="animate__animated animate__bounceInRight">
+    <div div className="animate__animated animate__pulse">
       <div className="bloc-onglets">
         <div
           className={toggleTabs === 1 ? "tabs active-tabs" : "tabs"}

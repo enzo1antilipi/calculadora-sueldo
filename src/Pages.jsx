@@ -42,7 +42,7 @@ export const Pages = () => {
   //   history.push(calcanterior);
 
   return (
-    <div className="animate__animated animate__pulse">
+    <div className="animate__animated animate__backInLeft">
       {" "}
       <div>
         {/* classname="container3" */}

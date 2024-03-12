@@ -12,36 +12,36 @@ export const Rutas = () => {
     <div>
       <BrowserRouter>
         <ul style={{ display: "flex", justifyContent: "space-between" }}>
-          {/* <li className="lista1">
+          <li className="lista1">
             <Link to="/mesante" className="letraslink">
               <FaArrowLeft
                 style={{
                   marginRight: "5px",
                 }}
               />
-              Mayo
+              Anterior
             </Link>
-          </li> */}
+          </li>
           <li className="lista2">
             <Link to="/" className="letraslink">
               Actual
             </Link>
           </li>
-          <li className="lista3">
-            <Link to="/MesSiguiente" className="letraslink">
+          {/* <li className="lista3">
+            {/* <Link to="/MesSiguiente" className="letraslink">
               Siguiente
               <FaArrowRight
                 style={{
                   marginLeft: "5px",
                 }}
               />
-            </Link>
-          </li>
+            </Link> 
+          </li> */}
         </ul>
 
         <Routes>
-          <Route path="/" element={<Pages />} />
-          <Route path="/MesSiguiente" element={<MesSig />} />
+          <Route path="/mesante" element={<Pages />} />
+          <Route path="/" element={<MesSig />} />
           <Route path="/actual" element={<Pages />} />
         </Routes>
       </BrowserRouter>

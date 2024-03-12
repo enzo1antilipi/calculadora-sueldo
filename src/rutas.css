@@ -8,7 +8,7 @@ li {
   margin-bottom: 20px;
 }
 li.lista1 {
-  margin-left: -100px;
+  margin-left: -5%;
 }
 .letraslink {
   color: white;
@@ -38,5 +38,5 @@ li .contenedordeboton {
   transform: scale(1.1);
 }
 .lista2 {
-  margin-left: 40%;
+  margin-right: 44%;
 }

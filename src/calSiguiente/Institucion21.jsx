@@ -5,9 +5,9 @@ import { useBearStore } from "../store/EstGloSig";
 
 function Institucion21() {
   const SUELDO_BASICO = 139117.38;
-  const HIJOS_ESCOLARIZADOS = 13083;
-  const HIJOS_INCAPACITADO = 52227;
-  const COBRO_CONYUGE = 3813;
+  const HIJOS_ESCOLARIZADOS = 42099;
+  const HIJOS_INCAPACITADO = 168057;
+  const COBRO_CONYUGE = 12270;
   const HC_NIVEL_MEDIO = 0.05;
   const HC_NIVEL_SUPERIOR = 0.0588;
   const funciones = [
