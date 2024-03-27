@@ -1168,7 +1168,7 @@ function Institucion1() {
   return (
     <div>
       <h1 className="head">Calculadora de sueldos </h1>
-      <h2 className="subtituloMes">Enero 2024</h2>
+      <h2 className="subtituloMes">Febrero 2024</h2>
       <table className="seleccion">
         <tr>
           <th>

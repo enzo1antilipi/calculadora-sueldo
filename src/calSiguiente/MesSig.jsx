@@ -23,7 +23,6 @@ export default function calculadora() {
     state.getNetoPagar,
   ]);
   const [toggleTabs, setToggleTabs] = useState(1);
-
   const toggleTab = (index) => {
     setToggleTabs(index);
   };
@@ -101,7 +100,7 @@ export default function calculadora() {
             <th className="tablatotal">NETO BRUTO</th>
             <th className="tablatotal">RETENC VOLUNTARIA</th>
             <th className="tablatotal">ASIGNACION FAMILIAR</th>
-            <th className="tablatotal">NETO A PAGAR</th>
+            <th className="tablatotal">NETO A PAGAR </th>
           </tr>
           <tr>
             <td className="tablatotal">{formatter.format(getnetoglobal())}</td>

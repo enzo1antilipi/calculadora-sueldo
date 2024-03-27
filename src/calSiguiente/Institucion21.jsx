@@ -4,7 +4,8 @@ import "../App";
 import { useBearStore } from "../store/EstGloSig";
 
 function Institucion21() {
-  const SUELDO_BASICO = 139117.38;
+  const SUELDO_BASICO = 157202.64;
+  const SUELDO_BASICO_PD = 180783.03;
   const HIJOS_ESCOLARIZADOS = 42099;
   const HIJOS_INCAPACITADO = 168057;
   const COBRO_CONYUGE = 12270;
@@ -769,6 +770,7 @@ function Institucion21() {
     []
   );
   const [sueldo, setSueldo] = useState(0);
+  console.log(sueldo, "soy el state sueldo");
   const [zonaUnidad, setZonaUnidad] = useState(0);
   const [zonaImporte, setZonaImporte] = useState(0);
 
@@ -810,6 +812,7 @@ function Institucion21() {
   const [sueldo1, setSueldo1] = useState(0);
 
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
+  const [valorDeBasico, setValorDeBasico] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
 
   const valorEv = useRef(0);
 
@@ -827,6 +830,15 @@ function Institucion21() {
     currency: "ARS",
   });
 
+  //ACA ASIGANAMOS EL VALOR DEL SUELDO-BASICO
+  const handlePD = (event) => {
+    if (event.target.value === "SI") {
+      setValorDeBasico(180783.03);
+    } else {
+      setValorDeBasico(157202.64);
+    }
+  };
+  //hice un tercer estado para usarlo como constante donde voy  a sacar el valor del sueldo basico ValorDeBasico
   //TOTAL PARCIAL
 
   useEffect(() => {
@@ -1011,7 +1023,8 @@ function Institucion21() {
   };
 
   const handleCargoChange = (event) => {
-    const cargoImporte = SUELDO_BASICO * event.target.value;
+    const cargoImporte = valorDeBasico * event.target.value;
+    console.log(cargoImporte);
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
 
@@ -1147,10 +1160,10 @@ function Institucion21() {
   };
   const hsCatedra = (ev) => {
     if (docente === "nm") {
-      const nmimporte = ev.target.value * HC_NIVEL_MEDIO * SUELDO_BASICO;
+      const nmimporte = ev.target.value * HC_NIVEL_MEDIO * valorDeBasico; //se cambio por SUELDO_BASICO
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
     } else {
-      const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
+      const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * valorDeBasico;
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
     }
   };
@@ -1167,12 +1180,16 @@ function Institucion21() {
   ]);
   return (
     <div div className="animate__animated animate__bounceInRight">
-      <h1 className="head">Calculadora de sueldos </h1>
-      <h2 className="subtituloMes">
-        Febrero 2024 (sin incluir el adicional por ley de profesionalidad
-        docente)
-      </h2>
+      <h1 className="head">Calculadora de sueldos</h1>
+      <h2 className="subtituloMes">Marzo 2024</h2>
       <table className="seleccion">
+        <th>
+          <label>Con presentismo?</label>
+          <select onChange={handlePD}>
+            <option value="NO">NO</option>
+            <option>SI</option>
+          </select>
+        </th>
         <tr>
           <th>
             <label>Función</label>

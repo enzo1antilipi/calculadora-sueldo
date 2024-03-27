@@ -101,13 +101,14 @@ button {
 .tablatotal {
   color: black;
   padding: 0px;
-  width: 150px;
+  width: 140px;
   height: 10px;
   margin-top: 0px;
 }
 .tabla4 {
   border-collapse: collapse;
   border: black;
+  width: 100%;
 }
 .tabla4,
 .tablatotal {
