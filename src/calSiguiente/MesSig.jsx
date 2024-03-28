@@ -123,6 +123,9 @@ export default function calculadora() {
           secorganizacion@atech.org.ar
         </h2>
       </div>
+      <div className="cartel" style={{ marginTop: "40px", width: "50%" }}>
+        <h2 className="letras">*Ley de Profesionalidad Docente</h2>
+      </div>
     </div>
   );
 }

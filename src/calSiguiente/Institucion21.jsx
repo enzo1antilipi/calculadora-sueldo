@@ -812,8 +812,8 @@ function Institucion21() {
   const [sueldo1, setSueldo1] = useState(0);
 
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
-  const [valorDeBasico, setValorDeBasico] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
-
+  const [valorDeBasico, setValorDeBasico] = useState(157202.64); //esto va  a contener el bruto sin las asignaciones familiares
+  //Le asignamos como valor primario el basico sin ley PD. Si el usario selcciona presentismo el valor del basico cambia
   const valorEv = useRef(0);
 
   const getValue = (value) => {
@@ -1184,7 +1184,7 @@ function Institucion21() {
       <h2 className="subtituloMes">Marzo 2024</h2>
       <table className="seleccion">
         <th>
-          <label>Con presentismo?</label>
+          <label className="presentismo">Con presentismo? (Ley PD*) </label>
           <select onChange={handlePD}>
             <option value="NO">NO</option>
             <option>SI</option>

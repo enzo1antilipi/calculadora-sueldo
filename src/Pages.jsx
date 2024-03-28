@@ -140,7 +140,8 @@ export const Pages = () => {
             que está en fase experimental, te pedimos que si encuentras algún
             error nos lo hagas saber por correo electrónico a
             secorganizacion@atech.org.ar
-          </h2>
+          </h2>{" "}
+          <h2 className="letras">*Ley de Profesionalidad Docente</h2>
         </div>
       </div>
     </div>
