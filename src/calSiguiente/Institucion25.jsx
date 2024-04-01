@@ -811,7 +811,8 @@ function Institucion21() {
   const [sueldo1, setSueldo1] = useState(0);
 
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
-
+  const [valorDeBasico, setValorDeBasico] = useState(157202.64); //esto va  a contener el bruto sin las asignaciones familiares
+  //Le asignamos como valor primario el basico sin ley PD. Si el usario selcciona presentismo el valor del basico cambia
   const valorEv = useRef(0);
 
   const getValue = (value) => {
@@ -827,6 +828,15 @@ function Institucion21() {
     style: "currency",
     currency: "ARS",
   });
+  //ACA ASIGANAMOS EL VALOR DEL SUELDO-BASICO
+  const handlePD = (event) => {
+    if (event.target.value === "SI") {
+      setValorDeBasico(180783.03);
+    } else {
+      setValorDeBasico(157202.64);
+    }
+  };
+  //hice un tercer estado para usarlo como constante donde voy  a sacar el valor del sueldo basico ValorDeBasico
 
   //TOTAL PARCIAL
 
@@ -1012,7 +1022,7 @@ function Institucion21() {
   };
 
   const handleCargoChange = (event) => {
-    const cargoImporte = SUELDO_BASICO * event.target.value;
+    const cargoImporte = valorDeBasico * event.target.value;
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
 
@@ -1148,10 +1158,10 @@ function Institucion21() {
   };
   const hsCatedra = (ev) => {
     if (docente === "nm") {
-      const nmimporte = ev.target.value * HC_NIVEL_MEDIO * SUELDO_BASICO;
+      const nmimporte = ev.target.value * HC_NIVEL_MEDIO * valorDeBasico;
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
     } else {
-      const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
+      const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * valorDeBasico;
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
     }
   };
@@ -1171,6 +1181,13 @@ function Institucion21() {
       <h1 className="head">Calculadora de sueldos </h1>
       <h2 className="subtituloMes">Marzo 2024</h2>
       <table className="seleccion">
+        <th>
+          <label className="presentismo">Con presentismo? (Ley PD*) </label>
+          <select onChange={handlePD}>
+            <option value="NO">NO</option>
+            <option>SI</option>
+          </select>
+        </th>
         <tr>
           <th>
             <label>Función</label>
