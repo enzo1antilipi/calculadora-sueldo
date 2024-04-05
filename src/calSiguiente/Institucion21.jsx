@@ -5,7 +5,6 @@ import { useBearStore } from "../store/EstGloSig";
 
 function Institucion21() {
   const SUELDO_BASICO = 157202.64;
-  const SUELDO_BASICO_PD = 180783.03;
   const HIJOS_ESCOLARIZADOS = 42099;
   const HIJOS_INCAPACITADO = 168057;
   const COBRO_CONYUGE = 12270;
@@ -770,7 +769,7 @@ function Institucion21() {
     []
   );
   const [sueldo, setSueldo] = useState(0);
-  console.log(sueldo, "soy el state sueldo");
+  // console.log(sueldo, "soy el state sueldo");
   const [zonaUnidad, setZonaUnidad] = useState(0);
   const [zonaImporte, setZonaImporte] = useState(0);
 
@@ -812,8 +811,7 @@ function Institucion21() {
   const [sueldo1, setSueldo1] = useState(0);
 
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
-  const [valorDeBasico, setValorDeBasico] = useState(157202.64); //esto va  a contener el bruto sin las asignaciones familiares
-  //Le asignamos como valor primario el basico sin ley PD. Si el usario selcciona presentismo el valor del basico cambia
+  const [PorcentajPd, setPorcentajePd] = useState(0); //contiene el 15% del basico si es que tiene PD
   const valorEv = useRef(0);
 
   const getValue = (value) => {
@@ -830,20 +828,29 @@ function Institucion21() {
     currency: "ARS",
   });
 
-  //ACA ASIGANAMOS EL VALOR DEL SUELDO-BASICO
-  const handlePD = (event) => {
-    if (event.target.value === "SI") {
-      setValorDeBasico(180783.03);
+  const [showCalculations, setShowCalculations] = useState(false);
+
+  useEffect(() => {
+    if (showCalculations) {
+      const resultadopd = sueldo * 0.15;
+      setPorcentajePd(resultadopd);
+      // Aquí puedes realizar los cálculos basados en el estado de sueldo
     } else {
-      setValorDeBasico(157202.64);
+      setPorcentajePd(0);
     }
+  }, [showCalculations, sueldo]);
+  const handleToggleCalculations = () => {
+    setShowCalculations(!showCalculations);
   };
-  //hice un tercer estado para usarlo como constante donde voy  a sacar el valor del sueldo basico ValorDeBasico
+
+  //ANOTAR COMO FUNCIONA LA FUNCION PARA DEJARLO DOCUMENTADO DEPENDE DEL ESTADO DE SHOWCACLCULATIONS
+
   //TOTAL PARCIAL
 
   useEffect(() => {
     const totalparcial =
       parseFloat(sueldo) +
+      parseFloat(PorcentajPd) +
       parseFloat(zonaImporte) +
       parseFloat(recursosMateriales) +
       parseFloat(anios) +
@@ -858,6 +865,7 @@ function Institucion21() {
     setTotal(totalparcial.toFixed(2));
   }, [
     sueldo,
+    PorcentajPd,
     zonaImporte,
     recursosMateriales,
     anios,
@@ -968,10 +976,11 @@ function Institucion21() {
     descuento,
   ]);
 
-  //SALARIO BRUTO SIN LAS ASIGNACIONES FAMILIARES PARA CALCULO DE ATECH
+  //SALARIO BRUTO SIN LAS ASIGNACIONES FAMILIARES PARA CALCULO DE ATECH (TOTAL HABERES)
   useEffect(() => {
     const sumaParaAtech =
       parseFloat(sueldo) +
+      parseFloat(PorcentajPd) +
       parseFloat(zonaImporte) +
       parseFloat(recursosMateriales) +
       parseFloat(anios) +
@@ -981,6 +990,7 @@ function Institucion21() {
     setNetoInstitucion2(sumaParaAtech.toFixed(2));
   }, [
     sueldo,
+    PorcentajPd,
     zonaImporte,
     recursosMateriales,
     anios,
@@ -1023,7 +1033,7 @@ function Institucion21() {
   };
 
   const handleCargoChange = (event) => {
-    const cargoImporte = valorDeBasico * event.target.value;
+    const cargoImporte = SUELDO_BASICO * event.target.value;
     console.log(cargoImporte);
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
@@ -1160,10 +1170,10 @@ function Institucion21() {
   };
   const hsCatedra = (ev) => {
     if (docente === "nm") {
-      const nmimporte = ev.target.value * HC_NIVEL_MEDIO * valorDeBasico; //se cambio por SUELDO_BASICO
+      const nmimporte = ev.target.value * HC_NIVEL_MEDIO * SUELDO_BASICO; //se cambio por SUELDO_BASICO
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
     } else {
-      const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * valorDeBasico;
+      const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
     }
   };
@@ -1185,7 +1195,7 @@ function Institucion21() {
       <table className="seleccion">
         <th>
           <label className="presentismo">Con presentismo? (Ley PD*) </label>
-          <select onChange={handlePD}>
+          <select onChange={handleToggleCalculations}>
             <option value="NO">NO</option>
             <option>SI</option>
           </select>
@@ -1450,7 +1460,6 @@ function Institucion21() {
             <td>{zonaUnidad}%</td>
             <td>{formatter.format(zonaImporte)}</td>
           </tr>
-
           <tr>
             <td>1872</td>
             <td>Recursos Materiales</td>
@@ -1462,7 +1471,7 @@ function Institucion21() {
             <td>Conyuge</td>
             <td></td>
             <td>{formatter.format(conyuge)}</td>
-          </tr>
+          </tr>{" "}
           <tr>
             <td>1806</td>
             <td>Hijo Incapacitado</td>
@@ -1493,7 +1502,15 @@ function Institucion21() {
             <td></td>
             <td>{formatter.format(ubicacion)}</td>
           </tr>
+          {/* ////////////////////////////// */}
           <tr className="celda">
+            <td>1168</td>
+            <td>Adicional profesionalidad</td>
+            <td>15%</td>
+            <td>{formatter.format(PorcentajPd)}</td>
+          </tr>
+          {/* //////////////////////////// */}
+          <tr>
             <td></td>
             <td>Otros Ingresos/Descuentos </td>
             <td></td>
@@ -1505,7 +1522,7 @@ function Institucion21() {
             <td> </td>
             <td> </td>
           </tr>
-          <tr>
+          <tr className="celda">
             <td></td>
             <td></td>
             <td></td>
