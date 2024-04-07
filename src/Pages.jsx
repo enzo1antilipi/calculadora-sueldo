@@ -115,7 +115,6 @@ export const Pages = () => {
               <th className="tablatotal">RETENC VOLUNTARIA</th>
               <th className="tablatotal">ASIGNACION FAMILIAR</th>
               <th className="tablatotal">NETO A PAGAR</th>
-              <th className="tablatotal">NETO A PAGAR</th>
             </tr>
             <tr>
               <td className="tablatotal">
