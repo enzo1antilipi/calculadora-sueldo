@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Input, Spacer } from "@nextui-org/react";
 import "../App";
-import { useBearStore } from "../store/EstGloSig";
+import { useBearStore } from "../store/EstGloAnterior";
 
 function Institucion01() {
   const SUELDO_BASICO = 182335;
