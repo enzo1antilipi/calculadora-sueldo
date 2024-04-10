@@ -880,27 +880,15 @@ function Institucion01() {
   //JUBILACION
 
   useEffect(() => {
-    const jubilacionImporte =
-      ((parseFloat(sueldo) +
-        parseFloat(PorcentajPd) +
-        parseFloat(zonaImporte) +
-        parseFloat(anios)) *
-        16) /
-      100;
+    const jubilacionImporte = (parseFloat(total) * 16) / 100;
     setjubilacion(jubilacionImporte.toFixed(2));
-  }, [sueldo, PorcentajPd, zonaImporte, anios]);
+  }, [total]);
 
   //SEROS titular
   useEffect(() => {
-    const serosImporte =
-      ((parseFloat(sueldo) +
-        parseFloat(PorcentajPd) +
-        parseFloat(zonaImporte) +
-        parseFloat(anios)) *
-        4.25) /
-      100;
+    const serosImporte = (parseFloat(total) * 4.25) / 100;
     setSerosTitular(serosImporte.toFixed(2));
-  }, [sueldo, PorcentajPd, zonaImporte, anios]);
+  }, [total]);
 
   //DEDUCCIONES
 
@@ -1098,13 +1086,7 @@ function Institucion01() {
 
   const handleserosFamiliar = (event) => {
     if (event.target.value === "SI") {
-      const serosFamiliarImporte =
-        ((parseFloat(sueldo) +
-          parseFloat(PorcentajPd) +
-          parseFloat(zonaImporte) +
-          parseFloat(anios)) *
-          4.25) /
-        100;
+      const serosFamiliarImporte = (parseFloat(total) * 4.25) / 100;
       setSerosFamiliar(serosFamiliarImporte.toFixed(2));
     } else {
       setSerosFamiliar(0);
@@ -1113,13 +1095,7 @@ function Institucion01() {
 
   const handleSeguroAdicional = (event) => {
     if (event.target.value === "SI") {
-      const segAdicio =
-        ((parseFloat(sueldo) +
-          parseFloat(PorcentajPd) +
-          parseFloat(zonaImporte) +
-          parseFloat(anios)) *
-          3.3) /
-        100;
+      const segAdicio = (parseFloat(total) * 3.3) / 100;
       setSeguroVidaAdicional(segAdicio.toFixed(2));
     } else {
       setSeguroVidaAdicional(0);
