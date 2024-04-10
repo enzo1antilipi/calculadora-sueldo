@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Input, Spacer } from "@nextui-org/react";
 import "../App";
-import { useBearStore } from "../store/EstGloAnterior";
+import { useBearStore } from "../store/EstGloSig";
 
 function Institucion01() {
-  const SUELDO_BASICO = 64072.69;
-  const HIJOS_ESCOLARIZADOS = 13083;
-  const HIJOS_INCAPACITADO = 52227;
-  const COBRO_CONYUGE = 3813;
+  const SUELDO_BASICO = 182335;
+  const HIJOS_ESCOLARIZADOS = 42099;
+  const HIJOS_INCAPACITADO = 168057;
+  const COBRO_CONYUGE = 12270;
   const HC_NIVEL_MEDIO = 0.05;
   const HC_NIVEL_SUPERIOR = 0.0588;
   const funciones = [
@@ -710,8 +710,8 @@ function Institucion01() {
 
   const zonas = [
     { nombre: "Sin datos", valor: 0 },
-    { nombre: "Norte", valor: 60.4 },
-    { nombre: "Sur", valor: 80 },
+    { nombre: "Norte", valor: 70.4 },
+    { nombre: "Sur", valor: 90 },
   ];
   const hijosnum = [0, 1, 2, 3, 4, 5, 6, 7];
   const hijosIncap = [0, 1, 2, 3];
@@ -734,41 +734,42 @@ function Institucion01() {
     { nombre: "9", valor: 50 },
     { nombre: "10", valor: 60 },
     { nombre: "11", valor: 60 },
-    { nombre: "12", valor: 65 },
-    { nombre: "13", valor: 65 },
-    { nombre: "14", valor: 65 },
-    { nombre: "15", valor: 75 },
-    { nombre: "16", valor: 75 },
-    { nombre: "17", valor: 85 },
-    { nombre: "18", valor: 75 },
-    { nombre: "19", valor: 85 },
-    { nombre: "20", valor: 105 },
-    { nombre: "21", valor: 105 },
-    { nombre: "22", valor: 115 },
-    { nombre: "23", valor: 115 },
-    { nombre: "24", valor: 125 },
-    { nombre: "25", valor: 125 },
-    { nombre: "26", valor: 125 },
-    { nombre: "27", valor: 125 },
-    { nombre: "28", valor: 125 },
-    { nombre: "29", valor: 125 },
-    { nombre: "30", valor: 125 },
-    { nombre: "31", valor: 125 },
-    { nombre: "32", valor: 125 },
-    { nombre: "33", valor: 125 },
-    { nombre: "34", valor: 125 },
-    { nombre: "35", valor: 125 },
-    { nombre: "36", valor: 125 },
-    { nombre: "37", valor: 125 },
-    { nombre: "38", valor: 125 },
-    { nombre: "39", valor: 125 },
-    { nombre: "40", valor: 125 },
+    { nombre: "12", valor: 70 },
+    { nombre: "13", valor: 70 },
+    { nombre: "14", valor: 70 },
+    { nombre: "15", valor: 80 },
+    { nombre: "16", valor: 80 },
+    { nombre: "17", valor: 90 },
+    { nombre: "18", valor: 90 },
+    { nombre: "19", valor: 90 },
+    { nombre: "20", valor: 110 },
+    { nombre: "21", valor: 110 },
+    { nombre: "22", valor: 120 },
+    { nombre: "23", valor: 120 },
+    { nombre: "24", valor: 130 },
+    { nombre: "25", valor: 130 },
+    { nombre: "26", valor: 130 },
+    { nombre: "27", valor: 130 },
+    { nombre: "28", valor: 130 },
+    { nombre: "29", valor: 130 },
+    { nombre: "30", valor: 130 },
+    { nombre: "31", valor: 130 },
+    { nombre: "32", valor: 130 },
+    { nombre: "33", valor: 130 },
+    { nombre: "34", valor: 130 },
+    { nombre: "35", valor: 130 },
+    { nombre: "36", valor: 130 },
+    { nombre: "37", valor: 130 },
+    { nombre: "38", valor: 130 },
+    { nombre: "39", valor: 130 },
+    { nombre: "40", valor: 130 },
   ];
 
   const [cargosFiltradosPorFuncion, setCargosFiltradosPorFuncion] = useState(
     []
   );
   const [sueldo, setSueldo] = useState(0);
+  // console.log(sueldo, "soy el state sueldo");
   const [zonaUnidad, setZonaUnidad] = useState(0);
   const [zonaImporte, setZonaImporte] = useState(0);
 
@@ -810,7 +811,7 @@ function Institucion01() {
   const [sueldo1, setSueldo1] = useState(0);
 
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
-
+  const [PorcentajPd, setPorcentajePd] = useState(0); //contiene el 15% del basico si es que tiene PD
   const valorEv = useRef(0);
 
   const getValue = (value) => {
@@ -827,11 +828,29 @@ function Institucion01() {
     currency: "ARS",
   });
 
+  const [showCalculations, setShowCalculations] = useState(false);
+
+  useEffect(() => {
+    if (showCalculations) {
+      const resultadopd = sueldo * 0.15;
+      setPorcentajePd(resultadopd);
+      // Aquí puedes realizar los cálculos basados en el estado de sueldo
+    } else {
+      setPorcentajePd(0);
+    }
+  }, [showCalculations, sueldo]);
+  const handleToggleCalculations = () => {
+    setShowCalculations(!showCalculations);
+  };
+
+  //ANOTAR COMO FUNCIONA LA FUNCION PARA DEJARLO DOCUMENTADO DEPENDE DEL ESTADO DE SHOWCACLCULATIONS
+
   //TOTAL PARCIAL
 
   useEffect(() => {
     const totalparcial =
       parseFloat(sueldo) +
+      parseFloat(PorcentajPd) +
       parseFloat(zonaImporte) +
       parseFloat(recursosMateriales) +
       parseFloat(anios) +
@@ -846,6 +865,7 @@ function Institucion01() {
     setTotal(totalparcial.toFixed(2));
   }, [
     sueldo,
+    PorcentajPd,
     zonaImporte,
     recursosMateriales,
     anios,
@@ -956,10 +976,11 @@ function Institucion01() {
     descuento,
   ]);
 
-  //SALARIO BRUTO SIN LAS ASIGNACIONES FAMILIARES PARA CALCULO DE ATECH
+  //SALARIO BRUTO SIN LAS ASIGNACIONES FAMILIARES PARA CALCULO DE ATECH (TOTAL HABERES)
   useEffect(() => {
     const sumaParaAtech =
       parseFloat(sueldo) +
+      parseFloat(PorcentajPd) +
       parseFloat(zonaImporte) +
       parseFloat(recursosMateriales) +
       parseFloat(anios) +
@@ -969,6 +990,7 @@ function Institucion01() {
     setNetoInstitucion2(sumaParaAtech.toFixed(2));
   }, [
     sueldo,
+    PorcentajPd,
     zonaImporte,
     recursosMateriales,
     anios,
@@ -985,7 +1007,7 @@ function Institucion01() {
 
   //RECURSOS MATERIALES
   useEffect(() => {
-    const recursos = (parseFloat(sueldo) * 15.5) / 100;
+    const recursos = (parseFloat(sueldo) * 17.5) / 100;
     setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;
@@ -1012,6 +1034,7 @@ function Institucion01() {
 
   const handleCargoChange = (event) => {
     const cargoImporte = SUELDO_BASICO * event.target.value;
+    console.log(cargoImporte);
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
 
@@ -1147,7 +1170,7 @@ function Institucion01() {
   };
   const hsCatedra = (ev) => {
     if (docente === "nm") {
-      const nmimporte = ev.target.value * HC_NIVEL_MEDIO * SUELDO_BASICO;
+      const nmimporte = ev.target.value * HC_NIVEL_MEDIO * SUELDO_BASICO; //se cambio por SUELDO_BASICO
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
     } else {
       const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
@@ -1166,9 +1189,20 @@ function Institucion01() {
     state.getAntiguedadImpor,
   ]);
   return (
-    <div>
-      <h1 className="head">Calculadora de sueldos(Mayo) </h1>
+    <div div className="animate__animated animate__bounceInRight">
+      <h1 className="head">Calculadora de sueldos</h1>
+      <h2 className="subtituloMes">
+        {" "}
+        Abril (Segun propuesta 10 de Abril a revisar)
+      </h2>
       <table className="seleccion">
+        <th>
+          <label className="presentismo">Con presentismo? (Ley PD*) </label>
+          <select onChange={handleToggleCalculations}>
+            <option value="NO">NO</option>
+            <option>SI</option>
+          </select>
+        </th>
         <tr>
           <th>
             <label>Función</label>
@@ -1429,11 +1463,10 @@ function Institucion01() {
             <td>{zonaUnidad}%</td>
             <td>{formatter.format(zonaImporte)}</td>
           </tr>
-
           <tr>
             <td>1872</td>
             <td>Recursos Materiales</td>
-            <td>15.5%</td>
+            <td>17.5%</td>
             <td>{formatter.format(recursosMateriales)}</td>
           </tr>
           <tr className="celda">
@@ -1441,7 +1474,7 @@ function Institucion01() {
             <td>Conyuge</td>
             <td></td>
             <td>{formatter.format(conyuge)}</td>
-          </tr>
+          </tr>{" "}
           <tr>
             <td>1806</td>
             <td>Hijo Incapacitado</td>
@@ -1472,7 +1505,15 @@ function Institucion01() {
             <td></td>
             <td>{formatter.format(ubicacion)}</td>
           </tr>
+          {/* ////////////////////////////// */}
           <tr className="celda">
+            <td>1168</td>
+            <td>Adicional profesionalidad</td>
+            <td>15%</td>
+            <td>{formatter.format(PorcentajPd)}</td>
+          </tr>
+          {/* //////////////////////////// */}
+          <tr>
             <td></td>
             <td>Otros Ingresos/Descuentos </td>
             <td></td>
@@ -1484,7 +1525,7 @@ function Institucion01() {
             <td> </td>
             <td> </td>
           </tr>
-          <tr>
+          <tr className="celda">
             <td></td>
             <td></td>
             <td></td>

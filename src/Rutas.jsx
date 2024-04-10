@@ -27,22 +27,22 @@ export const Rutas = () => {
               Actual
             </Link>
           </li>
-          {/* <li className="lista3">
-            {/* <Link to="/MesSiguiente" className="letraslink">
+          <li className="lista3">
+            <Link to="/MesSiguiente" className="letraslink">
               Siguiente
               <FaArrowRight
                 style={{
                   marginLeft: "5px",
                 }}
               />
-            </Link> 
-          </li> */}
+            </Link>
+          </li>
         </ul>
 
         <Routes>
           <Route path="/mesante" element={<Pages />} />
           <Route path="/" element={<MesSig />} />
-          <Route path="/actual" element={<Pages />} />
+          <Route path="/MesSiguiente" element={<MesAnte />} />
         </Routes>
       </BrowserRouter>
     </div>

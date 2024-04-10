@@ -881,20 +881,26 @@ function Institucion21() {
 
   useEffect(() => {
     const jubilacionImporte =
-      ((parseFloat(sueldo) + parseFloat(zonaImporte) + parseFloat(anios)) *
+      ((parseFloat(sueldo) +
+        parseFloat(PorcentajPd) +
+        parseFloat(zonaImporte) +
+        parseFloat(anios)) *
         16) /
       100;
     setjubilacion(jubilacionImporte.toFixed(2));
-  }, [sueldo, zonaImporte, anios]);
+  }, [sueldo, PorcentajPd, zonaImporte, anios]);
 
   //SEROS titular
   useEffect(() => {
     const serosImporte =
-      ((parseFloat(sueldo) + parseFloat(zonaImporte) + parseFloat(anios)) *
+      ((parseFloat(sueldo) +
+        parseFloat(PorcentajPd) +
+        parseFloat(zonaImporte) +
+        parseFloat(anios)) *
         4.25) /
       100;
     setSerosTitular(serosImporte.toFixed(2));
-  }, [sueldo, zonaImporte, anios]);
+  }, [sueldo, PorcentajPd, zonaImporte, anios]);
 
   //DEDUCCIONES
 
@@ -1093,7 +1099,10 @@ function Institucion21() {
   const handleserosFamiliar = (event) => {
     if (event.target.value === "SI") {
       const serosFamiliarImporte =
-        ((parseFloat(sueldo) + parseFloat(zonaImporte) + parseFloat(anios)) *
+        ((parseFloat(sueldo) +
+          parseFloat(PorcentajPd) +
+          parseFloat(zonaImporte) +
+          parseFloat(anios)) *
           4.25) /
         100;
       setSerosFamiliar(serosFamiliarImporte.toFixed(2));
