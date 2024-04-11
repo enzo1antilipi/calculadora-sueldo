@@ -3,7 +3,7 @@ import { Input, Spacer } from "@nextui-org/react";
 import "../App";
 import { useBearStore } from "../store/EstGloAnterior";
 
-function Institucion21() {
+function Institucion03() {
   const SUELDO_BASICO = 182335;
   const HIJOS_ESCOLARIZADOS = 42099;
   const HIJOS_INCAPACITADO = 168057;
@@ -880,21 +880,15 @@ function Institucion21() {
   //JUBILACION
 
   useEffect(() => {
-    const jubilacionImporte =
-      ((parseFloat(sueldo) + parseFloat(zonaImporte) + parseFloat(anios)) *
-        16) /
-      100;
+    const jubilacionImporte = (parseFloat(total) * 16) / 100;
     setjubilacion(jubilacionImporte.toFixed(2));
-  }, [sueldo, zonaImporte, anios]);
+  }, [total]);
 
   //SEROS titular
   useEffect(() => {
-    const serosImporte =
-      ((parseFloat(sueldo) + parseFloat(zonaImporte) + parseFloat(anios)) *
-        4.25) /
-      100;
+    const serosImporte = (parseFloat(total) * 4.25) / 100;
     setSerosTitular(serosImporte.toFixed(2));
-  }, [sueldo, zonaImporte, anios]);
+  }, [total]);
 
   //DEDUCCIONES
 
@@ -1092,10 +1086,7 @@ function Institucion21() {
 
   const handleserosFamiliar = (event) => {
     if (event.target.value === "SI") {
-      const serosFamiliarImporte =
-        ((parseFloat(sueldo) + parseFloat(zonaImporte) + parseFloat(anios)) *
-          4.25) /
-        100;
+      const serosFamiliarImporte = (parseFloat(total) * 4.25) / 100;
       setSerosFamiliar(serosFamiliarImporte.toFixed(2));
     } else {
       setSerosFamiliar(0);
@@ -1104,10 +1095,7 @@ function Institucion21() {
 
   const handleSeguroAdicional = (event) => {
     if (event.target.value === "SI") {
-      const segAdicio =
-        ((parseFloat(sueldo) + parseFloat(zonaImporte) + parseFloat(anios)) *
-          3.3) /
-        100;
+      const segAdicio = (parseFloat(total) * 3.3) / 100;
       setSeguroVidaAdicional(segAdicio.toFixed(2));
     } else {
       setSeguroVidaAdicional(0);
@@ -1643,4 +1631,4 @@ function Institucion21() {
   );
 }
 
-export default Institucion21;
+export default Institucion03;
