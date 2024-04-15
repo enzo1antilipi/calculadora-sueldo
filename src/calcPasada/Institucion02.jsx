@@ -3,7 +3,7 @@ import { Input, Spacer } from "@nextui-org/react";
 import "../App";
 import { useBearStore } from "../store/EstGloAnterior";
 
-function Institucion01() {
+function Institucion02() {
   const SUELDO_BASICO = 182335;
   const HIJOS_ESCOLARIZADOS = 42099;
   const HIJOS_INCAPACITADO = 168057;
@@ -934,7 +934,7 @@ function Institucion01() {
       parseFloat(hijosEscoIncapacitado) +
       parseFloat(conyuge) +
       parseFloat(ayudaEsc);
-    setAsignacion2(totalAsigFa);
+    setAsignacion02(totalAsigFa);
   }, [hijos, hijosIncapacitado, hijosEscoIncapacitado, conyuge, ayudaEsc]);
 
   //Deducciones para total DESCUENTO LEY: es una estado global sin incluir las cuota de atech
@@ -953,7 +953,7 @@ function Institucion01() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDescuentoLey2(deduccionesImporte2);
+    setDescuentoLey02(deduccionesImporte2);
   }, [
     jubilacion,
     serosTitular,
@@ -981,7 +981,7 @@ function Institucion01() {
       parseFloat(ubicacion) +
       parseFloat(otrosIngresos);
     setSueldo2(sumaParaAtech.toFixed(2));
-    setNetoInstitucion2(sumaParaAtech.toFixed(2));
+    setNetoInstitucion02(sumaParaAtech.toFixed(2));
   }, [
     sueldo,
     PorcentajPd,
@@ -1016,7 +1016,7 @@ function Institucion01() {
     const afiliacion = (parseFloat(sueldo2) * 2) / 100;
 
     setAfiliadoAtech(afiliacion.toFixed(2));
-    setRetencion2(afiliacion);
+    setRetencion02(afiliacion);
   }, [sueldo2]);
 
   const handleFuncionChange = (event) => {
@@ -1166,10 +1166,10 @@ function Institucion01() {
     }
   };
   const {
-    setNetoInstitucion2,
-    setDescuentoLey2,
-    setRetencion2,
-    setAsignacion2,
+    setNetoInstitucion02,
+    setDescuentoLey02,
+    setRetencion02,
+    setAsignacion02,
   } = useBearStore();
 
   const [getAntiguedad, getAntiguedadImpor] = useBearStore((state) => [
@@ -1631,4 +1631,4 @@ function Institucion01() {
   );
 }
 
-export default Institucion01;
+export default Institucion02;

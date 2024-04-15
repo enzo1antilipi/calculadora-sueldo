@@ -2,62 +2,62 @@ import { create } from "zustand";
 
 export const useBearStore = create((set, get) => ({
   // esto es  para sumar el TOTAL DE HABERES
-  netoinstitucion1: 0,
-  netoinstitucion2: 0,
-  netoinstitucion3: 0,
-  netoinstitucion4: 0,
-  netoinstitucion5: 0,
-  setNetoInstitucion1: (value) =>
-    set(() => ({ netoinstitucion1: parseFloat(value) })),
+  netoinstitucion21: 0,
+  netoinstitucion22: 0,
+  netoinstitucion23: 0,
+  netoinstitucion24: 0,
+  netoinstitucion25: 0,
+  setNetoInstitucion21: (value) =>
+    set(() => ({ netoinstitucion21: parseFloat(value) })),
 
-  setNetoInstitucion2: (value) =>
-    set(() => ({ netoinstitucion2: parseFloat(value) })),
+  setNetoInstitucion22: (value) =>
+    set(() => ({ netoinstitucion22: parseFloat(value) })),
 
-  setNetoInstitucion3: (value) =>
-    set(() => ({ netoinstitucion3: parseFloat(value) })),
+  setNetoInstitucion23: (value) =>
+    set(() => ({ netoinstitucion23: parseFloat(value) })),
 
-  setNetoInstitucion4: (value) =>
-    set(() => ({ netoinstitucion4: parseFloat(value) })),
+  setNetoInstitucion24: (value) =>
+    set(() => ({ netoinstitucion24: parseFloat(value) })),
 
-  setNetoInstitucion5: (value) =>
-    set(() => ({ netoinstitucion5: parseFloat(value) })),
+  setNetoInstitucion25: (value) =>
+    set(() => ({ netoinstitucion25: parseFloat(value) })),
 
   getnetoglobal: () => {
     const total =
-      get().netoinstitucion1 +
-      get().netoinstitucion2 +
-      get().netoinstitucion3 +
-      get().netoinstitucion4 +
-      get().netoinstitucion5;
+      get().netoinstitucion21 +
+      get().netoinstitucion22 +
+      get().netoinstitucion23 +
+      get().netoinstitucion24 +
+      get().netoinstitucion25;
 
     return total;
   },
   //esto es para TOTAL DESCUENTO LEY
 
-  descuentoley1: 0,
-  descuentoley2: 0,
-  descuentoley3: 0,
-  descuentoley4: 0,
-  descuentoley5: 0,
+  descuentoley21: 0,
+  descuentoley22: 0,
+  descuentoley23: 0,
+  descuentoley24: 0,
+  descuentoley25: 0,
 
-  setDescuentoLey1: (value) =>
-    set(() => ({ descuentoley1: parseFloat(value) })),
-  setDescuentoLey2: (value) =>
-    set(() => ({ descuentoley2: parseFloat(value) })),
-  setDescuentoLey3: (value) =>
-    set(() => ({ descuentoley3: parseFloat(value) })),
-  setDescuentoLey4: (value) =>
-    set(() => ({ descuentoley4: parseFloat(value) })),
-  setDescuentoLey5: (value) =>
-    set(() => ({ descuentoley5: parseFloat(value) })),
+  setDescuentoLey21: (value) =>
+    set(() => ({ descuentoley21: parseFloat(value) })),
+  setDescuentoLey22: (value) =>
+    set(() => ({ descuentoley22: parseFloat(value) })),
+  setDescuentoLey23: (value) =>
+    set(() => ({ descuentoley23: parseFloat(value) })),
+  setDescuentoLey24: (value) =>
+    set(() => ({ descuentoley24: parseFloat(value) })),
+  setDescuentoLey25: (value) =>
+    set(() => ({ descuentoley25: parseFloat(value) })),
 
   getDescuentoGlobal: () => {
     const totalDescuento =
-      get().descuentoley1 +
-      get().descuentoley2 +
-      get().descuentoley3 +
-      get().descuentoley4 +
-      get().descuentoley5;
+      get().descuentoley21 +
+      get().descuentoley22 +
+      get().descuentoley23 +
+      get().descuentoley24 +
+      get().descuentoley25;
 
     return totalDescuento;
   },
@@ -66,74 +66,74 @@ export const useBearStore = create((set, get) => ({
 
   getBruto: () => {
     const totalbruto =
-      get().netoinstitucion1 +
-      get().netoinstitucion2 +
-      get().netoinstitucion3 +
-      get().netoinstitucion4 +
-      get().netoinstitucion5 -
-      (get().descuentoley1 +
-        get().descuentoley2 +
-        get().descuentoley3 +
-        get().descuentoley4 +
-        get().descuentoley5);
+      get().netoinstitucion21 +
+      get().netoinstitucion22 +
+      get().netoinstitucion23 +
+      get().netoinstitucion24 +
+      get().netoinstitucion25 -
+      (get().descuentoley21 +
+        get().descuentoley22 +
+        get().descuentoley23 +
+        get().descuentoley24 +
+        get().descuentoley25);
 
     return totalbruto;
   },
 
   //esto es para la RETENCION VOLUNTARIA
-  retencionvoluntaria1: 0,
-  retencionvoluntaria2: 0,
-  retencionvoluntaria3: 0,
-  retencionvoluntaria4: 0,
-  retencionvoluntaria5: 0,
+  retencionvoluntaria21: 0,
+  retencionvoluntaria22: 0,
+  retencionvoluntaria23: 0,
+  retencionvoluntaria24: 0,
+  retencionvoluntaria25: 0,
 
-  setRetencion1: (value) =>
-    set(() => ({ retencionvoluntaria1: parseFloat(value) })),
-  setRetencion2: (value) =>
-    set(() => ({ retencionvoluntaria2: parseFloat(value) })),
-  setRetencion3: (value) =>
-    set(() => ({ retencionvoluntaria3: parseFloat(value) })),
-  setRetencion4: (value) =>
-    set(() => ({ retencionvoluntaria4: parseFloat(value) })),
-  setRetencion5: (value) =>
-    set(() => ({ retencionvoluntaria5: parseFloat(value) })),
+  setRetencion21: (value) =>
+    set(() => ({ retencionvoluntaria21: parseFloat(value) })),
+  setRetencion22: (value) =>
+    set(() => ({ retencionvoluntaria22: parseFloat(value) })),
+  setRetencion23: (value) =>
+    set(() => ({ retencionvoluntaria23: parseFloat(value) })),
+  setRetencion24: (value) =>
+    set(() => ({ retencionvoluntaria24: parseFloat(value) })),
+  setRetencion25: (value) =>
+    set(() => ({ retencionvoluntaria25: parseFloat(value) })),
 
   getRetencion: () => {
     const totalDescuento =
-      get().retencionvoluntaria1 +
-      get().retencionvoluntaria2 +
-      get().retencionvoluntaria3 +
-      get().retencionvoluntaria4 +
-      get().retencionvoluntaria5;
+      get().retencionvoluntaria21 +
+      get().retencionvoluntaria22 +
+      get().retencionvoluntaria23 +
+      get().retencionvoluntaria24 +
+      get().retencionvoluntaria25;
     return totalDescuento;
   },
 
   //con esto calculo la ASIGNACION FAMILIAR
 
-  asignacionfamiliar1: 0,
-  asignacionfamiliar2: 0,
-  asignacionfamiliar3: 0,
-  asignacionfamiliar4: 0,
-  asignacionfamiliar5: 0,
+  asignacionfamiliar21: 0,
+  asignacionfamiliar22: 0,
+  asignacionfamiliar23: 0,
+  asignacionfamiliar24: 0,
+  asignacionfamiliar25: 0,
 
-  setAsignacion1: (value) =>
-    set(() => ({ asignacionfamiliar1: parseFloat(value) })),
-  setAsignacion2: (value) =>
-    set(() => ({ asignacionfamiliar2: parseFloat(value) })),
-  setAsignacion3: (value) =>
-    set(() => ({ asignacionfamiliar3: parseFloat(value) })),
-  setAsignacion4: (value) =>
+  setAsignacion21: (value) =>
+    set(() => ({ asignacionfamiliar21: parseFloat(value) })),
+  setAsignacion22: (value) =>
+    set(() => ({ asignacionfamiliar22: parseFloat(value) })),
+  setAsignacion23: (value) =>
+    set(() => ({ asignacionfamiliar23: parseFloat(value) })),
+  setAsignacion24: (value) =>
     set(() => ({ asignacionfamiliar4: parseFloat(value) })),
-  setAsignacion5: (value) =>
-    set(() => ({ asignacionfamiliar5: parseFloat(value) })),
+  setAsignacion25: (value) =>
+    set(() => ({ asignacionfamiliar25: parseFloat(value) })),
 
   getAsignacion: () => {
     const totalAsignacion =
-      get().asignacionfamiliar1 +
-      get().asignacionfamiliar2 +
-      get().asignacionfamiliar3 +
-      get().asignacionfamiliar4 +
-      get().asignacionfamiliar5;
+      get().asignacionfamiliar21 +
+      get().asignacionfamiliar22 +
+      get().asignacionfamiliar23 +
+      get().asignacionfamiliar24 +
+      get().asignacionfamiliar25;
 
     return totalAsignacion;
   },
@@ -141,26 +141,26 @@ export const useBearStore = create((set, get) => ({
   // esto es para calcular el NETO A PAGAR
   getNetoPagar: () => {
     const totalnetopagar =
-      get().netoinstitucion1 +
-      get().netoinstitucion2 +
-      get().netoinstitucion3 +
-      get().netoinstitucion4 +
-      get().netoinstitucion5 -
-      (get().descuentoley1 +
-        get().descuentoley2 +
-        get().descuentoley3 +
-        get().descuentoley4 +
-        get().descuentoley5) +
-      get().asignacionfamiliar1 +
-      get().asignacionfamiliar2 +
-      get().asignacionfamiliar3 +
-      get().asignacionfamiliar4 +
-      get().asignacionfamiliar5 -
-      (get().retencionvoluntaria1 +
-        get().retencionvoluntaria2 +
-        get().retencionvoluntaria3 +
-        get().retencionvoluntaria4 +
-        get().retencionvoluntaria5);
+      get().netoinstitucion21 +
+      get().netoinstitucion22 +
+      get().netoinstitucion23 +
+      get().netoinstitucion24 +
+      get().netoinstitucion25 -
+      (get().descuentoley21 +
+        get().descuentoley22 +
+        get().descuentoley23 +
+        get().descuentoley24 +
+        get().descuentoley25) +
+      get().asignacionfamiliar21 +
+      get().asignacionfamiliar22 +
+      get().asignacionfamiliar23 +
+      get().asignacionfamiliar24 +
+      get().asignacionfamiliar25 -
+      (get().retencionvoluntaria21 +
+        get().retencionvoluntaria22 +
+        get().retencionvoluntaria23 +
+        get().retencionvoluntaria24 +
+        get().retencionvoluntaria25);
 
     return totalnetopagar;
   },

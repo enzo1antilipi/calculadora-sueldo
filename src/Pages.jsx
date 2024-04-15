@@ -1,8 +1,8 @@
 import App from "./App";
 import "./pages.css";
-import Institucion2 from "./Institucion2";
 import { useState } from "react";
 import Institucion1 from "./Institucion1";
+import Institucion2 from "./Institucion2";
 import { useBearStore } from "./store/EstadoGlobal";
 import Institucion3 from "./Institucion3";
 import Institucion4 from "./Institucion4";

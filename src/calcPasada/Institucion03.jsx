@@ -934,7 +934,7 @@ function Institucion03() {
       parseFloat(hijosEscoIncapacitado) +
       parseFloat(conyuge) +
       parseFloat(ayudaEsc);
-    setAsignacion2(totalAsigFa);
+    setAsignacion03(totalAsigFa);
   }, [hijos, hijosIncapacitado, hijosEscoIncapacitado, conyuge, ayudaEsc]);
 
   //Deducciones para total DESCUENTO LEY: es una estado global sin incluir las cuota de atech
@@ -953,7 +953,7 @@ function Institucion03() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDescuentoLey2(deduccionesImporte2);
+    setDescuentoLey03(deduccionesImporte2);
   }, [
     jubilacion,
     serosTitular,
@@ -981,7 +981,7 @@ function Institucion03() {
       parseFloat(ubicacion) +
       parseFloat(otrosIngresos);
     setSueldo2(sumaParaAtech.toFixed(2));
-    setNetoInstitucion2(sumaParaAtech.toFixed(2));
+    setNetoInstitucion03(sumaParaAtech.toFixed(2));
   }, [
     sueldo,
     PorcentajPd,
@@ -1016,7 +1016,7 @@ function Institucion03() {
     const afiliacion = (parseFloat(sueldo2) * 2) / 100;
 
     setAfiliadoAtech(afiliacion.toFixed(2));
-    setRetencion2(afiliacion);
+    setRetencion03(afiliacion);
   }, [sueldo2]);
 
   const handleFuncionChange = (event) => {
@@ -1166,10 +1166,10 @@ function Institucion03() {
     }
   };
   const {
-    setNetoInstitucion2,
-    setDescuentoLey2,
-    setRetencion2,
-    setAsignacion2,
+    setNetoInstitucion03,
+    setDescuentoLey03,
+    setRetencion03,
+    setAsignacion03,
   } = useBearStore();
 
   const [getAntiguedad, getAntiguedadImpor] = useBearStore((state) => [

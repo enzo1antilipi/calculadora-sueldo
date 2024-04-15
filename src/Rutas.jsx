@@ -6,45 +6,61 @@ import MesSig from "./calSiguiente/MesSig";
 import "./rutas.css";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import { IoReturnUpBackOutline } from "react-icons/io5";
 
 export const Rutas = () => {
+  const handleRedirect = () => {
+    window.location.href = "https://atech.org.ar/";
+  };
   return (
-    <div>
-      <BrowserRouter>
-        <ul style={{ display: "flex", justifyContent: "space-between" }}>
-          <li className="lista1">
-            <Link to="/mesante" className="letraslink">
-              <FaArrowLeft
-                style={{
-                  marginRight: "5px",
-                }}
-              />
-              Anterior
-            </Link>
-          </li>
-          <li className="lista2">
-            <Link to="/" className="letraslink">
-              Actual
-            </Link>
-          </li>
-          <li className="lista3">
-            <Link to="/MesSiguiente" className="letraslink">
-              Siguiente
-              <FaArrowRight
-                style={{
-                  marginLeft: "5px",
-                }}
-              />
-            </Link>
-          </li>
-        </ul>
+    <>
+      <div className="barraback">
+        <button className="botonBack" onClick={handleRedirect}>
+          <IoReturnUpBackOutline
+            style={{
+              marginRight: "6px",
+            }}
+          />{" "}
+          Volver a ATECH
+        </button>
+      </div>
+      <div>
+        <BrowserRouter>
+          <ul style={{ display: "flex", justifyContent: "space-between" }}>
+            <li className="lista1">
+              <Link to="/mesante" className="letraslink">
+                <FaArrowLeft
+                  style={{
+                    marginRight: "5px",
+                  }}
+                />
+                Anterior
+              </Link>
+            </li>
+            <li className="lista2">
+              <Link to="/" className="letraslink">
+                Actual
+              </Link>
+            </li>
+            <li className="lista3">
+              <Link to="/MesSiguiente" className="letraslink">
+                Siguiente
+                <FaArrowRight
+                  style={{
+                    marginLeft: "5px",
+                  }}
+                />
+              </Link>
+            </li>
+          </ul>
 
-        <Routes>
-          <Route path="/mesante" element={<Pages />} />
-          <Route path="/" element={<MesSig />} />
-          <Route path="/MesSiguiente" element={<MesAnte />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+          <Routes>
+            <Route path="/mesante" element={<Pages />} />
+            <Route path="/" element={<MesSig />} />
+            <Route path="/MesSiguiente" element={<MesAnte />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </>
   );
 };

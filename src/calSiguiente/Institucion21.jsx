@@ -934,7 +934,7 @@ function Institucion21() {
       parseFloat(hijosEscoIncapacitado) +
       parseFloat(conyuge) +
       parseFloat(ayudaEsc);
-    setAsignacion2(totalAsigFa);
+    setAsignacion21(totalAsigFa);
   }, [hijos, hijosIncapacitado, hijosEscoIncapacitado, conyuge, ayudaEsc]);
 
   //Deducciones para total DESCUENTO LEY: es una estado global sin incluir las cuota de atech
@@ -953,7 +953,7 @@ function Institucion21() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDescuentoLey2(deduccionesImporte2);
+    setDescuentoLey21(deduccionesImporte2);
   }, [
     jubilacion,
     serosTitular,
@@ -981,7 +981,7 @@ function Institucion21() {
       parseFloat(ubicacion) +
       parseFloat(otrosIngresos);
     setSueldo2(sumaParaAtech.toFixed(2));
-    setNetoInstitucion2(sumaParaAtech.toFixed(2));
+    setNetoInstitucion21(sumaParaAtech.toFixed(2));
   }, [
     sueldo,
     PorcentajPd,
@@ -1016,7 +1016,7 @@ function Institucion21() {
     const afiliacion = (parseFloat(sueldo2) * 2) / 100;
 
     setAfiliadoAtech(afiliacion.toFixed(2));
-    setRetencion2(afiliacion);
+    setRetencion21(afiliacion);
   }, [sueldo2]);
 
   const handleFuncionChange = (event) => {
@@ -1165,11 +1165,14 @@ function Institucion21() {
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
     }
   };
+  //Con esto mando el estado de tootal paracial a un estado globlal
   const {
-    setNetoInstitucion2,
-    setDescuentoLey2,
-    setRetencion2,
-    setAsignacion2,
+    setNetoInstitucion21,
+    setDescuentoLey21,
+    setRetencion21,
+    setAsignacion21,
+    setAntiguedad21,
+    setAntiguedadImporGlob21,
   } = useBearStore();
 
   const [getAntiguedad, getAntiguedadImpor] = useBearStore((state) => [
