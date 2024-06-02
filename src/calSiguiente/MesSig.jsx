@@ -5,7 +5,9 @@ import Institucion23 from "./Institucion23";
 import Institucion24 from "./Institucion24";
 import Institucion25 from "./Institucion25";
 import { useBearStore } from "../store/EstGloSig";
-
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 export default function calculadora() {
   const [
     getnetoglobal,
@@ -32,6 +34,33 @@ export default function calculadora() {
   });
   return (
     <div div className="animate__animated animate__pulse">
+      <ul style={{ display: "flex", justifyContent: "space-between" }}>
+        <li className="lista1">
+          <Link to="/mesante" className="letraslink">
+            {/* <FaArrowLeft
+              style={{
+                marginRight: "5px",
+              }}
+            /> */}
+            Abril
+          </Link>
+        </li>
+        <li className="lista2">
+          <Link to="/mesactual" className="letraslink">
+            Mayo
+          </Link>
+        </li>
+        <li className="lista3">
+          <Link to="/MesSiguiente" className="letraslink">
+            Junio
+            {/* <FaArrowRight
+              style={{
+                marginLeft: "5px",
+              }}
+            /> */}
+          </Link>
+        </li>
+      </ul>
       <div className="bloc-onglets">
         <div
           className={toggleTabs === 1 ? "tabs active-tabs" : "tabs"}

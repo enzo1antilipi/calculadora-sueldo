@@ -7,8 +7,10 @@ import { useBearStore } from "./store/EstadoGlobal";
 import Institucion3 from "./Institucion3";
 import Institucion4 from "./Institucion4";
 import { Rutas } from "./Rutas";
-
-export const Pages = () => {
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+export default function Pages() {
   const [
     getnetoglobal,
     getDescuentoGlobal,
@@ -44,6 +46,33 @@ export const Pages = () => {
   return (
     <div className="animate__animated animate__backInLeft">
       {" "}
+      <ul style={{ display: "flex", justifyContent: "space-between" }}>
+        <li className="lista1">
+          <Link to="/mesante" className="letraslink">
+            {/* <FaArrowLeft
+              style={{
+                marginRight: "5px",
+              }}
+            /> */}
+            Abril
+          </Link>
+        </li>
+        <li className="lista2">
+          <Link to="/mesactual" className="letraslink">
+            Mayo
+          </Link>
+        </li>
+        <li className="lista3">
+          <Link to="/MesSiguiente" className="letraslink">
+            Junio
+            {/* <FaArrowRight
+              style={{
+                marginLeft: "5px",
+              }}
+            /> */}
+          </Link>
+        </li>
+      </ul>
       <div>
         {/* classname="container3" */}
         <div className="bloc-onglets">
@@ -144,4 +173,4 @@ export const Pages = () => {
       </div>
     </div>
   );
-};
+}

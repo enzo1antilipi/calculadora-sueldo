@@ -1179,10 +1179,7 @@ function Institucion02() {
   return (
     <div div className="animate__animated animate__bounceInRight">
       <h1 className="head">Calculadora de sueldos</h1>
-      <h2 className="subtituloMes">
-        {" "}
-        Abril (Segun propuesta 10 de Abril a revisar)
-      </h2>
+      <h2 className="subtituloMes"> Abril</h2>
       <table className="seleccion">
         <th>
           <label className="presentismo">Con presentismo? (Ley PD*) </label>

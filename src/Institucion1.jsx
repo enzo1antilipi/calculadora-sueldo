@@ -4,10 +4,10 @@ import "./App.css";
 import { useBearStore } from "./store/EstadoGlobal";
 
 function Institucion1() {
-  const SUELDO_BASICO = 139117.38;
-  const HIJOS_ESCOLARIZADOS = 13083;
-  const HIJOS_INCAPACITADO = 52227;
-  const COBRO_CONYUGE = 3813;
+  const SUELDO_BASICO = 191451.75;
+  const HIJOS_ESCOLARIZADOS = 42099;
+  const HIJOS_INCAPACITADO = 168057;
+  const COBRO_CONYUGE = 12270;
   const HC_NIVEL_MEDIO = 0.05;
   const HC_NIVEL_SUPERIOR = 0.0588;
   const funciones = [
@@ -710,7 +710,7 @@ function Institucion1() {
 
   const zonas = [
     { nombre: "Sin datos", valor: 0 },
-    { nombre: "Norte", valor: 70.4 },
+    { nombre: "Norte", valor: 77 },
     { nombre: "Sur", valor: 90 },
   ];
   const hijosnum = [0, 1, 2, 3, 4, 5, 6, 7];
@@ -810,6 +810,7 @@ function Institucion1() {
   const [sueldo1, setSueldo1] = useState(0);
 
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
+  const [PorcentajPd, setPorcentajePd] = useState(0); //contiene el 15% del basico si es que tiene PD
 
   const valorEv = useRef(0);
 
@@ -826,12 +827,27 @@ function Institucion1() {
     style: "currency",
     currency: "ARS",
   });
+  const [showCalculations, setShowCalculations] = useState(false);
+
+  useEffect(() => {
+    if (showCalculations) {
+      const resultadopd = sueldo * 0.15;
+      setPorcentajePd(resultadopd);
+      // Aquí puedes realizar los cálculos basados en el estado de sueldo
+    } else {
+      setPorcentajePd(0);
+    }
+  }, [showCalculations, sueldo]);
+  const handleToggleCalculations = () => {
+    setShowCalculations(!showCalculations);
+  };
 
   //TOTAL PARCIAL
 
   useEffect(() => {
     const totalparcial =
       parseFloat(sueldo) +
+      parseFloat(PorcentajPd) +
       parseFloat(zonaImporte) +
       parseFloat(recursosMateriales) +
       parseFloat(anios) +
@@ -846,6 +862,7 @@ function Institucion1() {
     setTotal(totalparcial.toFixed(2));
   }, [
     sueldo,
+    PorcentajPd,
     zonaImporte,
     recursosMateriales,
     anios,
@@ -960,6 +977,7 @@ function Institucion1() {
   useEffect(() => {
     const sumaParaAtech =
       parseFloat(sueldo) +
+      parseFloat(PorcentajPd) +
       parseFloat(zonaImporte) +
       parseFloat(recursosMateriales) +
       parseFloat(anios) +
@@ -969,6 +987,7 @@ function Institucion1() {
     setNetoInstitucion2(sumaParaAtech.toFixed(2));
   }, [
     sueldo,
+    PorcentajPd,
     zonaImporte,
     recursosMateriales,
     anios,
@@ -1168,7 +1187,7 @@ function Institucion1() {
   return (
     <div>
       <h1 className="head">Calculadora de sueldos </h1>
-      <h2 className="subtituloMes">Febrero 2024</h2>
+      <h2 className="subtituloMes">Mayo</h2>
       <table className="seleccion">
         <tr>
           <th>
@@ -1473,7 +1492,16 @@ function Institucion1() {
             <td></td>
             <td>{formatter.format(ubicacion)}</td>
           </tr>
+          {/* ////////////////////////////// */}
           <tr className="celda">
+            <td>1168</td>
+            <td>Adicional profesionalidad</td>
+            <td>15%</td>
+            <td>{formatter.format(PorcentajPd)}</td>
+          </tr>
+          {/* //////////////////////////// */}
+
+          <tr>
             <td></td>
             <td>Otros Ingresos/Descuentos </td>
             <td></td>
@@ -1485,7 +1513,7 @@ function Institucion1() {
             <td> </td>
             <td> </td>
           </tr>
-          <tr>
+          <tr className="celda">
             <td></td>
             <td></td>
             <td></td>

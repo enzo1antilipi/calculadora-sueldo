@@ -2,12 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { useBearStore } from "./store/EstadoGlobal";
 import "animate.css";
-
 function App() {
-  const SUELDO_BASICO = 139117.38; // incremento del basico 7%
-  const HIJOS_ESCOLARIZADOS = 13083;
-  const HIJOS_INCAPACITADO = 52227;
-  const COBRO_CONYUGE = 3813;
+  const SUELDO_BASICO = 191451.75;
+  const HIJOS_ESCOLARIZADOS = 42099;
+  const HIJOS_INCAPACITADO = 168057;
+  const COBRO_CONYUGE = 12270;
   const HC_NIVEL_MEDIO = 0.05;
   const HC_NIVEL_SUPERIOR = 0.0588;
   const funciones = [
@@ -710,7 +709,7 @@ function App() {
 
   const zonas = [
     { nombre: "Sin datos", valor: 0 },
-    { nombre: "Norte", valor: 70.4 },
+    { nombre: "Norte", valor: 77 },
     { nombre: "Sur", valor: 90 },
   ];
   const hijosnum = [0, 1, 2, 3, 4, 5, 6, 7];
@@ -810,6 +809,7 @@ function App() {
   const [sueldo1, setSueldo1] = useState(0);
 
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
+  const [PorcentajPd, setPorcentajePd] = useState(0); //contiene el 15% del basico si es que tiene PD
 
   const valorEv = useRef(0);
 
@@ -826,12 +826,27 @@ function App() {
     style: "currency",
     currency: "ARS",
   });
+  const [showCalculations, setShowCalculations] = useState(false);
+
+  useEffect(() => {
+    if (showCalculations) {
+      const resultadopd = sueldo * 0.15;
+      setPorcentajePd(resultadopd);
+      // Aquí puedes realizar los cálculos basados en el estado de sueldo
+    } else {
+      setPorcentajePd(0);
+    }
+  }, [showCalculations, sueldo]);
+  const handleToggleCalculations = () => {
+    setShowCalculations(!showCalculations);
+  };
 
   //TOTAL PARCIAL
 
   useEffect(() => {
     const totalparcial =
       parseFloat(sueldo) +
+      parseFloat(PorcentajPd) +
       parseFloat(zonaImporte) +
       parseFloat(recursosMateriales) +
       parseFloat(anios) +
@@ -846,6 +861,7 @@ function App() {
     setTotal(totalparcial.toFixed(2));
   }, [
     sueldo,
+    PorcentajPd,
     zonaImporte,
     recursosMateriales,
     anios,
@@ -879,7 +895,7 @@ function App() {
   //DEDUCCIONES
 
   useEffect(() => {
-    const deduccionesImporte =
+    const deduccionesImporte1 =
       parseFloat(jubilacion) +
       parseFloat(serosTitular) +
       parseFloat(serosFamiliar) +
@@ -894,7 +910,7 @@ function App() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDeducciones(deduccionesImporte.toFixed(2));
+    setDeducciones(deduccionesImporte1.toFixed(2));
   }, [
     jubilacion,
     serosTitular,
@@ -920,7 +936,7 @@ function App() {
       parseFloat(hijosEscoIncapacitado) +
       parseFloat(conyuge) +
       parseFloat(ayudaEsc);
-    setAsignacion1(totalAsigFa);
+    setAsignacion2(totalAsigFa);
   }, [hijos, hijosIncapacitado, hijosEscoIncapacitado, conyuge, ayudaEsc]);
 
   //Deducciones para total DESCUENTO LEY: es una estado global sin incluir las cuota de atech
@@ -939,7 +955,7 @@ function App() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDescuentoLey1(deduccionesImporte2);
+    setDescuentoLey2(deduccionesImporte2);
   }, [
     jubilacion,
     serosTitular,
@@ -960,15 +976,17 @@ function App() {
   useEffect(() => {
     const sumaParaAtech =
       parseFloat(sueldo) +
+      parseFloat(PorcentajPd) +
       parseFloat(zonaImporte) +
       parseFloat(recursosMateriales) +
       parseFloat(anios) +
       parseFloat(ubicacion) +
       parseFloat(otrosIngresos);
     setSueldo2(sumaParaAtech.toFixed(2));
-    setNetoInstitucion1(sumaParaAtech.toFixed(2));
+    setNetoInstitucion2(sumaParaAtech.toFixed(2));
   }, [
     sueldo,
+    PorcentajPd,
     zonaImporte,
     recursosMateriales,
     anios,
@@ -1000,7 +1018,7 @@ function App() {
     const afiliacion = (parseFloat(sueldo2) * 2) / 100;
 
     setAfiliadoAtech(afiliacion.toFixed(2));
-    setRetencion1(afiliacion.toFixed(2));
+    setRetencion2(afiliacion);
   }, [sueldo2]);
 
   const handleFuncionChange = (event) => {
@@ -1024,6 +1042,11 @@ function App() {
     const SegTransplante = 50;
     setSerosSeguroTransplante(SegTransplante);
   };
+  // useEffect(() => {
+  //   calculo de antiguedad
+  //   const importeAnios = getAntiguedadImpor() * (sueldo / 100);
+  //   setAnios(importeAnios.toFixed(2));
+  // }, [sueldo]);
 
   const handleZonaChange = (event) => {
     setZonaUnidad(event.target.value);
@@ -1054,18 +1077,12 @@ function App() {
   };
 
   const handleantiguedad = (event) => {
-    var select = document.getElementById("numero");
-
     setAniosPorcentaje(event.target.value);
 
-    const valorevento = event.target.value; // tomo el valor de la opcion elejida y la mando a una constante
-    const valorevento1 = select.options[select.selectedIndex].text;
-
+    const valorevento = event.target.value; // tomo el valor de la opcion elejida y la mando a un estado
     valorEv.current = valorevento;
     const importeAnios = event.target.value * (sueldo / 100);
     setAnios(importeAnios.toFixed(2));
-    setAntiguedad(parseFloat(valorevento1)); //con esto saco el numero elejido por la persona
-    setAntiguedadImporGlob(valorevento); //con esto tomo el valor la opcion elejida por la persona
   };
 
   const handleserosFamiliar = (event) => {
@@ -1155,19 +1172,21 @@ function App() {
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
     }
   };
-  //Con esto mando el estado de tootal paracial a un estado globlal
   const {
-    setNetoInstitucion1,
-    setDescuentoLey1,
-    setRetencion1,
-    setAsignacion1,
-    setAntiguedad,
-    setAntiguedadImporGlob,
+    setNetoInstitucion2,
+    setDescuentoLey2,
+    setRetencion2,
+    setAsignacion2,
   } = useBearStore();
+
+  const [getAntiguedad, getAntiguedadImpor] = useBearStore((state) => [
+    state.getAntiguedad,
+    state.getAntiguedadImpor,
+  ]);
   return (
-    <div className="animate__animated animate__pulse">
+    <div>
       <h1 className="head">Calculadora de sueldos </h1>
-      <h2 className="subtituloMes">Febrero 2024</h2>
+      <h2 className="subtituloMes">Mayo</h2>
       <table className="seleccion">
         <tr>
           <th>
@@ -1210,13 +1229,16 @@ function App() {
         </tr>
         <tr>
           <th>
-            <label>Antigüedad </label>
-            <select onChange={handleantiguedad} id="numero">
+            <label>Antigüedad </label>{" "}
+            {/*<option> {getAntiguedad()}</option> */}
+            <select onChange={handleantiguedad}>
               {antiguedad.map((antiguedad, index) => (
                 <option key={index} value={antiguedad.valor}>
                   {antiguedad.nombre}
                 </option>
               ))}
+              {/* NOTA: comento esto para que no mapee de nuevo el arreglo y solo muestre el la opcion que trae 
+               del estado gloabal */}
             </select>
           </th>
           <th>
@@ -1469,7 +1491,16 @@ function App() {
             <td></td>
             <td>{formatter.format(ubicacion)}</td>
           </tr>
+          {/* ////////////////////////////// */}
           <tr className="celda">
+            <td>1168</td>
+            <td>Adicional profesionalidad</td>
+            <td>15%</td>
+            <td>{formatter.format(PorcentajPd)}</td>
+          </tr>
+          {/* //////////////////////////// */}
+
+          <tr>
             <td></td>
             <td>Otros Ingresos/Descuentos </td>
             <td></td>
@@ -1481,7 +1512,7 @@ function App() {
             <td> </td>
             <td> </td>
           </tr>
-          <tr>
+          <tr className="celda">
             <td></td>
             <td></td>
             <td></td>

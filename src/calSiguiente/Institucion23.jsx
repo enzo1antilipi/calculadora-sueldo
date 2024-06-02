@@ -4,8 +4,7 @@ import "../App";
 import { useBearStore } from "../store/EstGloSig";
 
 function Institucion23() {
-  const SUELDO_BASICO = 157202.64;
-  const SUELDO_BASICO_PD = 180783.03;
+  const SUELDO_BASICO = 201204.33;
   const HIJOS_ESCOLARIZADOS = 42099;
   const HIJOS_INCAPACITADO = 168057;
   const COBRO_CONYUGE = 12270;
@@ -711,7 +710,7 @@ function Institucion23() {
 
   const zonas = [
     { nombre: "Sin datos", valor: 0 },
-    { nombre: "Norte", valor: 70.4 },
+    { nombre: "Norte", valor: 83 },
     { nombre: "Sur", valor: 90 },
   ];
   const hijosnum = [0, 1, 2, 3, 4, 5, 6, 7];
@@ -1174,7 +1173,7 @@ function Institucion23() {
   return (
     <div>
       <h1 className="head">Calculadora de sueldos </h1>
-      <h2 className="subtituloMes">Marzo 2024</h2>
+      <h2 className="subtituloMes">Junio</h2>
       <table className="seleccion">
         <th>
           <label className="presentismo">Con presentismo? (Ley PD*) </label>

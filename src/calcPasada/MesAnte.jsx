@@ -5,7 +5,9 @@ import Institucion03 from "./Institucion03";
 import Institucion04 from "./Institucion04";
 import Institucion05 from "./Institucion05";
 import { useBearStore } from "../store/EstGloAnterior";
-
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 export default function calculadora() {
   const [
     getnetoglobal,
@@ -34,6 +36,33 @@ export default function calculadora() {
   });
   return (
     <div>
+      <ul style={{ display: "flex", justifyContent: "space-between" }}>
+        <li className="lista1">
+          <Link to="/mesante" className="letraslink">
+            {/* <FaArrowLeft
+              style={{
+                marginRight: "5px",
+              }}
+            /> */}
+            Abril
+          </Link>
+        </li>
+        <li className="lista2">
+          <Link to="/mesactual" className="letraslink">
+            Mayo
+          </Link>
+        </li>
+        <li className="lista3">
+          <Link to="/MesSiguiente" className="letraslink">
+            Junio
+            {/* <FaArrowRight
+              style={{
+                marginLeft: "5px",
+              }}
+            /> */}
+          </Link>
+        </li>
+      </ul>
       <div className="bloc-onglets">
         <div
           className={toggleTabs === 1 ? "tabs active-tabs" : "tabs"}

@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { Pages } from "./Pages";
+import Pages from "./Pages";
 import MesAnte from "./calcPasada/MesAnte";
 import MesSig from "./calSiguiente/MesSig";
 import "./rutas.css";
-import { FaArrowLeft } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
 import { IoReturnUpBackOutline } from "react-icons/io5";
+import App from "./App";
+import Prueba from "./Prueba";
 
 export const Rutas = () => {
   const handleRedirect = () => {
@@ -26,7 +26,7 @@ export const Rutas = () => {
       </div>
       <div>
         <BrowserRouter>
-          <ul style={{ display: "flex", justifyContent: "space-between" }}>
+          {/* <ul style={{ display: "flex", justifyContent: "space-between" }}>
             <li className="lista1">
               <Link to="/mesante" className="letraslink">
                 <FaArrowLeft
@@ -38,7 +38,7 @@ export const Rutas = () => {
               </Link>
             </li>
             <li className="lista2">
-              <Link to="/" className="letraslink">
+              <Link to="/app" className="letraslink">
                 Actual
               </Link>
             </li>
@@ -52,12 +52,13 @@ export const Rutas = () => {
                 />
               </Link>
             </li>
-          </ul>
+          </ul> */}
 
           <Routes>
-            <Route path="/mesante" element={<Pages />} />
-            <Route path="/" element={<MesSig />} />
-            <Route path="/MesSiguiente" element={<MesAnte />} />
+            <Route path="/" element={<Prueba />} />
+            <Route path="/mesactual" element={<Pages />} />
+            <Route path="/mesante" element={<MesAnte />} />
+            <Route path="/MesSiguiente" element={<MesSig />} />
           </Routes>
         </BrowserRouter>
       </div>
