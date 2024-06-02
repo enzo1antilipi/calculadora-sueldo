@@ -55,10 +55,10 @@ export const Rutas = () => {
           </ul> */}
 
           <Routes>
-            <Route path="/" element={<Prueba />} />
+            <Route path="/" element={<MesSig />} />
             <Route path="/mesactual" element={<Pages />} />
             <Route path="/mesante" element={<MesAnte />} />
-            <Route path="/MesSiguiente" element={<MesSig />} />
+            {/* <Route path="/MesSiguiente" element={<MesSig />} /> */}
           </Routes>
         </BrowserRouter>
       </div>

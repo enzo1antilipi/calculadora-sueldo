@@ -51,7 +51,7 @@ export default function calculadora() {
           </Link>
         </li>
         <li className="lista3">
-          <Link to="/MesSiguiente" className="letraslink">
+          <Link to="/" className="letraslink">
             Junio
             {/* <FaArrowRight
               style={{
