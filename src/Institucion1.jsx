@@ -1189,6 +1189,13 @@ function Institucion1() {
       <h1 className="head">Calculadora de sueldos </h1>
       <h2 className="subtituloMes">Mayo</h2>
       <table className="seleccion">
+        <th>
+          <label className="presentismo">Con presentismo? (Ley PD*) </label>
+          <select onChange={handleToggleCalculations}>
+            <option value="NO">NO</option>
+            <option>SI</option>
+          </select>
+        </th>
         <tr>
           <th>
             <label>Función</label>
