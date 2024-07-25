@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Pages from "./Pages";
 import MesAnte from "./calcPasada/MesAnte";
 import MesSig from "./calSiguiente/MesSig";
+import MesJulio from "./calcuJulio/MesJulio"
 import "./rutas.css";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import App from "./App";
@@ -55,9 +56,10 @@ export const Rutas = () => {
           </ul> */}
 
           <Routes>
-            <Route path="/" element={<MesSig />} />
+            <Route path="/mesSiguiente" element={<MesSig />} />
             <Route path="/mesactual" element={<Pages />} />
             <Route path="/mesante" element={<MesAnte />} />
+            <Route path="/" element={<MesJulio />} />
             {/* <Route path="/MesSiguiente" element={<MesSig />} /> */}
           </Routes>
         </BrowserRouter>

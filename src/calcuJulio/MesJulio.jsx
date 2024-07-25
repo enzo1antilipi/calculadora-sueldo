@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import Institucion01 from "./Institucion01";
-import Institucion02 from "./Institucion02";
-import Institucion03 from "./Institucion03";
-import Institucion04 from "./Institucion04";
-import Institucion05 from "./Institucion05";
-import { useBearStore } from "../store/EstGloAnterior";
+import Institucion31 from "./Institucion31";
+import Institucion32 from "./Institucion32";
+import Institucion33 from "./Institucion33";
+import Institucion34 from "./Institucion34";
+import Institucion35 from "./Institucion35";
+import { useBearStore } from "../store/EstGloSig";
+import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
 export default function calculadora() {
   const [
     getnetoglobal,
@@ -24,9 +24,7 @@ export default function calculadora() {
     state.getAsignacion,
     state.getNetoPagar,
   ]);
-
   const [toggleTabs, setToggleTabs] = useState(1);
-
   const toggleTab = (index) => {
     setToggleTabs(index);
   };
@@ -35,7 +33,7 @@ export default function calculadora() {
     currency: "ARS",
   });
   return (
-    <div>
+    <div div className="animate__animated animate__pulse">
       <ul style={{ display: "flex", justifyContent: "space-between" }}>
         <li className="lista1">
           <Link to="/mesante" className="letraslink">
@@ -110,30 +108,29 @@ export default function calculadora() {
         <div
           className={toggleTabs === 1 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion01 />
+          <Institucion31 />
         </div>
         <div
           className={toggleTabs === 2 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion02 />
+          <Institucion32 />
         </div>
         <div
           className={toggleTabs === 3 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion03 />
+          <Institucion33 />
         </div>
         <div
           className={toggleTabs === 4 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion04 />
+          <Institucion34 />
         </div>
         <div
           className={toggleTabs === 5 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion05 />
+          <Institucion35 />
         </div>
       </div>
-      {/*  */}
       <div>
         <table className="tabla4">
           <tr>
@@ -142,7 +139,7 @@ export default function calculadora() {
             <th className="tablatotal">NETO BRUTO</th>
             <th className="tablatotal">RETENC VOLUNTARIA</th>
             <th className="tablatotal">ASIGNACION FAMILIAR</th>
-            <th className="tablatotal">NETO A PAGAR</th>
+            <th className="tablatotal">NETO A PAGAR </th>
           </tr>
           <tr>
             <td className="tablatotal">{formatter.format(getnetoglobal())}</td>
@@ -164,6 +161,9 @@ export default function calculadora() {
           error nos lo hagas saber por correo electrónico a
           secorganizacion@atech.org.ar
         </h2>
+      </div>
+      <div className="cartel" style={{ marginTop: "40px", width: "50%" }}>
+        <h2 className="letras">*Ley de Profesionalidad Docente</h2>
       </div>
     </div>
   );

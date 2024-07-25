@@ -51,8 +51,18 @@ export default function calculadora() {
           </Link>
         </li>
         <li className="lista3">
-          <Link to="/" className="letraslink">
+          <Link to="/mesSiguiente" className="letraslink">
             Junio
+            {/* <FaArrowRight
+              style={{
+                marginLeft: "5px",
+              }}
+            /> */}
+          </Link>
+        </li>
+        <li className="lista3">
+          <Link to="/" className="letraslink">
+            Julio
             {/* <FaArrowRight
               style={{
                 marginLeft: "5px",
