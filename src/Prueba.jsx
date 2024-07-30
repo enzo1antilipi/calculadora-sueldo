@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { Rutas } from "./Rutas";
 
 export const Prueba = () => {
   const [inputValue, setInputValue] = useState("");
@@ -75,7 +76,7 @@ export const Prueba = () => {
               color: "black",
               fontSize: "18px",
               fontWeight: "bold",
-              border: "solid 3px gray",
+              border: "solid 1px gray",
             }}
             type="text"
             ref={inputRef}
@@ -88,26 +89,30 @@ export const Prueba = () => {
               height: "30px",
               marginLeft: "10px",
               borderRadius: "10px",
-              border: "inset",
+              border: "none",
               cursor: "pointer",
               transition: "background-color 0.8s ease;" /* Transición suave */,
             }}
+            
           >
             Buscar
           </button>
         </form>
 
-        {foundAfiliado ? (
-          <div style={{ textAlign: "left", marginLeft: "10px" }}>
+         {foundAfiliado ? ( 
+           <div style={{ textAlign: "left", marginLeft: "10px" }}>
             <h2 style={{ color: "white" }}>Bienvenido</h2>
             <h3 style={{ fontFamily: "cursive" }}>
-              Nombre: {foundAfiliado.NOMBRE}
-            </h3>
+              Nombre: 
+               {foundAfiliado.NOMBRE} 
+             </h3>
             <h3 style={{ fontFamily: "cursive" }}>
-              Apellido: {foundAfiliado.APELLIDO}
-            </h3>
+              Apellido:   
+              {foundAfiliado.APELLIDO}
+
+             </h3>
             <nav>
-              <Link to="/MesSiguiente">
+              <Link to="/mesJulio">
                 <button
                   style={{
                     border: "inset",
@@ -124,9 +129,9 @@ export const Prueba = () => {
                 </button>
               </Link>
             </nav>
-          </div>
-        ) : notFound ? (
-          <div style={{ textAlign: "left", marginLeft: "10px" }}>
+          </div> 
+         ) : notFound ? ( 
+           <div style={{ textAlign: "left", marginLeft: "10px" }}>
             <h3>*Usted no está en la Base de datos*</h3>
             <p>
               Si considera que esta información es errónea, comuníquese con{" "}
@@ -135,7 +140,7 @@ export const Prueba = () => {
               secorganizacion@atech.org.ar
             </a>
             <nav>
-              <Link to="/MesSiguiente">
+              <Link to="/mesJulio">
                 <button
                   style={{
                     border: "inset",
@@ -152,7 +157,7 @@ export const Prueba = () => {
                 </button>
               </Link>
             </nav>
-          </div>
+          </div> 
         ) : null}
       </div>
     </>

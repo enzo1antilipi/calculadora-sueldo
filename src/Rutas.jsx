@@ -59,7 +59,8 @@ export const Rutas = () => {
             <Route path="/mesSiguiente" element={<MesSig />} />
             <Route path="/mesactual" element={<Pages />} />
             <Route path="/mesante" element={<MesAnte />} />
-            <Route path="/" element={<MesJulio />} />
+            <Route path="/" element={<Prueba />} />
+            <Route path="/mesJulio" element={<MesJulio />} />
             {/* <Route path="/MesSiguiente" element={<MesSig />} /> */}
           </Routes>
         </BrowserRouter>
