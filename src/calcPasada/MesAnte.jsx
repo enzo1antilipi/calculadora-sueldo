@@ -63,7 +63,7 @@ export default function calculadora() {
           </Link>
         </li>
         <li className="lista3">
-          <Link to="/mesJulio" className="letraslink">
+          <Link to="/" className="letraslink">
             Julio
             {/* <FaArrowRight
               style={{
