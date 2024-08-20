@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Institucion21 from "./Institucion21";
-import Institucion22 from "./Institucion22";
-import Institucion23 from "./Institucion23";
-import Institucion24 from "./Institucion24";
-import Institucion25 from "./Institucion25";
+import Institucion31 from "./Institucion41";
+import Institucion32 from "./Institucion42";
+import Institucion33 from "./Institucion43";
+import Institucion34 from "./Institucion44";
+import Institucion35 from "./Institucion45";
 import { useBearStore } from "../store/EstGloSig";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
@@ -70,15 +70,16 @@ export default function calculadora() {
             /> */}
           </Link>
         </li>
-        <li className="lista3">
+         <li className="lista3">
           <Link to="/" className="letraslink">
-            Agosto            {/* <FaArrowRight
+            Agosto
+            {/* <FaArrowRight
               style={{
                 marginLeft: "5px",
               }}
             /> */}
           </Link>
-        </li>
+        </li>'
       </ul>
       <div className="bloc-onglets">
         <div
@@ -117,27 +118,27 @@ export default function calculadora() {
         <div
           className={toggleTabs === 1 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion21 />
+          <Institucion31 />
         </div>
         <div
           className={toggleTabs === 2 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion22 />
+          <Institucion32 />
         </div>
         <div
           className={toggleTabs === 3 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion23 />
+          <Institucion33 />
         </div>
         <div
           className={toggleTabs === 4 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion24 />
+          <Institucion34 />
         </div>
         <div
           className={toggleTabs === 5 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion25 />
+          <Institucion35 />
         </div>
       </div>
       <div>
