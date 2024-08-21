@@ -1007,13 +1007,13 @@ function Institucion4() {
 
   //RECURSOS MATERIALES
   useEffect(() => {
-    const recursos = (parseFloat(sueldo) * 17.5) / 100;
+    const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
     setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;
     setAnios(actualizaAntigue);
     //actualizar zona de forma dinamica
-    const actualizaZona = (zonaUnidad * sueldo) / 100;
+    const actualizaZona = (zonaUnidad * SUELDO_BASICO) / 100;
     setZonaImporte(actualizaZona);
   }, [sueldo]);
 
@@ -1054,7 +1054,7 @@ function Institucion4() {
 
   const handleZonaChange = (event) => {
     setZonaUnidad(event.target.value);
-    const zonaImporte = event.target.value * (sueldo / 100);
+    const zonaImporte = event.target.value * (SUELDO_BASICO / 100);
     setZonaImporte(zonaImporte.toFixed(2));
   };
   const handleHijos = (event) => {
