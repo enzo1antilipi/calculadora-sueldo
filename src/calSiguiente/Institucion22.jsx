@@ -995,8 +995,8 @@ function Institucion22() {
 
   //RECURSOS MATERIALES
   useEffect(() => {
-    const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
-    setRecursosMateriales(recursos.toFixed(2));
+    // const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
+    // setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;
     setAnios(actualizaAntigue);
@@ -1024,7 +1024,8 @@ function Institucion22() {
     const cargoImporte = SUELDO_BASICO * event.target.value;
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
-
+    const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
+    setRecursosMateriales(recursos.toFixed(2));
     //descuentos de seros
 
     const SegVidaObli = 250;

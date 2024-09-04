@@ -1001,8 +1001,8 @@ function Institucion01() {
 
   //RECURSOS MATERIALES
   useEffect(() => {
-    const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
-    setRecursosMateriales(recursos.toFixed(2));
+    // const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
+    // setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;
     setAnios(actualizaAntigue);
@@ -1031,7 +1031,8 @@ function Institucion01() {
     console.log(cargoImporte);
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
-
+    const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
+    setRecursosMateriales(recursos.toFixed(2));
     //descuentos de seros
 
     const SegVidaObli = 250;
@@ -1049,7 +1050,7 @@ function Institucion01() {
 
   const handleZonaChange = (event) => {
     setZonaUnidad(event.target.value);
-    const zonaImporte = event.target.value * (SUELDO_BASICO / 100);
+    const zonaImporte = event.target.value * (sueldo / 100);
     setZonaImporte(zonaImporte.toFixed(2));
   };
   const handleHijos = (event) => {
