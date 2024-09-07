@@ -811,7 +811,7 @@ function Institucion35() {
 
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
   const [PorcentajPd, setPorcentajePd] = useState(0); //contiene el 15% del basico si es que tiene PD
-
+  const [sueldoBase,setSueldoBase] = useState(211075) // sirve para calcular recursos materiales
   const valorEv = useRef(0);
 
   const getValue = (value) => {
@@ -998,8 +998,8 @@ function Institucion35() {
 
   //RECURSOS MATERIALES
   useEffect(() => {
-    // const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
-    // setRecursosMateriales(recursos.toFixed(2));
+    const recursos = (parseFloat(sueldoBase) * 17.5) / 100;
+    setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;
     setAnios(actualizaAntigue);
@@ -1021,14 +1021,20 @@ function Institucion35() {
       (cargo) => cargo.funcion === event.target.value
     );
     setCargosFiltradosPorFuncion(cargosFiltrados);
+    console.log("cargos filtrad",)
+    setSueldoBase(SUELDO_BASICO)
   };
 
   const handleCargoChange = (event) => {
     const cargoImporte = SUELDO_BASICO * event.target.value;
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
-    const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
-    setRecursosMateriales(recursos.toFixed(2));
+
+    console.log("sueldo1",sueldo1)
+    console.log("cargo importa",cargoImporte)
+    console.log("sueldo",sueldo)
+    // const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
+    // setRecursosMateriales(recursos.toFixed(2));
     //descuentos de seros
 
     const SegVidaObli = 250;
@@ -1157,6 +1163,7 @@ function Institucion35() {
     if (docente === "nm") {
       const nmimporte = ev.target.value * HC_NIVEL_MEDIO * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
+      setSueldoBase(parseFloat(sueldo1) + parseFloat(nmimporte));
     } else {
       const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));

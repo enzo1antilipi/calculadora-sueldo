@@ -813,6 +813,7 @@ function Institucion31() {
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
   const [PorcentajPd, setPorcentajePd] = useState(0); //contiene el 15% del basico si es que tiene PD
   const valorEv = useRef(0);
+  const [sueldoBase, setSueldoBase] =useState(0)
 
   const getValue = (value) => {
     if (value !== "") {
@@ -1001,8 +1002,8 @@ function Institucion31() {
 
   //RECURSOS MATERIALES
   useEffect(() => {
-    // const recursos = (parseFloat(sueldo) * 17.5) / 100;
-    // setRecursosMateriales(recursos.toFixed(2));
+    const recursos = (parseFloat(sueldoBase) * 17.5) / 100;
+    setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;
     setAnios(actualizaAntigue);
@@ -1024,6 +1025,7 @@ function Institucion31() {
       (cargo) => cargo.funcion === event.target.value
     );
     setCargosFiltradosPorFuncion(cargosFiltrados);
+    setSueldoBase(SUELDO_BASICO)
   };
 
   const handleCargoChange = (event) => {
@@ -1031,8 +1033,8 @@ function Institucion31() {
     console.log(cargoImporte);
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
-    const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
-    setRecursosMateriales(recursos.toFixed(2));
+    // const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
+    // setRecursosMateriales(recursos.toFixed(2));
 
     //descuentos de seros
 
@@ -1052,7 +1054,7 @@ function Institucion31() {
   const handleZonaChange = (event) => {
     console.log("handle zona sueldo",sueldo)
     setZonaUnidad(event.target.value);
-    const zonaImporte = event.target.value * (SUELDO_BASICO / 100);
+    const zonaImporte = event.target.value * (sueldoBase / 100);
     //cambie sueldo por SUELDO_BASICO 
     setZonaImporte(zonaImporte.toFixed(2));
   };
@@ -1165,9 +1167,11 @@ function Institucion31() {
       const nmimporte = ev.target.value * HC_NIVEL_MEDIO * SUELDO_BASICO; //se cambio por SUELDO_BASICO
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
       console.log("horas catedreas",nmimporte)
+      setSueldoBase(parseFloat(sueldo1) + parseFloat(nmimporte));
     } else {
       const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
+      setSueldoBase(parseFloat(sueldo1) + parseFloat(nsimporte));
     }
   };
   //Con esto mando el estado de tootal paracial a un estado globlal
