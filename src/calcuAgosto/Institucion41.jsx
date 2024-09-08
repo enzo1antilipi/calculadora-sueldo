@@ -814,7 +814,7 @@ function Institucion31() {
   const [PorcentajPd, setPorcentajePd] = useState(0); //contiene el 15% del basico si es que tiene PD
   const valorEv = useRef(0);
   const [sueldoBase, setSueldoBase] =useState(0)
-
+  const [importeHoras,setImporteHoras]=useState(0)
   const getValue = (value) => {
     if (value !== "") {
       return parseFloat(value);
@@ -1007,9 +1007,11 @@ function Institucion31() {
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;
     setAnios(actualizaAntigue);
-    //actualizar zona de forma dinamica
-    const actualizaZona = (zonaUnidad * SUELDO_BASICO) / 100;
+    //actualizar zona patagonica de forma dinamica
+    const actualizaZona = (zonaUnidad * sueldoBase) / 100;
     setZonaImporte(actualizaZona);
+    console.log("use efect",sueldoBase)
+    console.log("use efect zona unidad",)
   }, [sueldo]);
 
   //CAMPO ATECH
@@ -1025,12 +1027,11 @@ function Institucion31() {
       (cargo) => cargo.funcion === event.target.value
     );
     setCargosFiltradosPorFuncion(cargosFiltrados);
-    setSueldoBase(SUELDO_BASICO)
   };
 
   const handleCargoChange = (event) => {
     const cargoImporte = SUELDO_BASICO * event.target.value;
-    console.log(cargoImporte);
+    console.log("cargo",cargoImporte);
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
     // const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
@@ -1167,7 +1168,18 @@ function Institucion31() {
       const nmimporte = ev.target.value * HC_NIVEL_MEDIO * SUELDO_BASICO; //se cambio por SUELDO_BASICO
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
       console.log("horas catedreas",nmimporte)
-      setSueldoBase(parseFloat(sueldo1) + parseFloat(nmimporte));
+      setImporteHoras(nmimporte)
+      if (sueldo1!=0){
+      setSueldoBase(parseFloat(nmimporte)+SUELDO_BASICO);
+        
+        // const result= SUELDO_BASICO+nmimporte
+      }else{ setSueldoBase(parseFloat(nmimporte));}
+  
+     
+      // setZonaImporte(  parseFloat(sueldoBase) +parseFloat(nmimporte));
+      console.log("suedlo base",sueldoBase)
+      console.log("nimporte",nmimporte)
+      console.log("sueldo1",sueldo1)
     } else {
       const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
