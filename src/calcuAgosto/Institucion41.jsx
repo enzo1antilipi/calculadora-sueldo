@@ -1010,8 +1010,6 @@ function Institucion31() {
     //actualizar zona patagonica de forma dinamica
     const actualizaZona = (zonaUnidad * sueldoBase) / 100;
     setZonaImporte(actualizaZona);
-    console.log("use efect",sueldoBase)
-    console.log("use efect zona unidad",)
   }, [sueldo]);
 
   //CAMPO ATECH
@@ -1174,16 +1172,14 @@ function Institucion31() {
         
         // const result= SUELDO_BASICO+nmimporte
       }else{ setSueldoBase(parseFloat(nmimporte));}
-  
-     
-      // setZonaImporte(  parseFloat(sueldoBase) +parseFloat(nmimporte));
-      console.log("suedlo base",sueldoBase)
-      console.log("nimporte",nmimporte)
-      console.log("sueldo1",sueldo1)
     } else {
       const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
-      setSueldoBase(parseFloat(sueldo1) + parseFloat(nsimporte));
+       if (sueldo1!=0){
+      setSueldoBase(parseFloat(nsimporte)+SUELDO_BASICO);
+        
+        // const result= SUELDO_BASICO+nmimporte
+      }else{ setSueldoBase(parseFloat(nsimporte));}
     }
   };
   //Con esto mando el estado de tootal paracial a un estado globlal

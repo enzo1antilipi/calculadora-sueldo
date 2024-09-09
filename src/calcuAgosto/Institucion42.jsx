@@ -811,6 +811,7 @@ function Institucion32() {
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
   const [PorcentajPd, setPorcentajePd] = useState(0); //contiene el 15% del basico si es que tiene PD
   const valorEv = useRef(0);
+  const [sueldoBase, setSueldoBase] =useState(0)
 
   const getValue = (value) => {
     if (value !== "") {
@@ -995,13 +996,13 @@ function Institucion32() {
 
   //RECURSOS MATERIALES
   useEffect(() => {
-    // const recursos = (parseFloat(sueldo) * 17.5) / 100;
-    // setRecursosMateriales(recursos.toFixed(2));
+    const recursos = (parseFloat(sueldoBase) * 17.5) / 100;
+    setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;
     setAnios(actualizaAntigue);
     //actualizar zona de forma dinamica
-    const actualizaZona = (zonaUnidad * SUELDO_BASICO) / 100;
+    const actualizaZona = (zonaUnidad * sueldoBase) / 100;
     setZonaImporte(actualizaZona);
   }, [sueldo]);
 
@@ -1024,8 +1025,8 @@ function Institucion32() {
     const cargoImporte = SUELDO_BASICO * event.target.value;
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
-    const recursos = (parseFloat(sueldo) * 17.5) / 100;
-    setRecursosMateriales(recursos.toFixed(2));
+    // const recursos = (parseFloat(sueldo) * 17.5) / 100;
+    // setRecursosMateriales(recursos.toFixed(2));
 
     //descuentos de seros
 
@@ -1044,7 +1045,7 @@ function Institucion32() {
 
   const handleZonaChange = (event) => {
     setZonaUnidad(event.target.value);
-    const zonaImporte = event.target.value * (SUELDO_BASICO / 100);
+    const zonaImporte = event.target.value * (sueldoBase / 100);
     setZonaImporte(zonaImporte.toFixed(2));
   };
   const handleHijos = (event) => {
@@ -1155,9 +1156,19 @@ function Institucion32() {
     if (docente === "nm") {
       const nmimporte = ev.target.value * HC_NIVEL_MEDIO * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
+      if (sueldo1!=0){
+      setSueldoBase(parseFloat(nmimporte)+SUELDO_BASICO);
+        
+        // const result= SUELDO_BASICO+nmimporte
+      }else{ setSueldoBase(parseFloat(nmimporte));}
     } else {
       const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
+      if (sueldo1!=0){
+      setSueldoBase(parseFloat(nsimporte)+SUELDO_BASICO);
+        
+        // const result= SUELDO_BASICO+nmimporte
+      }else{ setSueldoBase(parseFloat(nsimporte));}
     }
   };
   const {
