@@ -1002,7 +1002,13 @@ function Institucion31() {
 
   //RECURSOS MATERIALES
   useEffect(() => {
-    const recursos = (parseFloat(sueldoBase) * 17.5) / 100;
+     let sueldoRecursos=SUELDO_BASICO
+     if (sueldo1!=0){
+      sueldoRecursos=SUELDO_BASICO
+        // const result= SUELDO_BASICO+nmimporte
+      }else
+      {sueldoRecursos=sueldoBase} 
+    const recursos = (parseFloat(sueldoRecursos) * 17.5) / 100;
     setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;
@@ -1052,8 +1058,17 @@ function Institucion31() {
 
   const handleZonaChange = (event) => {
     console.log("handle zona sueldo",sueldo)
+    console.log("handle zona sueldobase",sueldoBase)
+    let sueldoZona=SUELDO_BASICO
+     if (sueldo1!=0){
+      sueldoZona=SUELDO_BASICO
+        // const result= SUELDO_BASICO+nmimporte
+      }else
+      {sueldoZona=sueldoBase} 
+    console.log("handle sueldozona",sueldoZona)
+      
     setZonaUnidad(event.target.value);
-    const zonaImporte = event.target.value * (sueldoBase / 100);
+    const zonaImporte = event.target.value * (sueldoZona / 100);
     //cambie sueldo por SUELDO_BASICO 
     setZonaImporte(zonaImporte.toFixed(2));
   };
