@@ -813,6 +813,7 @@ function Institucion34() {
 
   const valorEv = useRef(0);
   const [sueldoBase, setSueldoBase] =useState(0)
+   const [horasCatedra, setHorasCatedra] = useState(0); 
 
   const getValue = (value) => {
     if (value !== "") {
@@ -1153,10 +1154,17 @@ function Institucion34() {
     } else {
       setDocente(0);
     }
+
   };
+
   const hsCatedra = (ev) => {
+  const horas = ev.target.value;
+  setHorasCatedra(horas); // Guarda las horas cátedra
+  };
+
+  useEffect(()=>{
     if (docente === "nm") {
-      const nmimporte = ev.target.value * HC_NIVEL_MEDIO * SUELDO_BASICO;
+      const nmimporte = horasCatedra * HC_NIVEL_MEDIO * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
       if (sueldo1!=0){
       setSueldoBase(parseFloat(nmimporte)+SUELDO_BASICO);
@@ -1164,7 +1172,7 @@ function Institucion34() {
         // const result= SUELDO_BASICO+nmimporte
       }else{ setSueldoBase(parseFloat(nmimporte));}
     } else {
-      const nsimporte = ev.target.value * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
+      const nsimporte = horasCatedra * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
       if (sueldo1!=0){
       setSueldoBase(parseFloat(nsimporte)+SUELDO_BASICO);
@@ -1172,7 +1180,7 @@ function Institucion34() {
         // const result= SUELDO_BASICO+nmimporte
       }else{ setSueldoBase(parseFloat(nsimporte));}
     }
-  };
+  },[docente,horasCatedra])
   const {
     setNetoInstitucion24,
     setDescuentoLey24,
@@ -1188,6 +1196,7 @@ function Institucion34() {
     <div>
       <h1 className="head">Calculadora de sueldos </h1>
       <h2 className="subtituloMes">Septiembre</h2>
+      <span style={{color:"black",fontFamily:"cursive", fontSize:"20px"}}>(Esta versión del simulador no tiene en cuenta aún el adicional por cargo jerárquico)</span>
       <table className="seleccion">
         <th>
           <label className="presentismo">Con presentismo? (Ley PD*) </label>
