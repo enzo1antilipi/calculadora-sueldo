@@ -8,6 +8,8 @@ import { useBearStore } from "../store/EstGloSig";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 export default function calculadora() {
   const [
     getnetoglobal,
@@ -32,55 +34,45 @@ export default function calculadora() {
     style: "currency",
     currency: "ARS",
   });
+  const navigate = useNavigate();
+  const [selectedMonth, setSelectedMonth] = useState("mesJulio");
+
+   const handleMonthChange = (e) => {
+    const selected = e.target.value;
+    setSelectedMonth(selected);
+
+    // Redireccionar según el mes seleccionado
+    if (selected === "mesActual") {
+      navigate("/mesactual");
+    } else if (selected === "mesSiguiente") {
+      navigate("/mesSiguiente");
+    } else if (selected === "mesJulio") {
+      navigate("/mesjulio");
+    } else if (selected === "mesAgosto") {
+      navigate("/mesagosto");
+    } else if (selected === "mesSeptiembre") {
+      navigate("/");
+    } else if (selected === "mesAnte") {
+      navigate("/mesante");
+    }
+  };
   return (
     <div div className="animate__animated animate__pulse">
-      <ul style={{ display: "flex", justifyContent: "space-between" }}>
-        <li className="lista1">
-          <Link to="/mesante" className="letraslink">
-            {/* <FaArrowLeft
-              style={{
-                marginRight: "5px",
-              }}
-            /> */}
-            Abril
-          </Link>
-        </li>
-        <li className="lista2">
-          <Link to="/mesactual" className="letraslink">
-            Mayo
-          </Link>
-        </li>
-        <li className="lista3">
-          <Link to="/mesSiguiente" className="letraslink">
-            Junio
-            {/* <FaArrowRight
-              style={{
-                marginLeft: "5px",
-              }}
-            /> */}
-          </Link>
-        </li>
-        <li className="lista3">
-          <Link to="/mesjulio" className="letraslink">
-            Julio
-            {/* <FaArrowRight
-              style={{
-                marginLeft: "5px",
-              }}
-            /> */}
-          </Link>
-        </li>
-        <li className="lista3">
-          <Link to="/" className="letraslink">
-            Agosto
-            {/* <FaArrowRight
-              style={{
-                marginLeft: "5px",
-              }}
-            /> */}
-          </Link>
-        </li>
-      </ul>
+       <label htmlFor="meses">Mes</label>
+      <select
+        id="meses"
+        value={selectedMonth}
+        onChange={handleMonthChange}
+        className="dropdown"
+        style={{width:"300px",height:"30px", marginBottom:"15px",fontSize:"20px"}}
+      >
+        <option value="mesSeptiembre">Septiembre 2024 - Paritaria 26/9/24</option>
+        <option value="mesAgosto" >Agosto 2024</option>
+        <option value="mesJulio">Julio 2024</option> 
+        <option value="mesSiguiente">Junio 2024</option>
+        <option value="mesActual">Mayo 2024</option>
+        <option value="mesAnte">Abril 2024</option>
+      </select>
       <div className="bloc-onglets">
         <div
           className={toggleTabs === 1 ? "tabs active-tabs" : "tabs"}

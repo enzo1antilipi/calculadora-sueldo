@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import Institucion21 from "./Institucion21";
-import Institucion22 from "./Institucion22";
-import Institucion23 from "./Institucion23";
-import Institucion24 from "./Institucion24";
-import Institucion25 from "./Institucion25";
+import Institucion31 from "./Institucion51";
+import Institucion32 from "./Institucion52";
+import Institucion33 from "./Institucion53";
+import Institucion34 from "./Institucion54";
+import Institucion35 from "./Institucion55";
 import { useBearStore } from "../store/EstGloSig";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+
 export default function calculadora() {
   const [
     getnetoglobal,
@@ -34,7 +35,7 @@ export default function calculadora() {
     currency: "ARS",
   });
   const navigate = useNavigate();
-  const [selectedMonth, setSelectedMonth] = useState("mesSiguiente");
+  const [selectedMonth, setSelectedMonth] = useState("mesSeptiembre");
 
    const handleMonthChange = (e) => {
     const selected = e.target.value;
@@ -57,15 +58,15 @@ export default function calculadora() {
   };
   return (
     <div div className="animate__animated animate__pulse">
-       <label htmlFor="meses">Mes</label>
+      <label htmlFor="meses">Mes</label>
       <select
         id="meses"
         value={selectedMonth}
         onChange={handleMonthChange}
         className="dropdown"
-        style={{width:"300px",height:"30px", marginBottom:"15px",fontSize:"20px"}}
+        style={{width:"40%",height:"30px", marginBottom:"15px",fontSize:"20px"}}
       >
-        <option value="mesSeptiembre">Septiembre 2024 - Paritaria 26/9/24</option>
+       <option value="mesSeptiembre">Septiembre 2024 - Paritaria 26/9/24</option>
         <option value="mesAgosto" >Agosto 2024</option>
         <option value="mesJulio">Julio 2024</option> 
         <option value="mesSiguiente">Junio 2024</option>
@@ -109,27 +110,27 @@ export default function calculadora() {
         <div
           className={toggleTabs === 1 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion21 />
+          <Institucion31 />
         </div>
         <div
           className={toggleTabs === 2 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion22 />
+          <Institucion32 />
         </div>
         <div
           className={toggleTabs === 3 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion23 />
+          <Institucion33 />
         </div>
         <div
           className={toggleTabs === 4 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion24 />
+          <Institucion34 />
         </div>
         <div
           className={toggleTabs === 5 ? "contenu active-contenu" : "contenu"}
         >
-          <Institucion25 />
+          <Institucion35 />
         </div>
       </div>
       <div>
@@ -169,61 +170,3 @@ export default function calculadora() {
     </div>
   );
 }
-
-
-<ul style={{ display: "flex", justifyContent: "space-between" }}>
-        <li className="lista1">
-          <Link to="/mesante" className="letraslink">
-            {/* <FaArrowLeft
-              style={{
-                marginRight: "5px",
-              }}
-            /> */}
-            Abril
-          </Link>
-        </li>
-        <li className="lista2">
-          <Link to="/mesactual" className="letraslink">
-            Mayo
-          </Link>
-        </li>
-        <li className="lista3">
-          <Link to="/mesSiguiente" className="letraslink">
-            Junio
-            {/* <FaArrowRight
-              style={{
-                marginLeft: "5px",
-              }}
-            /> */}
-          </Link>
-        </li>
-        <li className="lista3">
-          <Link to="/mesjulio" className="letraslink">
-            Julio
-            {/* <FaArrowRight
-              style={{
-                marginLeft: "5px",
-              }}
-            /> */}
-          </Link>
-        </li>
-        <li className="lista3">
-          <Link to="/mesagosto" className="letraslink">
-            Agosto            {/* <FaArrowRight
-              style={{
-                marginLeft: "5px",
-              }}
-            /> */}
-          </Link>
-        </li>
-        <li className="lista3">
-          <Link to="/" className="letraslink">
-            Septiembre
-             {/* <FaArrowRight
-              style={{
-                marginLeft: "5px",
-              }}
-            /> */}
-          </Link>
-        </li>
-      </ul>
