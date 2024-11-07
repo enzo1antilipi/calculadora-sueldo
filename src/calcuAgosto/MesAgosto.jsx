@@ -51,10 +51,13 @@ export default function calculadora() {
     } else if (selected === "mesAgosto") {
       navigate("/mesagosto");
     } else if (selected === "mesSeptiembre") {
-      navigate("/");
+      navigate("/mesSeptiembre");
     } else if (selected === "mesAnte") {
       navigate("/mesante");
+    }else if (selected === "mesOctubre"){
+      navigate("/");
     }
+
   };
   return (
     <div div className="animate__animated animate__pulse">
@@ -69,6 +72,7 @@ export default function calculadora() {
         {/* <option value="" disabled>
           Agosto 2024
         </option> */}
+        <option value="mesOctubre">Octubre 2024 - Paritaria 26/9/24</option>
         <option value="mesSeptiembre">Septiembre 2024 - Paritaria 26/9/24</option>
         <option value="mesAgosto" >Agosto 2024</option>
         <option value="mesJulio">Julio 2024</option> 
