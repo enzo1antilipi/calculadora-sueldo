@@ -61,6 +61,8 @@ export default function Pages() {
     } else if (selected === "mesAnte") {
       navigate("/mesante");
     }else if (selected === "mesOctubre"){
+      navigate("/mesOctubre");
+    }else if (selected === "mesNoviembre"){
       navigate("/");
     }
   };
@@ -76,6 +78,7 @@ export default function Pages() {
         className="dropdown"
         style={{width:"40%",height:"30px", marginBottom:"15px",fontSize:"20px"}}
       >
+        <option value="mesNoviembre">Noviembre 2024 - Paritaria 26/9/24</option>
         <option value="mesOctubre">Octubre 2024 - Paritaria 26/9/24</option>
        <option value="mesSeptiembre">Septiembre 2024 - Paritaria 26/9/24</option>
         <option value="mesAgosto" >Agosto 2024</option>
