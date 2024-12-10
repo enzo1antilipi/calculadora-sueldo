@@ -3,6 +3,7 @@ import { useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Rutas } from "./Rutas";
+import  afiliados from "../src/apiafiliados.json"
 
 export const Prueba = () => {
   const [inputValue, setInputValue] = useState("");
@@ -21,27 +22,38 @@ export const Prueba = () => {
   //funcion que va a traer los datos
 
   const fetchApi = async (inputValue) => {
-    const response = await axios.get(`http://66.97.47.220:1337/api/afiliados`, {
-      params: {
-        "pagination[limit]": 6500,
-        "pagination[start]": 0,
-      },
-    });
-    const afiliadosData = response.data.data;
-    console.log(afiliadosData);
+    // const response = await axios.get(`http://66.97.47.220:1337/api/afiliados`, {
+    //   params: {
+    //     "pagination[limit]": 6500,
+    //     "pagination[start]": 0,
+    //   },
+    // });
+    // const afiliadosData = response.data.data;
+    // console.log(afiliadosData);
 
-    let found = null;
-    console.log("soy el value enviado", inputValue);
-    for (const obj of afiliadosData) {
-      if (obj && obj.attributes && obj.attributes.DOCUMENTO === inputValue) {
-        found = obj;
-        break;
-      }
-    }
-
+    // let found = null;
+    // console.log("soy el value enviado", inputValue);
+    // for (const obj of afiliadosData) {
+    //   if (obj && obj.attributes && obj.attributes.DOCUMENTO === inputValue) {
+    //     found = obj;
+    //     break;
+    //   }
+    // }
+    // for (const obj of afiliadosData) {
+    // if (obj && obj.DOCUMENTO === inputValue) {
+    //   found = obj;
+    //   break;
+    // }
+  // }
+  //  const found = afiliados.find((obj) => obj.data.DOCUMENTO == 22255316);
+    const found = afiliados.data.find(
+      (item) => item.DOCUMENTO === parseInt(inputValue) 
+    );
+    
+   console.log("found",found)
     if (found) {
       console.log("Afiliado encontrado:", found.attributes);
-      setFoundAfiliado(found.attributes);
+      setFoundAfiliado(found);
 
       setNotFound(false);
     } else {
@@ -65,9 +77,9 @@ export const Prueba = () => {
           width: "350px",
         }}
       >
-        <h1 style={{ color: "white" }}>Login</h1>
         <h2 style={{ color: "white" }}>Ingrese su documento</h2>
         <form onSubmit={handleSubmit}>
+          
           <input
             style={{
               height: "30px",
@@ -80,14 +92,14 @@ export const Prueba = () => {
             }}
             type="text"
             ref={inputRef}
-            placeholder="Escribir"
+            placeholder="Ingrese su DNI"
           />
 
           <button
             type="submit"
             style={{
               height: "30px",
-              marginLeft: "10px",
+              marginLeft: "5px",
               borderRadius: "10px",
               border: "none",
               cursor: "pointer",
@@ -95,24 +107,20 @@ export const Prueba = () => {
             }}
             
           >
-            Buscar
+            Ingresar
           </button>
         </form>
 
          {foundAfiliado ? ( 
            <div style={{ textAlign: "left", marginLeft: "10px" }}>
-            <h2 style={{ color: "white" }}>Bienvenido</h2>
-            <h3 style={{ fontFamily: "cursive" }}>
-              Nombre: 
-               {foundAfiliado.NOMBRE} 
+            <h2 style={{ color: "white" }}>Bienvenido/a :</h2>
+            <h3 style={{  }}>
+              
+                {foundAfiliado.NOMBRE}   {foundAfiliado.APELLIDO}
              </h3>
-            <h3 style={{ fontFamily: "cursive" }}>
-              Apellido:   
-              {foundAfiliado.APELLIDO}
-
-             </h3>
+           
             <nav>
-              <Link to="/mesJulio">
+              <Link to="/mesNoviembre">
                 <button
                   style={{
                     border: "inset",
@@ -123,7 +131,7 @@ export const Prueba = () => {
                     marginTop: "60px",
                     cursor: "pointer",
                   }}
-                  onClick={handleClick}
+                  // onClick={handleClick}
                 >
                   Ir a calculadora
                 </button>
@@ -132,15 +140,15 @@ export const Prueba = () => {
           </div> 
          ) : notFound ? ( 
            <div style={{ textAlign: "left", marginLeft: "10px" }}>
-            <h3>*Usted no está en la Base de datos*</h3>
-            <p>
-              Si considera que esta información es errónea, comuníquese con{" "}
-            </p>
-            <a href="mailto:secorganizacion@atech.org.ar">
+            <h2 style={{color:"white"}}>Lo sentimos acceso solo para afiliados</h2>
+            <h4>
+              Si considera que hay un error, informar a secorganizacion@atech.org.ar 
+            </h4>
+            <a style={{color:"black",textDecoration:"underline"}}  href="https://mail.google.com/mail/?view=cm&fs=1&to=secorganizacion@atech.org.ar" target="_blank">
               secorganizacion@atech.org.ar
             </a>
             <nav>
-              <Link to="/mesJulio">
+              {/* <Link to="/">
                 <button
                   style={{
                     border: "inset",
@@ -155,7 +163,7 @@ export const Prueba = () => {
                 >
                   Ir a calculadora
                 </button>
-              </Link>
+              </Link> */}
             </nav>
           </div> 
         ) : null}
