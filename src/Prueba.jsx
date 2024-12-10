@@ -47,7 +47,7 @@ export const Prueba = () => {
   // }
   //  const found = afiliados.find((obj) => obj.data.DOCUMENTO == 22255316);
     const found = afiliados.data.find(
-      (item) => item.DOCUMENTO === parseInt(inputValue) 
+      (item) => item.DOCUMENTO == parseInt(inputValue) 
     );
     
    console.log("found",found)
