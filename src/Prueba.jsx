@@ -92,7 +92,7 @@ export const Prueba = () => {
             }}
             type="text"
             ref={inputRef}
-            placeholder="Ingrese su DNI"
+            placeholder="Ingrese su DNI sin puntos"
           />
 
           <button
@@ -116,7 +116,7 @@ export const Prueba = () => {
             <h2 style={{ color: "white" }}>Bienvenido/a :</h2>
             <h3 style={{  }}>
               
-                {foundAfiliado.NOMBRE}   {foundAfiliado.APELLIDO}
+                {foundAfiliado.NOMBRE}   
              </h3>
            
             <nav>
@@ -142,7 +142,7 @@ export const Prueba = () => {
            <div style={{ textAlign: "left", marginLeft: "10px" }}>
             <h2 style={{color:"white"}}>Lo sentimos acceso solo para afiliados</h2>
             <h4>
-              Si considera que hay un error, informar a secorganizacion@atech.org.ar 
+              Si considera que hay un error, informar a 
             </h4>
             <a style={{color:"black",textDecoration:"underline"}}  href="https://mail.google.com/mail/?view=cm&fs=1&to=secorganizacion@atech.org.ar" target="_blank">
               secorganizacion@atech.org.ar
