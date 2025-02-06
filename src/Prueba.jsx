@@ -69,7 +69,15 @@ export const Prueba = () => {
   };
   return (
     <>
-      <div
+    <div   style={{
+          background: "rgb(198, 152, 100)",
+          borderRadius: "10px",
+          height: "100px",
+          width: "600px",
+        }}>
+      <h3 style={{fontSize:"40px"}}>Esta pagina está en revision</h3>
+    </div>
+      {/* <div
         style={{
           background: "rgb(198, 152, 100)",
           borderRadius: "10px",
@@ -103,7 +111,7 @@ export const Prueba = () => {
               borderRadius: "10px",
               border: "none",
               cursor: "pointer",
-              transition: "background-color 0.8s ease;" /* Transición suave */,
+              transition: "background-color 0.8s ease;" 
             }}
             
           >
@@ -131,7 +139,7 @@ export const Prueba = () => {
                     marginTop: "60px",
                     cursor: "pointer",
                   }}
-                  // onClick={handleClick}
+
                 >
                   Ir a calculadora
                 </button>
@@ -148,26 +156,10 @@ export const Prueba = () => {
               secorganizacion@atech.org.ar
             </a>
             <nav>
-              {/* <Link to="/">
-                <button
-                  style={{
-                    border: "inset",
-                    borderRadius: "10px",
-                    width: "40%",
-                    height: "35px",
-                    fontSize: "15px",
-                    marginTop: "60px",
-                    cursor: "pointer",
-                  }}
-                  onClick={handleClick}
-                >
-                  Ir a calculadora
-                </button>
-              </Link> */}
             </nav>
           </div> 
         ) : null}
-      </div>
+      </div> */}
     </>
   );
 };
