@@ -6,67 +6,44 @@ import { Rutas } from "./Rutas";
 import  afiliados from "../src/apiafiliados.json"
 
 export const Prueba = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [foundAfiliado, setFoundAfiliado] = useState(null);
-  const [notFound, setNotFound] = useState(false);
-  const inputRef = useRef(null);
+  // const [inputValue, setInputValue] = useState("");
+  // const [foundAfiliado, setFoundAfiliado] = useState(null);
+  // const [notFound, setNotFound] = useState(false);
+  // const inputRef = useRef(null);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault(); // Evita que el formulario se envíe y recargue la página
-    const inputValue = inputRef.current.value;
-    setInputValue(inputValue);
-    // Espera la búsqueda del afiliado antes de continuar
-    await fetchApi(inputValue);
-  };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault(); // Evita que el formulario se envíe y recargue la página
+  //   const inputValue = inputRef.current.value;
+  //   setInputValue(inputValue);
+  //   // Espera la búsqueda del afiliado antes de continuar
+  //   await fetchApi(inputValue);
+  // };
 
-  //funcion que va a traer los datos
+  // //funcion que va a traer los datos
 
-  const fetchApi = async (inputValue) => {
-    // const response = await axios.get(`http://66.97.47.220:1337/api/afiliados`, {
-    //   params: {
-    //     "pagination[limit]": 6500,
-    //     "pagination[start]": 0,
-    //   },
-    // });
-    // const afiliadosData = response.data.data;
-    // console.log(afiliadosData);
-
-    // let found = null;
-    // console.log("soy el value enviado", inputValue);
-    // for (const obj of afiliadosData) {
-    //   if (obj && obj.attributes && obj.attributes.DOCUMENTO === inputValue) {
-    //     found = obj;
-    //     break;
-    //   }
-    // }
-    // for (const obj of afiliadosData) {
-    // if (obj && obj.DOCUMENTO === inputValue) {
-    //   found = obj;
-    //   break;
-    // }
-  // }
-  //  const found = afiliados.find((obj) => obj.data.DOCUMENTO == 22255316);
-    const found = afiliados.data.find(
-      (item) => item.DOCUMENTO == parseInt(inputValue) 
-    );
+  // const fetchApi = async (inputValue) => {
+   
+  //   const found = afiliados.data.find(
+  //     (item) => item.DOCUMENTO == parseInt(inputValue) 
+  //   );
     
-   console.log("found",found)
-    if (found) {
-      console.log("Afiliado encontrado:", found.attributes);
-      setFoundAfiliado(found);
+  //  console.log("found",found)
+  //   if (found) {
+  //     console.log("Afiliado encontrado:", found.attributes);
+  //     setFoundAfiliado(found);
 
-      setNotFound(false);
-    } else {
-      console.log("Afiliado no encontrado.");
-      setFoundAfiliado(null);
-      setNotFound(true);
-    }
-  };
+  //     setNotFound(false);
+  //   } else {
+  //     console.log("Afiliado no encontrado.");
+  //     setFoundAfiliado(null);
+  //     setNotFound(true);
+  //   }
+  // };
   // fetchApi();
   //FUNCION PARA MOSTRAR COMPONENTE
-  const handleClick = () => {
-    setShowComponent(true);
-  };
+  // const handleClick = () => {
+  //   setShowComponent(true);
+  // };
   return (
     <>
     <div   style={{
@@ -165,3 +142,29 @@ export const Prueba = () => {
 };
 
 export default Prueba;
+
+
+ // const response = await axios.get(`http://66.97.47.220:1337/api/afiliados`, {
+    //   params: {
+    //     "pagination[limit]": 6500,
+    //     "pagination[start]": 0,
+    //   },
+    // });
+    // const afiliadosData = response.data.data;
+    // console.log(afiliadosData);
+
+    // let found = null;
+    // console.log("soy el value enviado", inputValue);
+    // for (const obj of afiliadosData) {
+    //   if (obj && obj.attributes && obj.attributes.DOCUMENTO === inputValue) {
+    //     found = obj;
+    //     break;
+    //   }
+    // }
+    // for (const obj of afiliadosData) {
+    // if (obj && obj.DOCUMENTO === inputValue) {
+    //   found = obj;
+    //   break;
+    // }
+  // }
+  //  const found = afiliados.find((obj) => obj.data.DOCUMENTO == 22255316);
