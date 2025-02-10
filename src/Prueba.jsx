@@ -6,55 +6,55 @@ import { Rutas } from "./Rutas";
 import  afiliados from "../src/apiafiliados.json"
 
 export const Prueba = () => {
-  // const [inputValue, setInputValue] = useState("");
-  // const [foundAfiliado, setFoundAfiliado] = useState(null);
-  // const [notFound, setNotFound] = useState(false);
-  // const inputRef = useRef(null);
+  const [inputValue, setInputValue] = useState("");
+  const [foundAfiliado, setFoundAfiliado] = useState(null);
+  const [notFound, setNotFound] = useState(false);
+  const inputRef = useRef(null);
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault(); // Evita que el formulario se envíe y recargue la página
-  //   const inputValue = inputRef.current.value;
-  //   setInputValue(inputValue);
-  //   // Espera la búsqueda del afiliado antes de continuar
-  //   await fetchApi(inputValue);
-  // };
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Evita que el formulario se envíe y recargue la página
+    const inputValue = inputRef.current.value;
+    setInputValue(inputValue);
+    // Espera la búsqueda del afiliado antes de continuar
+    await fetchApi(inputValue);
+  };
 
-  // //funcion que va a traer los datos
+  //funcion que va a traer los datos
 
-  // const fetchApi = async (inputValue) => {
+  const fetchApi = async (inputValue) => {
    
-  //   const found = afiliados.data.find(
-  //     (item) => item.DOCUMENTO == parseInt(inputValue) 
-  //   );
+    const found = afiliados.data.find(
+      (item) => item.DOCUMENTO == parseInt(inputValue) 
+    );
     
-  //  console.log("found",found)
-  //   if (found) {
-  //     console.log("Afiliado encontrado:", found.attributes);
-  //     setFoundAfiliado(found);
+   console.log("found",found)
+    if (found) {
+      console.log("Afiliado encontrado:", found.attributes);
+      setFoundAfiliado(found);
 
-  //     setNotFound(false);
-  //   } else {
-  //     console.log("Afiliado no encontrado.");
-  //     setFoundAfiliado(null);
-  //     setNotFound(true);
-  //   }
-  // };
-  // fetchApi();
-  //FUNCION PARA MOSTRAR COMPONENTE
-  // const handleClick = () => {
-  //   setShowComponent(true);
-  // };
+      setNotFound(false);
+    } else {
+      console.log("Afiliado no encontrado.");
+      setFoundAfiliado(null);
+      setNotFound(true);
+    }
+  };
+  // fetchApi(); comentado
+  // FUNCION PARA MOSTRAR COMPONENTE
+  const handleClick = () => {
+    setShowComponent(true);
+  };
   return (
     <>
-    <div   style={{
+    {/* <div   style={{
           background: "rgb(198, 152, 100)",
           borderRadius: "10px",
           height: "100px",
           width: "600px",
         }}>
       <h3 style={{fontSize:"40px"}}>Esta pagina está en revision</h3>
-    </div>
-      {/* <div
+    </div> */}
+      <div
         style={{
           background: "rgb(198, 152, 100)",
           borderRadius: "10px",
@@ -136,7 +136,7 @@ export const Prueba = () => {
             </nav>
           </div> 
         ) : null}
-      </div> */}
+      </div>
     </>
   );
 };
