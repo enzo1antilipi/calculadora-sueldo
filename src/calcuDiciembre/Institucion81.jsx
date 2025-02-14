@@ -1031,11 +1031,15 @@ function Institucion31() {
   const handleFuncionChange = (event) => {
     const cargosFiltrados = cargos.filter(
       (cargo) => cargo.funcion === event.target.value
+      
     );
     setCargosFiltradosPorFuncion(cargosFiltrados);
+    // console.log("cargosfiltrados",cargosFiltrados)
   };
 
   const handleCargoChange = (event) => {
+    console.log("cargosfiltrados",event.target)
+    
     const cargoImporte = SUELDO_BASICO * event.target.value;
     console.log("cargo",cargoImporte);
     setSueldo(cargoImporte.toFixed(2));
@@ -1322,16 +1326,7 @@ function Institucion31() {
               ))}
             </select>
           </th> */}
-          <th>
-            Banco Chubut
-            <input
-              clearable
-              label="Banco Chubut"
-              initialValue=""
-              className="barra2"
-              onChange={handleBancoChubut}
-            />
-          </th>
+         
         </tr>
         <tr>
           <th>
@@ -1383,17 +1378,17 @@ function Institucion31() {
               <option>SI</option>
             </select>
           </th>
-          <th>
-            Devolución de haberes
+           <th>
+            Banco Chubut
             <input
               clearable
-              type="text"
-              name="firstname"
-              size="10"
+              label="Banco Chubut"
+              initialValue=""
               className="barra2"
-              onChange={handleDevolucion}
+              onChange={handleBancoChubut}
             />
           </th>
+         
         </tr>
         <tr>
           <th>
@@ -1404,17 +1399,18 @@ function Institucion31() {
               ))}
             </select>
           </th>
-          <th>
-            Otros descuentos
+           <th>
+            Devolución de haberes
             <input
               clearable
               type="text"
               name="firstname"
               size="10"
               className="barra2"
-              onChange={handleDescuentos}
+              onChange={handleDevolucion}
             />
           </th>
+         
         </tr>
         <tr>
           <th>
@@ -1424,6 +1420,17 @@ function Institucion31() {
                 <option key={index}>{hijosIncap}</option>
               ))}
             </select>
+          </th>
+           <th>
+            Otros descuentos
+            <input
+              clearable
+              type="text"
+              name="firstname"
+              size="10"
+              className="barra2"
+              onChange={handleDescuentos}
+            />
           </th>
         </tr>
         <tr>

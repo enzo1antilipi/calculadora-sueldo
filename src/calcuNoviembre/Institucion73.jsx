@@ -1292,16 +1292,7 @@ function Institucion33() {
               ))}
             </select>
           </th> */}
-          <th>
-            Banco Chubut
-            <input
-              clearable
-              label="Banco Chubut"
-              initialValue=""
-              className="barra2"
-              onChange={handleBancoChubut}
-            />
-          </th>
+          
         </tr>
         <tr>
           <th>
@@ -1354,6 +1345,27 @@ function Institucion33() {
             </select>
           </th>
           <th>
+            Banco Chubut
+            <input
+              clearable
+              label="Banco Chubut"
+              initialValue=""
+              className="barra2"
+              onChange={handleBancoChubut}
+            />
+          </th>
+          
+        </tr>
+        <tr>
+          <th>
+            <label>Hijos escolarizados</label>
+            <select onChange={handleHijos}>
+              {hijosnum.map((hijosnum, index) => (
+                <option key={index}>{hijosnum}</option>
+              ))}
+            </select>
+          </th>
+          <th>
             Devolución de haberes
             <input
               clearable
@@ -1364,13 +1376,14 @@ function Institucion33() {
               onChange={handleDevolucion}
             />
           </th>
+          
         </tr>
         <tr>
           <th>
-            <label>Hijos escolarizados</label>
-            <select onChange={handleHijos}>
-              {hijosnum.map((hijosnum, index) => (
-                <option key={index}>{hijosnum}</option>
+            <label>Cobra por hijo con discapacidad?</label>
+            <select onChange={handleHijosIncapacitados}>
+              {hijosIncap.map((hijosIncap, index) => (
+                <option key={index}>{hijosIncap}</option>
               ))}
             </select>
           </th>
@@ -1384,16 +1397,6 @@ function Institucion33() {
               className="barra2"
               onChange={handleDescuentos}
             />
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <label>Cobra por hijo con discapacidad?</label>
-            <select onChange={handleHijosIncapacitados}>
-              {hijosIncap.map((hijosIncap, index) => (
-                <option key={index}>{hijosIncap}</option>
-              ))}
-            </select>
           </th>
         </tr>
         <tr>

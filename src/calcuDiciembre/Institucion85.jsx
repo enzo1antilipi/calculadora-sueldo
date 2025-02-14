@@ -996,15 +996,20 @@ function Institucion35() {
 
     setNeto(neto);
   }, [total, deducciones]);
-
-  //RECURSOS MATERIALES
+ //RECURSOS MATERIALES
   useEffect(() => {
-    const recursos = (parseFloat(sueldoBase) * 17.5) / 100;
+     let sueldoRecursos=SUELDO_BASICO
+     if (sueldo1!=0){
+      sueldoRecursos=SUELDO_BASICO
+        // const result= SUELDO_BASICO+nmimporte
+      }else
+      {sueldoRecursos=sueldoBase} 
+    const recursos = (parseFloat(sueldoRecursos) * 17.5) / 100;
     setRecursosMateriales(recursos.toFixed(2));
     //actualizar antiguedad de forma dinamica
     const actualizaAntigue = (valorEv.current * sueldo) / 100;
     setAnios(actualizaAntigue);
-    //actualizar zona de forma dinamica
+    //actualizar zona patagonica de forma dinamica
     const actualizaZona = (zonaUnidad * sueldoBase) / 100;
     setZonaImporte(actualizaZona);
   }, [sueldo]);
@@ -1296,16 +1301,7 @@ function Institucion35() {
               ))}
             </select>
           </th> */}
-          <th>
-            Banco Chubut
-            <input
-              clearable
-              label="Banco Chubut"
-              initialValue=""
-              className="barra2"
-              onChange={handleBancoChubut}
-            />
-          </th>
+          
         </tr>
         <tr>
           <th>
@@ -1316,6 +1312,7 @@ function Institucion35() {
               <option value="NS">HC Nivel Superior</option>
             </select>
           </th>
+          
           <th>
             Oblig.No.Pres.Labor.A
             <input
@@ -1358,6 +1355,27 @@ function Institucion35() {
             </select>
           </th>
           <th>
+            Banco Chubut
+            <input
+              clearable
+              label="Banco Chubut"
+              initialValue=""
+              className="barra2"
+              onChange={handleBancoChubut}
+            />
+          </th>
+          
+        </tr>
+        <tr>
+          <th>
+            <label>Hijos escolarizados</label>
+            <select onChange={handleHijos}>
+              {hijosnum.map((hijosnum, index) => (
+                <option key={index}>{hijosnum}</option>
+              ))}
+            </select>
+          </th>
+          <th>
             Devolución de haberes
             <input
               clearable
@@ -1368,13 +1386,14 @@ function Institucion35() {
               onChange={handleDevolucion}
             />
           </th>
+          
         </tr>
         <tr>
           <th>
-            <label>Hijos escolarizados</label>
-            <select onChange={handleHijos}>
-              {hijosnum.map((hijosnum, index) => (
-                <option key={index}>{hijosnum}</option>
+            <label>Cobra por hijo con discapacidad?</label>
+            <select onChange={handleHijosIncapacitados}>
+              {hijosIncap.map((hijosIncap, index) => (
+                <option key={index}>{hijosIncap}</option>
               ))}
             </select>
           </th>
@@ -1388,16 +1407,6 @@ function Institucion35() {
               className="barra2"
               onChange={handleDescuentos}
             />
-          </th>
-        </tr>
-        <tr>
-          <th>
-            <label>Cobra por hijo con discapacidad?</label>
-            <select onChange={handleHijosIncapacitados}>
-              {hijosIncap.map((hijosIncap, index) => (
-                <option key={index}>{hijosIncap}</option>
-              ))}
-            </select>
           </th>
         </tr>
         <tr>
