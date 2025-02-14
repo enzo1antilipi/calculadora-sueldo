@@ -723,7 +723,7 @@ function Institucion32() {
   const antiguedad = [
      { nombre: "Sin datos", valor: 0 },
     { nombre: "0", valor: 40 },
-    { nombre: "1", valor: 45 },
+    { nombre: "1", valor: 40 },
     { nombre: "2", valor: 45 },
     { nombre: "3", valor: 45 },
     { nombre: "4", valor: 45 },
@@ -1032,11 +1032,12 @@ function Institucion32() {
 
     //descuentos de seros
 
-    const SegVidaObli = 250;
+     //solo queda en la institucion 1, seteo los valores en 0 para no teneer que borrar las variables de los estados
+    const SegVidaObli = 0;
     setSeguroVidaOblig(SegVidaObli);
-    const SegVidaFami = 160;
+    const SegVidaFami = 0;
     setSeguroVidaFamiliar(SegVidaFami);
-    const SegTransplante = 50;
+     const SegTransplante = cargoImporte*0.005;
     setSerosSeguroTransplante(SegTransplante);
   };
   // useEffect(() => {
@@ -1044,12 +1045,22 @@ function Institucion32() {
   //   const importeAnios = getAntiguedadImpor() * (sueldo / 100);
   //   setAnios(importeAnios.toFixed(2));
   // }, [sueldo]);
-
-  const handleZonaChange = (event) => {
-    setZonaUnidad(event.target.value);
-    const zonaImporte = event.target.value * (sueldoBase / 100);
+ //zona patagonica esto duplica el valor de sueldo base y lo coloca en zona patagonica
+  useEffect(()=>{
+    console.log("hola")
+     let sueldoZona=sueldo
+    console.log("handle sueldozona",sueldoZona)
+    setZonaUnidad(100);
+    // console.log("valor",event.target.value)
+    const zonaImporte = 100 * (sueldoZona / 100);
+    //cambie sueldo por SUELDO_BASICO 
     setZonaImporte(zonaImporte.toFixed(2));
-  };
+  },[sueldo])
+  // const handleZonaChange = (event) => {
+  //   setZonaUnidad(event.target.value);
+  //   const zonaImporte = event.target.value * (sueldoBase / 100);
+  //   setZonaImporte(zonaImporte.toFixed(2));
+  // };
   const handleHijos = (event) => {
     const HijosImporte = HIJOS_ESCOLARIZADOS * event.target.value;
     setHijos(HijosImporte.toFixed(2));
@@ -1270,7 +1281,7 @@ function Institucion32() {
           </th>
         </tr>
         <tr>
-          <th>
+          {/* <th>
             <label>Zona</label>
             <select onChange={handleZonaChange}>
               {zonas.map((zona, index) => (
@@ -1279,7 +1290,7 @@ function Institucion32() {
                 </option>
               ))}
             </select>
-          </th>
+          </th> */}
           <th>
             Banco Chubut
             <input
@@ -1585,7 +1596,7 @@ function Institucion32() {
           <tr className="celda">
             <td>1462</td>
             <td>SEROS-Seguro Transplante</td>
-            <td>50</td>
+            <td>0.5%</td>
             <td>{formatter.format(SerosSeguroTransplante)}</td>
           </tr>
           <tr>

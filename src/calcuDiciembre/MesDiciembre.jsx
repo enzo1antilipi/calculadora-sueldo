@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Institucion31 from "./Institucion51";
-import Institucion32 from "./Institucion52";
-import Institucion33 from "./Institucion53";
-import Institucion34 from "./Institucion54";
-import Institucion35 from "./Institucion55";
+import Institucion31 from "./Institucion81";
+import Institucion32 from "./Institucion82";
+import Institucion33 from "./Institucion83";
+import Institucion34 from "./Institucion84";
+import Institucion35 from "./Institucion85";
 import { useBearStore } from "../store/EstGloSig";
 import { Link, Navigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
@@ -35,7 +35,7 @@ export default function calculadora() {
     currency: "ARS",
   });
   const navigate = useNavigate();
-  const [selectedMonth, setSelectedMonth] = useState("mesSeptiembre");
+  const [selectedMonth, setSelectedMonth] = useState("mesDiciembre");
 
    const handleMonthChange = (e) => {
     const selected = e.target.value;
@@ -63,7 +63,6 @@ export default function calculadora() {
     }else if (selected === "mesEnero"){
       navigate("/mesEnero");
     }
-    
   };
   return (
     <div div className="animate__animated animate__pulse">
@@ -78,7 +77,7 @@ export default function calculadora() {
         <option value="mesEnero">Enero - Paritaria 26/9/24</option>
         <option value="mesDiciembre">Diciembre - Paritaria 26/9/24</option>
         <option value="mesNoviembre">Noviembre 2024 - Paritaria 26/9/24</option>
-        <option value="mesOctubre">Octubre 2024-Paritaria 26/9/24</option>
+        <option value="mesOctubre">Octubre 2024 - Paritaria 26/9/24</option>
        <option value="mesSeptiembre">Septiembre 2024 - Paritaria 26/9/24</option>
         <option value="mesAgosto" >Agosto 2024</option>
         <option value="mesJulio">Julio 2024</option> 

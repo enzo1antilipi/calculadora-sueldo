@@ -722,47 +722,47 @@ function Institucion31() {
   ];
   const antiguedad = [
     { nombre: "Sin datos", valor: 0 },
-    { nombre: "0", valor: 40 },
-    { nombre: "1", valor: 40 },
-    { nombre: "2", valor: 45 },
-    { nombre: "3", valor: 45 },
-    { nombre: "4", valor: 45 },
-    { nombre: "5", valor: 55 },
-    { nombre: "6", valor: 55 },
-    { nombre: "7", valor: 65 },
-    { nombre: "8", valor: 65 },
-    { nombre: "9", valor: 65 },
-    { nombre: "10", valor: 75 },
-    { nombre: "11", valor: 75 },
-    { nombre: "12", valor: 85 },
-    { nombre: "13", valor: 85 },
-    { nombre: "14", valor: 85 },
-    { nombre: "15", valor: 95 },
-    { nombre: "16", valor: 95 },
-    { nombre: "17", valor: 105 },
-    { nombre: "18", valor: 105 },
-    { nombre: "19", valor: 105 },
-    { nombre: "20", valor: 125 },
-    { nombre: "21", valor: 125 },
-    { nombre: "22", valor: 135 },
-    { nombre: "23", valor: 135 },
-    { nombre: "24", valor: 145 },
-    { nombre: "25", valor: 145 },
-    { nombre: "26", valor: 145 },
-    { nombre: "27", valor: 145 },
-    { nombre: "28", valor: 145 },
-    { nombre: "29", valor: 145 },
-    { nombre: "30", valor: 145 },
-    { nombre: "31", valor: 145 },
-    { nombre: "32", valor: 145 },
-    { nombre: "33", valor: 145 },
-    { nombre: "34", valor: 145 },
-    { nombre: "35", valor: 145 },
-    { nombre: "36", valor: 145 },
-    { nombre: "37", valor: 145 },
-    { nombre: "38", valor: 145 },
-    { nombre: "39", valor: 145 },
-    { nombre: "40", valor: 145 },
+    { nombre: "0", valor: 45 },
+    { nombre: "1", valor: 45 },
+    { nombre: "2", valor: 50 },
+    { nombre: "3", valor: 50 },
+    { nombre: "4", valor: 50 },
+    { nombre: "5", valor: 60 },
+    { nombre: "6", valor: 60 },
+    { nombre: "7", valor: 70 },
+    { nombre: "8", valor: 70 },
+    { nombre: "9", valor: 70 },
+    { nombre: "10", valor: 80 },
+    { nombre: "11", valor: 80 },
+    { nombre: "12", valor: 90 },
+    { nombre: "13", valor: 90 },
+    { nombre: "14", valor: 90 },
+    { nombre: "15", valor: 100 },
+    { nombre: "16", valor: 100},
+    { nombre: "17", valor: 110 },
+    { nombre: "18", valor: 110 },
+    { nombre: "19", valor: 110 },
+    { nombre: "20", valor: 130 },
+    { nombre: "21", valor: 130 },
+    { nombre: "22", valor: 140 },
+    { nombre: "23", valor: 140 },
+    { nombre: "24", valor: 150 },
+    { nombre: "25", valor: 150 },
+    { nombre: "26", valor: 150 },
+    { nombre: "27", valor: 150 },
+    { nombre: "28", valor: 150 },
+    { nombre: "29", valor: 150 },
+    { nombre: "30", valor: 150 },
+    { nombre: "31", valor: 150 },
+    { nombre: "32", valor: 150 },
+    { nombre: "33", valor: 150 },
+    { nombre: "34", valor: 150 },
+    { nombre: "35", valor: 150 },
+    { nombre: "36", valor: 150 },
+    { nombre: "37", valor: 150 },
+    { nombre: "38", valor: 150 },
+    { nombre: "39", valor: 150 },
+    { nombre: "40", valor: 150 },
   ];
 
   const [cargosFiltradosPorFuncion, setCargosFiltradosPorFuncion] = useState(
@@ -889,7 +889,7 @@ function Institucion31() {
 
   //SEROS titular
   useEffect(() => {
-    const serosImporte = (parseFloat(total) * 4.25) / 100;
+    const serosImporte = (parseFloat(total) * 6.5) / 100;
     setSerosTitular(serosImporte.toFixed(2));
   }, [total]);
 
@@ -1045,9 +1045,9 @@ function Institucion31() {
 
     //descuentos de seros
 
-    const SegVidaObli = 1500;
+    const SegVidaObli = 2000;
     setSeguroVidaOblig(SegVidaObli);
-    const SegVidaFami = 923;
+    const SegVidaFami = 1230;
     setSeguroVidaFamiliar(SegVidaFami);
     const SegTransplante = cargoImporte*0.005;
     setSerosSeguroTransplante(SegTransplante);
@@ -1124,7 +1124,7 @@ function Institucion31() {
 
   const handleserosFamiliar = (event) => {
     if (event.target.value === "SI") {
-      const serosFamiliarImporte = (parseFloat(total) * 4.25) / 100;
+      const serosFamiliarImporte = (parseFloat(total) * 6.5) / 100;
       setSerosFamiliar(serosFamiliarImporte.toFixed(2));
     } else {
       setSerosFamiliar(0);
@@ -1236,7 +1236,7 @@ function Institucion31() {
   return (
     <div div className="animate__animated animate__bounceInRight">
       <h1 className="head">Calculadora de sueldos</h1>
-      <h2 className="subtituloMes">Noviembre</h2>
+      <h2 className="subtituloMes">Enero</h2>
       <span style={{color:"black",fontFamily:"cursive", fontSize:"20px"}}>(Esta versión del simulador no tiene en cuenta aún el adicional por cargo jerárquico)</span>
       <table className="seleccion">
         <th>
@@ -1598,19 +1598,19 @@ function Institucion31() {
           <tr>
             <td>1404</td>
             <td>S.E.R.O.S Titular</td>
-            <td>4.25%</td>
+            <td>6.5%</td>
             <td>{formatter.format(serosTitular)}</td>
           </tr>
           <tr className="celda">
             <td>1408</td>
             <td>S.E.R.O.S Familiar</td>
-            <td>4.25%</td>
+            <td>6.5%</td>
             <td>{formatter.format(serosFamiliar)}</td>
           </tr>
           <tr>
             <td>1424</td>
             <td>Seg. Vida Col. Oblig</td>
-            <td>1500</td>
+            <td>2000</td>
             <td>{formatter.format(seguroVidaOblig)}</td>
           </tr>
           <tr className="celda">
@@ -1622,7 +1622,7 @@ function Institucion31() {
           <tr>
             <td>1430</td>
             <td>Seg. Vida Col. Familiar</td>
-            <td>923</td>
+            <td>1230</td>
             <td>{formatter.format(seguroVidaFamiliar)}</td>
           </tr>
           <tr className="celda">

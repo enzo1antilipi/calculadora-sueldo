@@ -57,7 +57,11 @@ export default function calculadora() {
     }else if (selected === "mesOctubre"){
       navigate("/mesOctubre");
     }else if (selected === "mesNoviembre"){
-      navigate("/");
+      navigate("/mesNoviembre"); 
+    }else if (selected === "mesDiciembre"){
+      navigate("/mesDiciembre");
+    }else if (selected === "mesEnero"){
+      navigate("/mesEnero");
     }
 
   };
@@ -71,6 +75,8 @@ export default function calculadora() {
         className="dropdown"
         style={{width:"300px",height:"30px", marginBottom:"15px",fontSize:"20px"}}
       >
+        <option value="mesEnero">Enero - Paritaria 26/9/24</option>
+        <option value="mesDiciembre">Diciembre - Paritaria 26/9/24</option>
         <option value="mesNoviembre">Noviembre 2024 - Paritaria 26/9/24</option>
         <option value="mesOctubre">Octubre 2024 - Paritaria 26/9/24</option>
         <option value="mesSeptiembre">Septiembre 2024 - Paritaria 26/9/24</option>
