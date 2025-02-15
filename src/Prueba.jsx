@@ -24,7 +24,7 @@ export const Prueba = () => {
   const fetchApi = async (inputValue) => {
    
     const found = afiliados.data.find(
-      (item) => 14930977 == parseInt(inputValue) 
+      (item) => item.DOCUMENTO == parseInt(inputValue) 
     );
     
    console.log("found",found)
@@ -46,19 +46,19 @@ export const Prueba = () => {
   };
   return (
     <>
-    <div   style={{
+    {/* <div   style={{
           background: "rgb(198, 152, 100)",
           borderRadius: "10px",
           height: "100px",
           width: "600px",
         }}>
       <h3 style={{fontSize:"40px"}}>Esta pagina está en revision</h3>
-    </div>
+    </div> */}
       <div
         style={{
           background: "rgb(198, 152, 100)",
           borderRadius: "10px",
-          height: "300px",
+          height: "400px",
           width: "350px",
         }}
       >
@@ -99,10 +99,10 @@ export const Prueba = () => {
          {foundAfiliado ? ( 
            <div style={{ textAlign: "left", marginLeft: "10px" }}>
             <h2 style={{ color: "white" }}>Bienvenido/a :</h2>
-            {/* <h3 style={{  }}>
+            <h3 style={{  }}>
               
                 {foundAfiliado.NOMBRE}   
-             </h3> */}
+             </h3>
            
             <nav>
               <Link to="/mesNoviembre">
