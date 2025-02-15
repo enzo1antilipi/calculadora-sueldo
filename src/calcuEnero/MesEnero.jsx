@@ -33,6 +33,8 @@ export default function calculadora() {
   const formatter = new Intl.NumberFormat("es-AR", {
     style: "currency",
     currency: "ARS",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   });
   const navigate = useNavigate();
   const [selectedMonth, setSelectedMonth] = useState("mesEnero");
