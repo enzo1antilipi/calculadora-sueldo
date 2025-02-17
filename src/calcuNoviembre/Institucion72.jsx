@@ -1030,6 +1030,7 @@ function Institucion32() {
     );
     setCargosFiltradosPorFuncion(cargosFiltrados);
   };
+  const [preceptor, setPreceptor] = useState(0);
 
   const handleCargoChange = (event) => {
     const cargoImporte = SUELDO_BASICO * event.target.value;
@@ -1037,7 +1038,16 @@ function Institucion32() {
     setSueldo1(cargoImporte);
     // const recursos = (parseFloat(sueldo) * 17.5) / 100;
     // setRecursosMateriales(recursos.toFixed(2));
-
+   
+    const selectedCargoValue = parseInt(event.target.value);
+    const selectedCargo = cargosFiltradosPorFuncion.find(cargo => cargo.valor === selectedCargoValue);
+    console.log("Cargo seleccionado:", selectedCargo);
+  setPreceptor(0)
+    if (selectedCargo && selectedCargo.funcion === "Preceptora/o ") {
+        console.log("¡Seleccionaste un cargo de Preceptora/o!");
+        setPreceptor(1)
+        // Aquí puedes aplicar la excepción que necesites
+    }
     //descuentos de seros
 
      //solo queda en la institucion 1, seteo los valores en 0 para no teneer que borrar las variables de los estados
@@ -1055,14 +1065,24 @@ function Institucion32() {
   // }, [sueldo]);
  //zona patagonica esto duplica el valor de sueldo base y lo coloca en zona patagonica
   useEffect(()=>{
-    console.log("hola")
-     let sueldoZona=sueldo
-    console.log("handle sueldozona",sueldoZona)
-    setZonaUnidad(100);
-    // console.log("valor",event.target.value)
-    const zonaImporte = 100 * (sueldoZona / 100);
-    //cambie sueldo por SUELDO_BASICO 
-    setZonaImporte(zonaImporte.toFixed(2));
+     if (preceptor==1){
+       console.log("toco preceptro debo multiplicar por 1.25")
+         let sueldoZona=sueldo
+        console.log("handle sueldozona",sueldoZona)
+        setZonaUnidad(100);
+        // console.log("valor",event.target.value)
+        const zonaImporte = 125 * (sueldoZona / 100);
+        setZonaImporte(zonaImporte.toFixed(2));
+
+    }else{
+      let sueldoZona=sueldo
+      console.log("handle sueldozona",sueldoZona)
+      setZonaUnidad(100);
+      // console.log("valor",event.target.value)
+      const zonaImporte = 100 * (sueldoZona / 100);
+      setZonaImporte(zonaImporte.toFixed(2));
+    
+    }
   },[sueldo])
   // const handleZonaChange = (event) => {
   //   setZonaUnidad(event.target.value);

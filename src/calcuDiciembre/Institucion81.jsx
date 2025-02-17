@@ -1038,6 +1038,8 @@ function Institucion31() {
     setCargosFiltradosPorFuncion(cargosFiltrados);
     // console.log("cargosfiltrados",cargosFiltrados)
   };
+    const [preceptor, setPreceptor] = useState(0);
+
 
   const handleCargoChange = (event) => {
     console.log("cargosfiltrados",event.target)
@@ -1048,6 +1050,16 @@ function Institucion31() {
     setSueldo1(cargoImporte);
     // const recursos = (parseFloat(SUELDO_BASICO) * 17.5) / 100;
     // setRecursosMateriales(recursos.toFixed(2));
+
+    const selectedCargoValue = parseInt(event.target.value);
+    const selectedCargo = cargosFiltradosPorFuncion.find(cargo => cargo.valor === selectedCargoValue);
+    console.log("Cargo seleccionado:", selectedCargo);
+  setPreceptor(0)
+    if (selectedCargo && selectedCargo.funcion === "Preceptora/o ") {
+        console.log("¡Seleccionaste un cargo de Preceptora/o!");
+        setPreceptor(1)
+        // Aquí puedes aplicar la excepción que necesites
+    }
 
     //descuentos de seros
 
@@ -1069,14 +1081,24 @@ function Institucion31() {
 
   //zona patagonica esto duplica el valor de sueldo base y lo coloca en zona patagonica
   useEffect(()=>{
-    console.log("hola")
-     let sueldoZona=sueldo
-    console.log("handle sueldozona",sueldoZona)
-    setZonaUnidad(100);
-    // console.log("valor",event.target.value)
-    const zonaImporte = 100 * (sueldoZona / 100);
-    //cambie sueldo por SUELDO_BASICO 
-    setZonaImporte(zonaImporte.toFixed(2));
+ if (preceptor==1){
+       console.log("toco preceptro debo multiplicar por 1.25")
+         let sueldoZona=sueldo
+        console.log("handle sueldozona",sueldoZona)
+        setZonaUnidad(100);
+        // console.log("valor",event.target.value)
+        const zonaImporte = 125 * (sueldoZona / 100);
+        setZonaImporte(zonaImporte.toFixed(2));
+
+    }else{
+      let sueldoZona=sueldo
+      console.log("handle sueldozona",sueldoZona)
+      setZonaUnidad(100);
+      // console.log("valor",event.target.value)
+      const zonaImporte = 100 * (sueldoZona / 100);
+      setZonaImporte(zonaImporte.toFixed(2));
+    
+    }
   },[sueldo])
 
   //le voy a comentar esto cada calculaba la zona de acuerdo al sueldo basico
