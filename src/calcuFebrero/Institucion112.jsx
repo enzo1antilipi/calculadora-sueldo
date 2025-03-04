@@ -1560,7 +1560,7 @@ function Institucion32() {
           <tr className="celda">
             <td>1168</td>
             <td>Adicional profesionalidad</td>
-            <td>15%</td>
+            <td>20%</td>
             <td>{formatter.format(PorcentajPd)}</td>
           </tr>
           <tr>
