@@ -3,11 +3,11 @@ import { Input, Spacer } from "@nextui-org/react";
 import "../App";
 import { useBearStore } from "../store/EstGloSig";
 
-function Institucion32() {
-  const SUELDO_BASICO = 256160.66;
-  const HIJOS_ESCOLARIZADOS = 42099;
-  const HIJOS_INCAPACITADO = 168057;
-  const COBRO_CONYUGE = 12270;
+function Institucion34() {
+  const SUELDO_BASICO =  261284;
+  const HIJOS_ESCOLARIZADOS = 74679;
+  const HIJOS_INCAPACITADO = 298122;
+  const COBRO_CONYUGE = 21765;
   const HC_NIVEL_MEDIO = 0.05;
   const HC_NIVEL_SUPERIOR = 0.0588;
   const funciones = [
@@ -810,10 +810,10 @@ function Institucion32() {
 
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
   const [PorcentajPd, setPorcentajePd] = useState(0); //contiene el 15% del basico si es que tiene PD
+
   const valorEv = useRef(0);
   const [sueldoBase, setSueldoBase] =useState(0)
-  const [horasCatedra, setHorasCatedra] = useState(0); 
-
+   const [horasCatedra, setHorasCatedra] = useState(0); 
 
   const getValue = (value) => {
     if (value !== "") {
@@ -830,11 +830,12 @@ function Institucion32() {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
+
   const [showCalculations, setShowCalculations] = useState(false);
 
   useEffect(() => {
     if (showCalculations) {
-      const resultadopd = sueldo * 0.15;
+      const resultadopd = sueldo * 0.20;
       setPorcentajePd(resultadopd);
       // Aquí puedes realizar los cálculos basados en el estado de sueldo
     } else {
@@ -885,7 +886,7 @@ function Institucion32() {
 
   //SEROS titular
   useEffect(() => {
-    const serosImporte = (parseFloat(total) * 6.5) / 100;
+    const serosImporte = (parseFloat(total) * 4.25) / 100;
     setSerosTitular(serosImporte.toFixed(2));
   }, [total]);
 
@@ -933,7 +934,7 @@ function Institucion32() {
       parseFloat(hijosEscoIncapacitado) +
       parseFloat(conyuge) +
       parseFloat(ayudaEsc);
-    setAsignacion22(totalAsigFa);
+    setAsignacion24(totalAsigFa);
   }, [hijos, hijosIncapacitado, hijosEscoIncapacitado, conyuge, ayudaEsc]);
 
   //Deducciones para total DESCUENTO LEY: es una estado global sin incluir las cuota de atech
@@ -952,7 +953,7 @@ function Institucion32() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDescuentoLey22(deduccionesImporte2);
+    setDescuentoLey24(deduccionesImporte2);
   }, [
     jubilacion,
     serosTitular,
@@ -980,7 +981,7 @@ function Institucion32() {
       parseFloat(ubicacion) +
       parseFloat(otrosIngresos);
     setSueldo2(sumaParaAtech.toFixed(2));
-    setNetoInstitucion22(sumaParaAtech.toFixed(2));
+    setNetoInstitucion24(sumaParaAtech.toFixed(2));
   }, [
     sueldo,
     PorcentajPd,
@@ -1015,13 +1016,13 @@ function Institucion32() {
     const actualizaZona = (zonaUnidad * sueldoBase) / 100;
     setZonaImporte(actualizaZona);
   }, [sueldo]);
-  
+
   //CAMPO ATECH
   useEffect(() => {
     const afiliacion = (parseFloat(sueldo2) * 2) / 100;
 
     setAfiliadoAtech(afiliacion.toFixed(2));
-    setRetencion22(afiliacion);
+    setRetencion24(afiliacion);
   }, [sueldo2]);
 
   const handleFuncionChange = (event) => {
@@ -1030,32 +1031,31 @@ function Institucion32() {
     );
     setCargosFiltradosPorFuncion(cargosFiltrados);
   };
+  const [preceptor, setPreceptor] = useState(0);
 
   const handleCargoChange = (event) => {
     const cargoImporte = SUELDO_BASICO * event.target.value;
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
-    
-    const selectedCargoValue = parseInt(event.target.value);
+    const recursos = (parseFloat(sueldo) * 17.5) / 100;
+    setRecursosMateriales(recursos.toFixed(2));
+
+   const selectedCargoValue = parseInt(event.target.value);
     const selectedCargo = cargosFiltradosPorFuncion.find(cargo => cargo.valor === selectedCargoValue);
     console.log("Cargo seleccionado:", selectedCargo);
   setPreceptor(0)
     if (selectedCargo && selectedCargo.funcion === "Preceptora/o ") {
         console.log("¡Seleccionaste un cargo de Preceptora/o!");
         setPreceptor(1)
-        // Aquí puedes aplicar la excepción que necesites
     }
-    // const recursos = (parseFloat(sueldo) * 17.5) / 100;
-    // setRecursosMateriales(recursos.toFixed(2));
-
     //descuentos de seros
 
-     //solo queda en la institucion 1, seteo los valores en 0 para no teneer que borrar las variables de los estados
+ //solo queda en la institucion 1, seteo los valores en 0 para no teneer que borrar las variables de los estados
     const SegVidaObli = 0;
     setSeguroVidaOblig(SegVidaObli);
     const SegVidaFami = 0;
     setSeguroVidaFamiliar(SegVidaFami);
-     const SegTransplante = cargoImporte*0.005;
+    const SegTransplante = cargoImporte*0.005;
     setSerosSeguroTransplante(SegTransplante);
   };
   // useEffect(() => {
@@ -1063,17 +1063,10 @@ function Institucion32() {
   //   const importeAnios = getAntiguedadImpor() * (sueldo / 100);
   //   setAnios(importeAnios.toFixed(2));
   // }, [sueldo]);
- //zona patagonica esto duplica el valor de sueldo base y lo coloca en zona patagonica
-  const [preceptor, setPreceptor] = useState(0);
 
+   //zona patagonica esto duplica el valor de sueldo base y lo coloca en zona patagonica
   useEffect(()=>{
-    // let sueldoZona=sueldo
-    // console.log("handle sueldozona",sueldoZona)
-    // setZonaUnidad(100);
-    // console.log("valor",event.target.value)
-    // const zonaImporte = 100 * (sueldoZona / 100);
-    //cambie sueldo por SUELDO_BASICO 
-      if (preceptor==1){
+     if (preceptor==1){
        console.log("toco preceptro debo multiplicar por 1.25")
          let sueldoZona=sueldo
         console.log("handle sueldozona",sueldoZona)
@@ -1092,9 +1085,10 @@ function Institucion32() {
     
     }
   },[sueldo])
+
   // const handleZonaChange = (event) => {
   //   setZonaUnidad(event.target.value);
-  //   const zonaImporte = event.target.value * (sueldoBase / 100);
+  //   const zonaImporte = event.target.value * (sueldoBase/ 100);
   //   setZonaImporte(zonaImporte.toFixed(2));
   // };
   const handleHijos = (event) => {
@@ -1131,7 +1125,7 @@ function Institucion32() {
 
   const handleserosFamiliar = (event) => {
     if (event.target.value === "SI") {
-      const serosFamiliarImporte = (parseFloat(total) * 6.5) / 100;
+      const serosFamiliarImporte = (parseFloat(total) * 4.25) / 100;
       setSerosFamiliar(serosFamiliarImporte.toFixed(2));
     } else {
       setSerosFamiliar(0);
@@ -1200,18 +1194,18 @@ function Institucion32() {
     } else {
       setDocente(0);
     }
-    
+
   };
+
   const hsCatedra = (ev) => {
   const horas = ev.target.value;
   setHorasCatedra(horas); // Guarda las horas cátedra
   };
+
   useEffect(()=>{
     if (docente === "nm") {
-      const nmimporte = horasCatedra * HC_NIVEL_MEDIO * SUELDO_BASICO; //se cambio por SUELDO_BASICO
+      const nmimporte = horasCatedra * HC_NIVEL_MEDIO * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nmimporte));
-      console.log("horas catedreas",nmimporte)
-      setImporteHoras(nmimporte)
       if (sueldo1!=0){
       setSueldoBase(parseFloat(nmimporte)+SUELDO_BASICO);
         
@@ -1220,7 +1214,7 @@ function Institucion32() {
     } else {
       const nsimporte = horasCatedra * HC_NIVEL_SUPERIOR * SUELDO_BASICO;
       setSueldo(parseFloat(sueldo1) + parseFloat(nsimporte));
-       if (sueldo1!=0){
+      if (sueldo1!=0){
       setSueldoBase(parseFloat(nsimporte)+SUELDO_BASICO);
         
         // const result= SUELDO_BASICO+nmimporte
@@ -1228,10 +1222,10 @@ function Institucion32() {
     }
   },[docente,horasCatedra])
   const {
-    setNetoInstitucion22,
-    setDescuentoLey22,
-    setRetencion22,
-    setAsignacion22,
+    setNetoInstitucion24,
+    setDescuentoLey24,
+    setRetencion24,
+    setAsignacion24,
   } = useBearStore();
 
   const [getAntiguedad, getAntiguedadImpor] = useBearStore((state) => [
@@ -1241,7 +1235,7 @@ function Institucion32() {
   return (
     <div>
       <h1 className="head">Calculadora de sueldos </h1>
-      <h2 className="subtituloMes">Enero</h2>
+      <h2 className="subtituloMes">Febrero</h2>
       <span style={{color:"black",fontFamily:"cursive", fontSize:"20px"}}>(Esta versión del simulador no tiene en cuenta aún el adicional por cargo jerárquico)</span>
       <table className="seleccion">
         <th>
@@ -1605,13 +1599,13 @@ function Institucion32() {
           <tr>
             <td>1404</td>
             <td>S.E.R.O.S Titular</td>
-            <td>6.5%</td>
+            <td>4.25%</td>
             <td>{formatter.format(serosTitular)}</td>
           </tr>
           <tr className="celda">
             <td>1408</td>
             <td>S.E.R.O.S Familiar</td>
-            <td>6.5%</td>
+            <td>4.25%</td>
             <td>{formatter.format(serosFamiliar)}</td>
           </tr>
           <tr>
@@ -1693,4 +1687,4 @@ function Institucion32() {
   );
 }
 
-export default Institucion32;
+export default Institucion34;

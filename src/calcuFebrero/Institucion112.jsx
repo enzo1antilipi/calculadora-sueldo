@@ -4,10 +4,10 @@ import "../App";
 import { useBearStore } from "../store/EstGloSig";
 
 function Institucion32() {
-  const SUELDO_BASICO = 256160.66;
-  const HIJOS_ESCOLARIZADOS = 42099;
-  const HIJOS_INCAPACITADO = 168057;
-  const COBRO_CONYUGE = 12270;
+  const SUELDO_BASICO =  261284;
+  const HIJOS_ESCOLARIZADOS = 74679;
+  const HIJOS_INCAPACITADO = 298122;
+  const COBRO_CONYUGE = 21765;
   const HC_NIVEL_MEDIO = 0.05;
   const HC_NIVEL_SUPERIOR = 0.0588;
   const funciones = [
@@ -834,7 +834,7 @@ function Institucion32() {
 
   useEffect(() => {
     if (showCalculations) {
-      const resultadopd = sueldo * 0.15;
+      const resultadopd = sueldo * 0.20;
       setPorcentajePd(resultadopd);
       // Aquí puedes realizar los cálculos basados en el estado de sueldo
     } else {
@@ -1241,7 +1241,7 @@ function Institucion32() {
   return (
     <div>
       <h1 className="head">Calculadora de sueldos </h1>
-      <h2 className="subtituloMes">Enero</h2>
+      <h2 className="subtituloMes">Febrero</h2>
       <span style={{color:"black",fontFamily:"cursive", fontSize:"20px"}}>(Esta versión del simulador no tiene en cuenta aún el adicional por cargo jerárquico)</span>
       <table className="seleccion">
         <th>

@@ -59,7 +59,7 @@ export default function calculadora() {
     }else if (selected === "mesOctubre"){
       navigate("/mesOctubre");
     }else if (selected === "mesNoviembre"){
-      navigate("/");
+      navigate("/mesNoviembre");
     }
   };
   return (

@@ -3,11 +3,11 @@ import { Input, Spacer } from "@nextui-org/react";
 import "../App";
 import { useBearStore } from "../store/EstGloSig";
 
-function Institucion32() {
-  const SUELDO_BASICO = 256160.66;
-  const HIJOS_ESCOLARIZADOS = 42099;
-  const HIJOS_INCAPACITADO = 168057;
-  const COBRO_CONYUGE = 12270;
+function Institucion33() {
+  const SUELDO_BASICO =  261284;
+  const HIJOS_ESCOLARIZADOS = 74679;
+  const HIJOS_INCAPACITADO = 298122;
+  const COBRO_CONYUGE = 21765;
   const HC_NIVEL_MEDIO = 0.05;
   const HC_NIVEL_SUPERIOR = 0.0588;
   const funciones = [
@@ -721,7 +721,7 @@ function Institucion32() {
     40,,41,42,43,44,45
   ];
   const antiguedad = [
-     { nombre: "Sin datos", valor: 0 },
+    { nombre: "Sin datos", valor: 0 },
     { nombre: "0", valor: 40 },
     { nombre: "1", valor: 40 },
     { nombre: "2", valor: 45 },
@@ -810,6 +810,7 @@ function Institucion32() {
 
   const [sueldo2, setSueldo2] = useState(0); //esto va  a contener el bruto sin las asignaciones familiares
   const [PorcentajPd, setPorcentajePd] = useState(0); //contiene el 15% del basico si es que tiene PD
+
   const valorEv = useRef(0);
   const [sueldoBase, setSueldoBase] =useState(0)
   const [horasCatedra, setHorasCatedra] = useState(0); 
@@ -834,7 +835,7 @@ function Institucion32() {
 
   useEffect(() => {
     if (showCalculations) {
-      const resultadopd = sueldo * 0.15;
+      const resultadopd = sueldo * 0.20;
       setPorcentajePd(resultadopd);
       // Aquí puedes realizar los cálculos basados en el estado de sueldo
     } else {
@@ -933,7 +934,7 @@ function Institucion32() {
       parseFloat(hijosEscoIncapacitado) +
       parseFloat(conyuge) +
       parseFloat(ayudaEsc);
-    setAsignacion22(totalAsigFa);
+    setAsignacion23(totalAsigFa);
   }, [hijos, hijosIncapacitado, hijosEscoIncapacitado, conyuge, ayudaEsc]);
 
   //Deducciones para total DESCUENTO LEY: es una estado global sin incluir las cuota de atech
@@ -952,7 +953,7 @@ function Institucion32() {
       parseFloat(devolucion) +
       parseFloat(impuestoGanancias) +
       parseFloat(descuento);
-    setDescuentoLey22(deduccionesImporte2);
+    setDescuentoLey23(deduccionesImporte2);
   }, [
     jubilacion,
     serosTitular,
@@ -980,7 +981,7 @@ function Institucion32() {
       parseFloat(ubicacion) +
       parseFloat(otrosIngresos);
     setSueldo2(sumaParaAtech.toFixed(2));
-    setNetoInstitucion22(sumaParaAtech.toFixed(2));
+    setNetoInstitucion23(sumaParaAtech.toFixed(2));
   }, [
     sueldo,
     PorcentajPd,
@@ -998,7 +999,7 @@ function Institucion32() {
     setNeto(neto);
   }, [total, deducciones]);
 
-   //RECURSOS MATERIALES
+ //RECURSOS MATERIALES
   useEffect(() => {
      let sueldoRecursos=SUELDO_BASICO
      if (sueldo1!=0){
@@ -1015,13 +1016,13 @@ function Institucion32() {
     const actualizaZona = (zonaUnidad * sueldoBase) / 100;
     setZonaImporte(actualizaZona);
   }, [sueldo]);
-  
+
   //CAMPO ATECH
   useEffect(() => {
     const afiliacion = (parseFloat(sueldo2) * 2) / 100;
 
     setAfiliadoAtech(afiliacion.toFixed(2));
-    setRetencion22(afiliacion);
+    setRetencion23(afiliacion);
   }, [sueldo2]);
 
   const handleFuncionChange = (event) => {
@@ -1030,12 +1031,12 @@ function Institucion32() {
     );
     setCargosFiltradosPorFuncion(cargosFiltrados);
   };
+  const [preceptor, setPreceptor] = useState(0);
 
   const handleCargoChange = (event) => {
     const cargoImporte = SUELDO_BASICO * event.target.value;
     setSueldo(cargoImporte.toFixed(2));
     setSueldo1(cargoImporte);
-    
     const selectedCargoValue = parseInt(event.target.value);
     const selectedCargo = cargosFiltradosPorFuncion.find(cargo => cargo.valor === selectedCargoValue);
     console.log("Cargo seleccionado:", selectedCargo);
@@ -1055,7 +1056,7 @@ function Institucion32() {
     setSeguroVidaOblig(SegVidaObli);
     const SegVidaFami = 0;
     setSeguroVidaFamiliar(SegVidaFami);
-     const SegTransplante = cargoImporte*0.005;
+    const SegTransplante = cargoImporte*0.005;
     setSerosSeguroTransplante(SegTransplante);
   };
   // useEffect(() => {
@@ -1064,16 +1065,8 @@ function Institucion32() {
   //   setAnios(importeAnios.toFixed(2));
   // }, [sueldo]);
  //zona patagonica esto duplica el valor de sueldo base y lo coloca en zona patagonica
-  const [preceptor, setPreceptor] = useState(0);
-
   useEffect(()=>{
-    // let sueldoZona=sueldo
-    // console.log("handle sueldozona",sueldoZona)
-    // setZonaUnidad(100);
-    // console.log("valor",event.target.value)
-    // const zonaImporte = 100 * (sueldoZona / 100);
-    //cambie sueldo por SUELDO_BASICO 
-      if (preceptor==1){
+     if (preceptor==1){
        console.log("toco preceptro debo multiplicar por 1.25")
          let sueldoZona=sueldo
         console.log("handle sueldozona",sueldoZona)
@@ -1092,6 +1085,7 @@ function Institucion32() {
     
     }
   },[sueldo])
+
   // const handleZonaChange = (event) => {
   //   setZonaUnidad(event.target.value);
   //   const zonaImporte = event.target.value * (sueldoBase / 100);
@@ -1200,9 +1194,8 @@ function Institucion32() {
     } else {
       setDocente(0);
     }
-    
   };
-  const hsCatedra = (ev) => {
+ const hsCatedra = (ev) => {
   const horas = ev.target.value;
   setHorasCatedra(horas); // Guarda las horas cátedra
   };
@@ -1228,10 +1221,10 @@ function Institucion32() {
     }
   },[docente,horasCatedra])
   const {
-    setNetoInstitucion22,
-    setDescuentoLey22,
-    setRetencion22,
-    setAsignacion22,
+    setNetoInstitucion23,
+    setDescuentoLey23,
+    setRetencion23,
+    setAsignacion23,
   } = useBearStore();
 
   const [getAntiguedad, getAntiguedadImpor] = useBearStore((state) => [
@@ -1241,7 +1234,7 @@ function Institucion32() {
   return (
     <div>
       <h1 className="head">Calculadora de sueldos </h1>
-      <h2 className="subtituloMes">Enero</h2>
+      <h2 className="subtituloMes">Febrero</h2>
       <span style={{color:"black",fontFamily:"cursive", fontSize:"20px"}}>(Esta versión del simulador no tiene en cuenta aún el adicional por cargo jerárquico)</span>
       <table className="seleccion">
         <th>
@@ -1693,4 +1686,4 @@ function Institucion32() {
   );
 }
 
-export default Institucion32;
+export default Institucion33;
