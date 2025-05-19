@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Institucion31 from "./Institucion81";
-import Institucion32 from "./Institucion82";
-import Institucion33 from "./Institucion83";
-import Institucion34 from "./Institucion84";
-import Institucion35 from "./Institucion85";
+import Institucion31 from "./Institucion121";
+import Institucion32 from "./Institucion122";
+import Institucion33 from "./Institucion123";
+import Institucion34 from "./Institucion124";
+import Institucion35 from "./Institucion125";
 import { useBearStore } from "../store/EstGloSig";
 import { Link, Navigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
@@ -37,7 +37,7 @@ export default function calculadora() {
     maximumFractionDigits: 0,
   });
   const navigate = useNavigate();
-  const [selectedMonth, setSelectedMonth] = useState("mesDiciembre");
+  const [selectedMonth, setSelectedMonth] = useState("mesAbril");
 
    const handleMonthChange = (e) => {
     const selected = e.target.value;
@@ -66,8 +66,6 @@ export default function calculadora() {
       navigate("/mesEnero");
     }else if (selected === "mesFebrero"){
       navigate("/mesFebrero");
-    }else if (selected === "mesAbril"){
-      navigate("/mesAbril");
     }
   };
   return (
