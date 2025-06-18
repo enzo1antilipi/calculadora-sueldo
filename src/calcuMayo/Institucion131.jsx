@@ -4,7 +4,7 @@ import "../App";
 import { useBearStore } from "../store/EstGloSig";
 
 function Institucion31() {
-  const SUELDO_BASICO =  276370;
+  const SUELDO_BASICO =  284108;
   const HIJOS_ESCOLARIZADOS = 74679;
   const HIJOS_INCAPACITADO = 298122;
   const COBRO_CONYUGE = 21765;
@@ -1274,7 +1274,7 @@ const selectedCargoValue = parseInt(event.target.value);
   return (
     <div div className="animate__animated animate__bounceInRight">
       <h1 className="head">Calculadora de sueldos</h1>
-      <h2 className="subtituloMes">Abril</h2>
+      <h2 className="subtituloMes">Mayo</h2>
       <span style={{color:"black",fontFamily:"cursive", fontSize:"20px"}}>(Esta versión del simulador no tiene en cuenta aún el adicional por cargo jerárquico)</span>
       <table className="seleccion">
         <th>

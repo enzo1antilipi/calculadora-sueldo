@@ -4,7 +4,7 @@ import "../App";
 import { useBearStore } from "../store/EstGloSig";
 
 function Institucion33() {
-  const SUELDO_BASICO =  266509;
+  const SUELDO_BASICO =  276370;
   const HIJOS_ESCOLARIZADOS = 74679;
   const HIJOS_INCAPACITADO = 298122;
   const COBRO_CONYUGE = 21765;
@@ -1553,7 +1553,7 @@ function Institucion33() {
           <tr className="celda">
             <td>1168</td>
             <td>Adicional profesionalidad</td>
-            <td>20%</td>
+            <td>25%</td>
             <td>{formatter.format(PorcentajPd)}</td>
           </tr>
           <tr>

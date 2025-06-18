@@ -68,6 +68,8 @@ export default function calculadora() {
       navigate("/mesFebrero");
     }else if (selected === "mesAbril"){
       navigate("/mesAbril");
+    }else if (selected === "mesMayo"){
+      navigate("/mesMayo");
     }
   };
   return (
@@ -80,6 +82,7 @@ export default function calculadora() {
         className="dropdown"
         style={{width:"40%",height:"30px", marginBottom:"15px",fontSize:"20px"}}
       >
+        <option value="mesMayo">Mayo 2025- Decreto 152/25 y 153/25, sin paritaria</option>
         <option value="mesAbril">Abril 2025- Decreto 152/25 y 153/25, sin paritaria</option>
         <option value="mesFebrero">Febrero 2025- Decreto 152/25 y 153/25, sin paritaria</option>
         <option value="mesEnero">Enero - Paritaria 26/9/24</option>
