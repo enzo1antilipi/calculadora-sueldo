@@ -105,7 +105,7 @@ export const Prueba = () => {
              </h3>
            
             <nav>
-              <Link to="/mesJulio25">
+              <Link to="/mesAgosto25">
                 <button
                   style={{
                     border: "inset",
