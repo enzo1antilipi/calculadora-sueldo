@@ -155,7 +155,7 @@ export const Prueba = () => {
       </h3>
 
       <nav>
-        <Link to="/mesAgosto25">
+        <Link to="/mesSeptiembre25">
           <button
             style={{
               border: "none",
