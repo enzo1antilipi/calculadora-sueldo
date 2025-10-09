@@ -16,6 +16,7 @@ import MesMayo from "./calcuMayo/MesMayo";
 import MesJunio25 from "./calcuJunio2025/MesJunio25";
 import MesJulio25 from "./calcuJulio2025/MesJulio25";
 import MesAgosto25 from "./calcuAgosto2025/MesAgosto25";
+import MesSeptiembre25 from "./calcuSeptiembre2025/MesSeptiembre25";
 import "./rutas.css";
 import { IoReturnUpBackOutline } from "react-icons/io5";
 import App from "./App";
@@ -84,6 +85,7 @@ export const Rutas = () => {
             <Route path="/mesJunio25" element={<MesJunio25 />} />
             <Route path="/mesJulio25" element={<MesJulio25 />} />
             <Route path="/mesAgosto25" element={<MesAgosto25 />} />
+            <Route path="/mesSeptiembre25" element={<MesSeptiembre25 />} />
             <Route path="/" element={<Prueba />} />
             {/* <Route path="/mesJulio" element={<MesJulio />} /> */}
           </Routes>

@@ -76,6 +76,8 @@ export default function calculadora() {
       navigate("/mesJulio25");
     }else if (selected === "mesAgosto25"){
       navigate("/mesAgosto25");
+    }else if (selected === "mesSeptiembre25"){
+      navigate("/mesSeptiembre25");
     }
   };
   return (
@@ -86,8 +88,9 @@ export default function calculadora() {
         value={selectedMonth}
         onChange={handleMonthChange}
         className="dropdown"
-        style={{width:"40%",height:"30px", marginBottom:"15px",fontSize:"20px"}}
+        style={{width:"50%",height:"30px", marginBottom:"15px",fontSize:"20px"}}
       >
+         <option value="mesSeptiembre25">Septiembre 2025- Decreto 152/25 y 153/25, sin paritaria</option>
         <option value="mesAgosto25">Agosto 2025- Decreto 152/25 y 153/25, sin paritaria</option>
         <option value="mesJulio25">Julio 2025- Decreto 152/25 y 153/25, sin paritaria</option>
         <option value="mesJunio25">Junio 2025- Decreto 152/25 y 153/25, sin paritaria</option>

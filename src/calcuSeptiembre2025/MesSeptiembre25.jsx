@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Institucion31 from "./Institucion151";
-import Institucion32 from "./Institucion152";
-import Institucion33 from "./Institucion153";
-import Institucion34 from "./Institucion154";
-import Institucion35 from "./Institucion155";
+import Institucion31 from "./Institucion171";
+import Institucion32 from "./Institucion172";
+import Institucion33 from "./Institucion173";
+import Institucion34 from "./Institucion174";
+import Institucion35 from "./Institucion175";
 import { useBearStore } from "../store/EstGloSig";
 import { Link, Navigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
@@ -37,7 +37,7 @@ export default function calculadora() {
     maximumFractionDigits: 0,
   });
   const navigate = useNavigate();
-  const [selectedMonth, setSelectedMonth] = useState("mesJulio25");
+  const [selectedMonth, setSelectedMonth] = useState("mesSeptiembre25");
 
    const handleMonthChange = (e) => {
     const selected = e.target.value;
@@ -89,7 +89,7 @@ export default function calculadora() {
         onChange={handleMonthChange}
         className="dropdown"
         style={{width:"50%",height:"30px", marginBottom:"15px",fontSize:"20px"}}
-      >
+      >  
         <option value="mesSeptiembre25">Septiembre 2025- Decreto 152/25 y 153/25, sin paritaria</option>
         <option value="mesAgosto25">Agosto 2025- Decreto 152/25 y 153/25, sin paritaria</option>
         <option value="mesJulio25">Julio 2025- Decreto 152/25 y 153/25, sin paritaria</option>
